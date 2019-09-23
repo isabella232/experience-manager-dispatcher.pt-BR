@@ -1,17 +1,17 @@
 ---
 title: Solução de problemas do Dispatcher
-seo-title: Solução de problemas do AEM Dispatcher
+seo-title: Solução de problemas do Dispatcher AEM
 description: Saiba como solucionar problemas do Dispatcher.
 seo-description: Saiba como solucionar problemas do AEM Dispatcher.
-uuid: 9 c 109 a 48-d 921-4 b 6 e -9626-1158 cebc 41 e 7
+uuid: 9c109a48-d921-4b6e-9626-1158cebc41e7
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: '1193211344162'
-template: /apps/docs/templates/contentpage
+template: /apps/docs/models/contentpage
 contentOwner: Usuário
-products: SG_ EXPERIENCEMANAGER/DISPATCHER
-topic-tags: dispatcher
+products: SG_EXPERIENCEMANAGER/DISPATCHER
+topic-tags: expedidor
 content-type: referência
-discoiquuid: a 612 e 745-f 1 e 6-43 de-b 25 a -9 adcaadab 5 cf
+discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 translation-type: tm+mt
 source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
@@ -22,48 +22,48 @@ source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 >[!NOTE]
 >
->As versões do Dispatcher são independentes do AEM, mas a documentação do Dispatcher é incorporada à documentação do AEM. Sempre use a documentação do Dispatcher incorporada à documentação da versão mais recente do AEM.
+>As versões do Dispatcher são independentes do AEM, no entanto, a documentação do Dispatcher é incorporada na documentação do AEM. Sempre use a documentação do Dispatcher incorporada na documentação para obter a versão mais recente do AEM.
 >
->Você pode ter sido redirecionado para essa página se seguir um link para a documentação do Dispatcher incorporada à documentação de uma versão anterior do AEM.
+>Você pode ter sido redirecionado para esta página se tiver seguido um link para a documentação do Dispatcher incorporada à documentação de uma versão anterior do AEM.
 
 >[!NOTE]
 >
->Consulte também a [Base de conhecimento do Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html), [Solução de problemas do Dispatcher e](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) perguntas frequentes sobre problemas principais [do Dispatcher](dispatcher-faq.md) para obter mais informações.
+>Consulte também a Base [de conhecimento do](https://helpx.adobe.com/cq/kb/index/dispatcher.html)Dispatcher, a [Solução de problemas de descarga do Dispatcher e as Perguntas frequentes sobre](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) os problemas principais do [Dispatcher](dispatcher-faq.md) para obter mais informações.
 
-## Verificar a configuração básica {#check-the-basic-configuration}
+## Verifique a configuração básica {#check-the-basic-configuration}
 
-Como sempre as primeiras etapas são verificar as noções básicas:
+Como sempre, as primeiras etapas são verificar as noções básicas:
 
 * [Confirmar operação básica](#ConfirmBasicOperation)
-* Verifique todos os arquivos de log do servidor Web e do expedidor. Se necessário, aumente o `loglevel` uso do [registro do expedidor](#Logging).
+* Verifique todos os arquivos de log para seu servidor da Web e despachante. Se necessário, aumente o `loglevel` usado para o [registro](#Logging)do dispatcher.
 
 * [Verifique sua configuração](#ConfiguringtheDispatcher):
 
    * Você tem vários Dispatchers?
 
-      * Você determinou qual Dispatcher está manipulando o site/página que está investigando?
+      * Você determinou qual Dispatcher está manipulando o site / página que está investigando?
    * Você implementou filtros?
 
-      * Isso afeta o problema que está investigando?
+      * Eles estão afetando o assunto que você está investigando?
 
 
-## Ferramentas de diagnóstico IIS {#iis-diagnostic-tools}
+## Ferramentas de Diagnóstico do IIS {#iis-diagnostic-tools}
 
 O IIS fornece várias ferramentas de rastreamento, dependendo da versão real:
 
-* IIS 6 - As ferramentas de diagnóstico IIS podem ser baixadas e configuradas
-* IIS 7 - o rastreamento é totalmente integrado
+* IIS 6 - Ferramentas de diagnóstico IIS podem ser baixadas e configuradas
+* IIS 7 - O rastreamento está totalmente integrado
 
-Eles podem ajudar a monitorar a atividade.
+Eles podem ajudar você a monitorar a atividade.
 
-## IIS e 404 não encontrado {#iis-and-not-found}
+## IIS e 404 não encontrados {#iis-and-not-found}
 
-Ao usar o IIS, você pode ter uma experiência `404 Not Found` retornada em vários cenários. Em caso afirmativo, consulte os seguintes artigos da Base de conhecimento.
+Ao usar o IIS, você pode experimentar `404 Not Found` ser retornado em vários cenários. Em caso afirmativo, consulte os seguintes artigos da Base de conhecimento.
 
 * [IIS 6/7: Método POST retorna 404](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6: Solicitações para urls que contêm o caminho base `/bin` retornado `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6: Solicitações para URLs que contêm o caminho base `/bin` retornar `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
 
-Você também deve verificar se a raiz do cache do dispatcher e a raiz do documento IIS estão definidas para o mesmo diretório.
+Você também deve verificar se a raiz do cache do dispatcher e a raiz do documento do IIS estão definidas para o mesmo diretório.
 
 ## Problemas ao excluir modelos de fluxo de trabalho {#problems-deleting-workflow-models}
 
@@ -73,18 +73,18 @@ Problemas ao tentar excluir modelos de fluxo de trabalho ao acessar uma instânc
 
 **Etapas para reproduzir:**
 
-1. Faça logon na instância do autor (confirme se as solicitações estão sendo roteadas pelo expedidor).
-1. Criar um novo fluxo de trabalho; por exemplo, com o Título definido como workflowtodelete.
+1. Faça logon na instância do autor (confirme se as solicitações estão sendo encaminhadas pelo dispatcher).
+1. Criar um novo fluxo de trabalho; por exemplo, com o Título definido como workflowToDelete.
 1. Confirme se o fluxo de trabalho foi criado com êxito.
-1. Selecione e clique com o botão direito do mouse no fluxo de trabalho e clique **em Excluir**.
+1. Selecione e clique com o botão direito do mouse no fluxo de trabalho e clique em **Excluir**.
 
-1. Clique **em Sim** para confirmar.
-1. Uma caixa de mensagem de erro será exibida mostrando:\
-   &quot; `ERROR 'Could not delete workflow model!!`&quot;.
+1. Click **Yes** to confirm.
+1. Uma caixa de mensagem de erro será exibida:\
+   " `ERROR 'Could not delete workflow model!!`".
 
 **Resolução**
 
-Adicione os seguintes cabeçalhos à `/clientheaders` seção do `dispatcher.any` arquivo:
+Adicione os seguintes cabeçalhos à `/clientheaders` seção do seu `dispatcher.any` arquivo:
 
 * `x-http-method-override`
 * `x-requested-with`
@@ -98,29 +98,29 @@ Adicione os seguintes cabeçalhos à `/clientheaders` seção do `dispatcher.any
 "x-requested-with"  
 }`
 
-## Interferência com mod_ dir (Apache) {#interference-with-mod-dir-apache}
+## Interferência com mod_dir (Apache) {#interference-with-mod-dir-apache}
 
-Isso descreve como o dispatcher interage `mod_dir` com dentro do servidor Web Apache, pois isso pode levar a vários efeitos potencialmente inesperados:
+Isso descreve como o dispatcher interage com `mod_dir` o servidor Web Apache, pois isso pode causar vários efeitos potencialmente inesperados:
 
 ### Apache 1.3 {#apache}
 
-No Apache 1.3 `mod_dir` , é possível ler cada solicitação em que o URL mapeia para um diretório no sistema de arquivos.
+No Apache 1.3, `mod_dir` lida com cada solicitação em que o URL é mapeado para um diretório no sistema de arquivos.
 
-Isso será:
+Isso irá:
 
 * redirecionar a solicitação para um `index.html` arquivo existente
-* gerar uma lista de diretório
+* gerar uma listagem de diretório
 
-Quando o expedidor está ativado, processa essas solicitações registrando-se como um manipulador para o tipo `httpd/unix-directory`de conteúdo.
+Quando o dispatcher está ativado, ele processa essas solicitações ao se registrar como um manipulador para o tipo de conteúdo `httpd/unix-directory`.
 
-### Apache 2. x {#apache-x}
+### Apache 2.x {#apache-x}
 
-No Apache 2. x, as coisas são diferentes. Um módulo pode lidar com diferentes estágios da solicitação, como correção de URL. `mod_dir` trata desse estágio redirecionando uma solicitação (quando o URL mapeia para um diretório) para o URL com um `/` anexo anexado.
+No Apache 2.x as coisas são diferentes. Um módulo pode lidar com diferentes estágios da solicitação, como correção de URL. `mod_dir` trata desse estágio redirecionando uma solicitação (quando o URL mapeia para um diretório) para o URL com um `/` anexo.
 
-O Dispatcher não intercepta a `mod_dir` correção, mas lida totalmente com a solicitação para o URL redirecionado (ou seja, com `/` anexado). Isso pode causar um problema se o servidor remoto (por exemplo, AEM) lida com solicitações `/a_path` de forma diferente para solicitações ( `/a_path/` quando `/a_path` mapear para um diretório existente).
+O Dispatcher não intercepta a `mod_dir` correção, mas lida completamente com a solicitação para o URL redirecionado (isto é, com `/` anexo). Isso pode causar um problema se o servidor remoto (por exemplo, o AEM) manipular solicitações de forma `/a_path` diferente das solicitações feitas `/a_path/` (quando `/a_path` mapeia para um diretório existente).
 
-Se isso acontecer, você deve:
+Se isso acontecer, você deverá:
 
-* desativar `mod_dir` para a `Directory``Location` subárvore manipulada pelo expedidor
+* desativar `mod_dir` para a `Directory` subárvore ou `Location` subárvore manuseada pelo expedidor
 
-* use `DirectorySlash Off` para não `mod_dir` anexar `/`
+* use `DirectorySlash Off` para configurar `mod_dir` para não anexar `/`
