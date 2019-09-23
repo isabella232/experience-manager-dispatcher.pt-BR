@@ -1,14 +1,14 @@
 ---
-title: Usar SSL com o Dispatcher
-seo-title: Usar SSL com o Dispatcher
+title: Uso do SSL com o Dispatcher
+seo-title: Uso do SSL com o Dispatcher
 description: Saiba como configurar o Dispatcher para se comunicar com o AEM usando conexões SSL.
 seo-description: Saiba como configurar o Dispatcher para se comunicar com o AEM usando conexões SSL.
-uuid: 1 a 8 f 448 c-d 3 d 8-4798-a 5 cb -9579171171 ed
+uuid: 1a8f448c-d3d8-4798-a5cb-9579171171ed
 contentOwner: Usuário
-products: SG_ EXPERIENCEMANAGER/DISPATCHER
-topic-tags: dispatcher
+products: SG_EXPERIENCEMANAGER/DISPATCHER
+topic-tags: expedidor
 content-type: referência
-discoiquuid: 771 cfd 85-6 c 26-4 ff 2-a 3 fe-dff 8 d 8 f 7920 b
+discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
@@ -18,37 +18,37 @@ source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 ---
 
 
-# Using SSL with Dispatcher {#using-ssl-with-dispatcher}
+# Uso do SSL com o Dispatcher {#using-ssl-with-dispatcher}
 
 Use conexões SSL entre o Dispatcher e o computador de renderização:
 
-* [SSL One-way](dispatcher-ssl.md#main-pars-title-1)
-* [SSL mútua](dispatcher-ssl.md#main-pars-title-2)
+* [SSL unidirecional](dispatcher-ssl.md#main-pars-title-1)
+* [SSL mútuo](dispatcher-ssl.md#main-pars-title-2)
 
 >[!NOTE]
 >
->As operações relacionadas aos certificados SSL são vinculadas a produtos de terceiros. Elas não são cobertas pelo contrato de manutenção e suporte da Adobe Platinum.
+>As operações relacionadas aos certificados SSL estão vinculadas a produtos de terceiros. Eles não são cobertos pelo contrato de manutenção e suporte do Adobe Platinum.
 
-## Use SSL When Dispatcher Connects to AEM {#use-ssl-when-dispatcher-connects-to-aem}
+## Usar SSL quando o Dispatcher se conecta ao AEM {#use-ssl-when-dispatcher-connects-to-aem}
 
 Configure o Dispatcher para se comunicar com a instância de renderização do AEM ou CQ usando conexões SSL.
 
 Antes de configurar o Dispatcher, configure o AEM ou o CQ para usar o SSL:
 
-* AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* Older AEM versions: see [this page](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
+* AEM 6.2: [Ativando HTTP por SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Ativando HTTP por SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Versões anteriores do AEM: consulte [esta página](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
 
-### SSL-Related Request Headers {#ssl-related-request-headers}
+### Cabeçalhos de solicitação relacionados a SSL {#ssl-related-request-headers}
 
-Quando o Dispatcher obtém uma solicitação HTTPS, o Dispatcher inclui os seguintes cabeçalhos na solicitação subsequente que ele envia para AEM ou CQ:
+Quando o Dispatcher recebe uma solicitação HTTPS, o Dispatcher inclui os seguintes cabeçalhos na solicitação subsequente que ele envia para o AEM ou CQ:
 
 * `X-Forwarded-SSL`
 * `X-Forwarded-SSL-Cipher`
 * `X-Forwarded-SSL-Keysize`
 * `X-Forwarded-SSL-Session-ID`
 
-A request through Apache-2.4 with `mod_ssl` includes headers that are similar to the following example:
+Uma solicitação por meio do Apache-2.4 com cabeçalhos `mod_ssl` semelhantes ao seguinte exemplo:
 
 ```shell
 X-Forwarded-SSL: on
@@ -56,17 +56,17 @@ X-Forwarded-SSL-Cipher: DHE-RSA-AES256-SHA
 X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239D5C771CB5B4D
 ```
 
-### Configuring Dispatcher to Use SSL {#configuring-dispatcher-to-use-ssl}
+### Configurando o Dispatcher para Usar SSL {#configuring-dispatcher-to-use-ssl}
 
-To configure Dispatcher to connect with AEM or CQ over SSL, your [dispatcher.any](dispatcher-configuration.md) file requires the following properties:
+Para configurar o Dispatcher para se conectar ao AEM ou CQ sobre SSL, seu arquivo [dispatcher.any](dispatcher-configuration.md) requer as seguintes propriedades:
 
 * Um host virtual que lida com solicitações HTTPS.
-* `renders` A seção do host virtual inclui um item que identifica o nome de host e a porta da instância do CQ ou do AEM que usa HTTPS.
-* `renders` O item inclui uma propriedade com nome `secure` de valor `1`.
+* A `renders` seção do host virtual inclui um item que identifica o nome do host e a porta da instância CQ ou AEM que usa HTTPS.
+* O `renders` item inclui uma propriedade chamada `secure` de valor `1`.
 
-Observação: Crie outro host virtual para lidar com solicitações HTTP, se necessário.
+Observação: Crie outro host virtual para manipular solicitações HTTP, se necessário.
 
-The following example dispatcher.any file shows the property values for connecting using HTTPS to a CQ instance that is running on host `localhost` and port `8443`:
+O exemplo dispatcher.any file mostra os valores de propriedade para conexão usando HTTPS a uma instância CQ que está sendo executada no host `localhost` e na porta `8443`:
 
 ```
 /farms
@@ -114,38 +114,38 @@ The following example dispatcher.any file shows the property values for connecti
 }
 ```
 
-## Configuring Mutual SSL Between Dispatcher and AEM {#configuring-mutual-ssl-between-dispatcher-and-aem}
+## Configuração do SSL mútuo entre o Dispatcher e o AEM {#configuring-mutual-ssl-between-dispatcher-and-aem}
 
-Configure as conexões entre o Dispatcher e o computador de renderização (normalmente uma instância de publicação do AEM ou CQ) para usar o SSL de links:
+Configure as conexões entre o Dispatcher e o computador de renderização (normalmente uma instância de publicação de AEM ou CQ) para usar o SSL mútuo:
 
-* O Dispatcher conecta-se à instância de renderização por SSL.
+* O Dispatcher se conecta à instância de renderização por SSL.
 * A instância de renderização verifica a validade do certificado do Dispatcher.
 * O Dispatcher verifica se a CA do certificado da instância de renderização é confiável.
 * (Opcional) O Dispatcher verifica se o certificado da instância de renderização corresponde ao endereço do servidor da instância de renderização.
 
-Para configurar o SSL mútuo, é necessário certificados assinados por uma autoridade de certificação confiável (CA). Certificados autoassinados não são adequados. Você pode agir como CA ou usar os serviços de uma CA de terceiros para assinar seus certificados. Para configurar o SSL mútuo, você precisa dos seguintes itens:
+Para configurar o SSL mútuo, você precisa de certificados assinados por uma autoridade de certificação (CA) confiável. Certificados autoassinados não são adequados. Você pode agir como CA ou usar os serviços de uma CA de terceiros para assinar seus certificados. Para configurar o SSL mútuo, você precisa dos seguintes itens:
 
-* Certificados assinados para a instância de renderização e o Dispatcher
-* Certificado CA (se estiver agindo como CA)
-* Bibliotecas openssl para gerar CA, certificados e solicitações de certificado.
+* Certificados assinados para a instância de renderização e Dispatcher
+* O certificado CA (se você estiver atuando como a CA)
+* Bibliotecas OpenSSL para gerar a CA, certificados e solicitações de certificado.
 
 Execute as seguintes etapas para configurar o SSL mútuo:
 
-1. [Instale](dispatcher-install.md) a versão mais recente do Dispatcher para a sua plataforma. Use um binário do Dispatcher compatível com SSL (SSL está no nome do arquivo, como dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar).
-1. [Crie ou obtenha o certificado certificado CA](dispatcher-ssl.md#main-pars-title-3) para Dispatcher e a instância de renderização.
-1. [Crie um armazenamento de chaves contendo certificado de renderização](dispatcher-ssl.md#main-pars-title-6) e configure o serviço HTTP da renderização para usá-lo.
-1. [Configurar o módulo de servidor da Web do Dispatcher](dispatcher-ssl.md#main-pars-title-4) para SSL mútua.
+1. [Instale](dispatcher-install.md) a versão mais recente do Dispatcher para sua plataforma. Use um binário Dispatcher compatível com SSL (SSL está no nome do arquivo, como dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar).
+1. [Crie ou obtenha um certificado](dispatcher-ssl.md#main-pars-title-3) assinado pela CA para o Dispatcher e a instância de renderização.
+1. [Crie um armazenamento de chaves que contenha o certificado](dispatcher-ssl.md#main-pars-title-6) de renderização e configure o serviço HTTP da renderização para usá-lo.
+1. [Configure o módulo](dispatcher-ssl.md#main-pars-title-4) do servidor Web Dispatcher para SSL mútuo.
 
-### Creating or Obtaining CA-Signed Certificates {#creating-or-obtaining-ca-signed-certificates}
+### Criando ou Obtendo Certificados Assinados pela CA {#creating-or-obtaining-ca-signed-certificates}
 
-Crie ou obtenha os certificados assinados por CA que autenticam a instância de publicação e o Dispatcher.
+Crie ou obtenha os certificados assinados pela CA que autenticam a instância de publicação e o Dispatcher.
 
-#### Creating Your CA {#creating-your-ca}
+#### Criando sua CA {#creating-your-ca}
 
-If you are acting as the CA, use [OpenSSL](https://www.openssl.org/) to create the Certificate Authority that signs the server and client certificates. (É necessário instalar as bibliotecas openssl.) Se você estiver usando uma CA de terceiros, não execute este procedimento.
+Se você estiver atuando como a CA, use o [OpenSSL](https://www.openssl.org/) para criar a Autoridade de certificação que assina os certificados do servidor e do cliente. (Você deve ter as bibliotecas OpenSSL instaladas.) Se você estiver usando uma CA de terceiros, não execute este procedimento.
 
-1. Open a terminal and change the current directory to the directory that contiains the CA.sh file, such as `/usr/local/ssl/misc`.
-1. Para criar a CA, digite o seguinte comando e forneça os valores quando solicitado:
+1. Abra um terminal e altere o diretório atual para o diretório que contém o arquivo CA.sh, como `/usr/local/ssl/misc`.
+1. Para criar a CA, digite o seguinte comando e forneça valores quando solicitado:
 
    ```shell
    ./CA.sh -newca
@@ -153,65 +153,65 @@ If you are acting as the CA, use [OpenSSL](https://www.openssl.org/) to create t
 
    >[!NOTE]
    >
-   >Várias propriedades no arquivo openssl. cnf controlam o comportamento do script CA. sh. Você deve modificar esse arquivo conforme necessário antes de criar a CA.
+   >Várias propriedades no arquivo openssl.cnf controlam o comportamento do script CA.sh. Você deve modificar esse arquivo conforme necessário antes de criar sua CA.
 
-#### Creating the Certificates {#creating-the-certificates}
+#### Criação de certificados {#creating-the-certificates}
 
-Use o openssl para criar as solicitações de certificado para enviar para a CA de terceiros ou para assinar com sua CA.
+Use o OpenSSL para criar as solicitações de certificado para enviar à CA de terceiros ou para fazer logon com a CA.
 
-Quando um certificado é criado, o openssl usa a propriedade Nome comum para identificar o detentor do certificado. Para o certificado da instância de renderização, use o nome de host do computador da instância como Nome comum se estiver configurando o Dispatcher para aceitar o certificado apenas se ele corresponder ao nome do host da instância Publicar. (See the [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) property.)
+Quando você cria um certificado, o OpenSSL usa a propriedade Common Name para identificar o titular do certificado. Para o certificado da instância de renderização, use o nome de host do computador da instância como o Nome Comum se você estiver configurando o Dispatcher para aceitar o certificado somente se ele corresponder ao nome do host da instância Publicar. (See the [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) property.)
 
-1. Abra um terminal e altere o diretório atual para o diretório que contém o arquivo CH. sh de suas bibliotecas openssl.
-1. Digite o seguinte comando e forneça valores quando solicitado. Se necessário, use o nome de host da instância de publicação como o Nome comum. O nome do host é o nome DNS-deciable para o endereço IP da renderização:
+1. Abra um terminal e altere o diretório atual para o diretório que contém o arquivo CH.sh das bibliotecas OpenSSL.
+1. Digite o seguinte comando e forneça valores quando solicitado. Se necessário, use o nome de host da instância de publicação como o Nome comum. O nome do host é um nome que pode ser resolvido por DNS para o endereço IP da renderização:
 
    ```shell
    ./CA.sh -newreq
    ```
 
-   Se estiver usando um CA de terceiros, envie o arquivo newreq. pem para a CA para assinar. Se você estiver agindo como CA, prossiga para a etapa 3.
+   Se você estiver usando uma CA de terceiros, envie o arquivo newreq.pem para a CA para assinar. Se você estiver atuando como CA, continue com a etapa 3.
 
-1. Digite o seguinte comando para assinar o certificado usando o certificado da CA:
+1. Digite o seguinte comando para assinar o certificado usando o certificado da sua CA:
 
    ```shell
    ./CA.sh -sign
    ```
 
-   Dois arquivos denominados newcert. pem e newkey. pem são criados no diretório que contém seus arquivos de gerenciamento de CA. Esses são o certificado público e a chave privada do computador renderizado, respectivamente.
+   Dois arquivos chamados newcert.pem e newkey.pem são criados no diretório que contém os arquivos de gerenciamento da CA. Estes são o certificado público e a chave privada para o computador de renderização, respectivamente.
 
-1. Renomeie newcert. pem para rendercert. pem e renomeie newkey. pem para renderkey. pem.
-1. Repita as etapas 2 e 3 para criar um novo certificado e uma nova chave pública para o módulo Dispatcher. Certifique-se de usar um Nome comum específico para a instância do Dispatcher.
-1. Renomeie newcert. pem para sofcert. pem e renomeie newkey. pem para dispkey. pem.
+1. Renomeie newcert.pem como rendercert.pem e renomeie newkey.pem como renderkey.pem.
+1. Repita as etapas 2 e 3 para criar um novo certificado e uma nova chave pública para o módulo Dispatcher. Certifique-se de usar um Nome comum que seja específico para a instância do Dispatcher.
+1. Renomeie newcert.pem como discert.pem e renomeie newkey.pem como dispkey.pem.
 
-### Configuring SSL on the Render Computer {#configuring-ssl-on-the-render-computer}
+### Configuração do SSL no Computador de renderização {#configuring-ssl-on-the-render-computer}
 
-Configure o SSL na instância de renderização usando os arquivos rendercert. pem e renderkey. pem.
+Configure o SSL na instância de renderização usando os arquivos rendercert.pem e renderkey.pem.
 
-#### Converting the Render Certificate to JKS Format {#converting-the-render-certificate-to-jks-format}
+#### Convertendo o certificado de renderização em formato JKS {#converting-the-render-certificate-to-jks-format}
 
-Use o seguinte comando para converter o certificado de renderização, que é um arquivo PEM, em um arquivo PKCS # 12. Inclua também o certificado da CA que assinou o certificado de renderização:
+Use o comando a seguir para converter o certificado de renderização, que é um arquivo PEM, em um arquivo PKCS#12. Inclua também o certificado da CA que assinou o certificado de renderização:
 
 1. Em uma janela de terminal, altere o diretório atual para o local do certificado de renderização e da chave privada.
-1. Digite o seguinte comando para converter o certificado de renderização, que é um arquivo PEM, em um arquivo PKCS # 12. Inclua também o certificado da CA que assinou o certificado de renderização:
+1. Digite o seguinte comando para converter o certificado de renderização, que é um arquivo PEM, em um arquivo PKCS#12. Inclua também o certificado da CA que assinou o certificado de renderização:
 
    ```shell
    openssl pkcs12 -export -in rendercert.pem -inkey renderkey.pem  -certfile demoCA/cacert.pem -out rendercert.p12
    ```
 
-1. Digite o seguinte comando para converter o arquivo PKCS # 12 no formato Java keystore (JKS):
+1. Digite o seguinte comando para converter o arquivo PKCS#12 no formato Java KeyStore (JKS):
 
    ```shell
    keytool -importkeystore -srckeystore servercert.p12 -srcstoretype pkcs12 -destkeystore render.keystore
    ```
 
-1. O Java Keystore é criado usando um alias padrão. Altere o alias se desejar:
+1. O Java Keystore é criado usando um alias padrão. Altere o alias, se desejar:
 
    ```shell
    keytool -changealias -alias 1 -destalias jettyhttp -keystore render.keystore
    ```
 
-#### Adding the CA Cert to the Render&#39;s Truststore {#adding-the-ca-cert-to-the-render-s-truststore}
+#### Adicionando o certificado CA à Truststore da Renderização {#adding-the-ca-cert-to-the-render-s-truststore}
 
-Se estiver agindo como CA, importe o certificado CA para um armazenamento de chaves. Em seguida, configure a JVM que executa a instância de renderização para confiar no armazenamento de chaves.
+Se você estiver atuando como CA, importe seu certificado CA para um armazenamento de chaves. Em seguida, configure a JVM que executa a instância de renderização para confiar no armazenamento de chaves.
 
 <!-- 
 
@@ -225,7 +225,7 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
  -->
 
-1. Use um editor de texto para abrir o arquivo cacert. pem e remover todo o texto que precede a linha de seguidor:
+1. Use um editor de texto para abrir o arquivo cacert.pem e remover todo o texto que precede a seguinte linha:
 
    `-----BEGIN CERTIFICATE-----`
 
@@ -241,36 +241,36 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
    -Djavax.net.ssl.trustStore=<location of cacerts.keystore>
    ```
 
-   Por exemplo, se você usar o script crx-quickstart/bin/quickstart para iniciar sua instância de publicação, poderá modificar a propriedade CQ_ JVM_ OPTS:
+   Por exemplo, se você usar o script crx-quickstart/bin/quickstart para iniciar a instância de publicação, poderá modificar a propriedade CQ_JVM_OPTS:
 
    ```shell
    CQ_JVM_OPTS='-server -Xmx2048m -XX:MaxPermSize=512M -Djavax.net.ssl.trustStore=/usr/lib/cq6.0/publish/ssl/cacerts.keystore'
    ```
 
-#### Configuring the Render Instance {#configuring-the-render-instance}
+#### Configuração da instância de renderização {#configuring-the-render-instance}
 
-Use the render certificate with the instructions in the *Enable SSL on the Publish Instance* section to configure the HTTP service of the render instance to use SSL:
+Use o certificado de renderização com as instruções na seção *Ativar SSL na seção Publicar instância* para configurar o serviço HTTP da instância de renderização para usar SSL:
 
-* AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* Older AEM versions: see [this page.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
+* AEM 6.2: [Ativando HTTP por SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Ativando HTTP por SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Versões anteriores do AEM: consulte [esta página.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
 
-### Configuring SSL for the Dispatcher Module {#configuring-ssl-for-the-dispatcher-module}
+### Configuração do SSL para o módulo Dispatcher {#configuring-ssl-for-the-dispatcher-module}
 
-Para configurar o Dispatcher para usar o SSL mútuo, prepare o certificado do Dispatcher e configure o módulo do servidor da Web.
+Para configurar o Dispatcher para usar SSL mútuo, prepare o certificado do Dispatcher e configure o módulo do servidor Web.
 
-### Creating a Unified Dispatcher Certificate {#creating-a-unified-dispatcher-certificate}
+### Criando um Certificado de Dispatcher Unificado {#creating-a-unified-dispatcher-certificate}
 
-Combine o certificado do expedidor e a chave privada não criptografada em um único arquivo PEM. Use a text editor or the `cat` command to create a file that is similar to the following example:
+Combine o certificado do dispatcher e a chave privada não criptografada em um único arquivo PEM. Use um editor de texto ou o `cat` comando para criar um arquivo semelhante ao seguinte exemplo:
 
-1. Abra um terminal e altere o diretório atual para a localização do arquivo. pem devkey. pem.
-1. Para descriptografar a chave privada, insira o seguinte comando:
+1. Abra um terminal e altere o diretório atual para o local do arquivo dispkey.pem.
+1. Para descriptografar a chave privada, digite o seguinte comando:
 
    ```shell
    openssl rsa -in dispkey.pem -out dispkey_unencrypted.pem
    ```
 
-1. Use a text editor or the `cat` command to combine the unencrypted private key and the certificate in a single file that is similar to the following example:
+1. Use um editor de texto ou o `cat` comando para combinar a chave privada não criptografada e o certificado em um único arquivo semelhante ao seguinte exemplo:
 
    ```xml
    -----BEGIN RSA PRIVATE KEY-----
@@ -283,15 +283,15 @@ Combine o certificado do expedidor e a chave privada não criptografada em um ú
    -----END CERTIFICATE-----
    ```
 
-### Specifying the Certificate to Use for Dispatcher {#specifying-the-certificate-to-use-for-dispatcher}
+### Especificação do certificado a ser usado pelo Dispatcher {#specifying-the-certificate-to-use-for-dispatcher}
 
-Add the following properties to the [Dispatcher module configuration](dispatcher-install.md#main-pars-55-35-1022) (in `httpd.conf`):
+Adicione as seguintes propriedades à configuração [do módulo](dispatcher-install.md#main-pars-55-35-1022) Dispatcher (em `httpd.conf`):
 
 * `DispatcherCertificateFile`: O caminho para o arquivo de certificado unificado do Dispatcher, que contém o certificado público e a chave privada não criptografada. Esse arquivo é usado quando o servidor SSL solicita o certificado do cliente Dispatcher.
-* `DispatcherCACertificateFile`: O caminho para o arquivo de certificado CA, usado se o servidor SSL apresentar uma CA que não é confiável por uma autoridade raiz.
+* `DispatcherCACertificateFile`: O caminho para o arquivo de certificado da CA, usado se o servidor SSL apresentar uma CA que não seja confiável por uma autoridade raiz.
 * `DispatcherCheckPeerCN`: Se você deseja ativar ( `On`) ou desativar ( `Off`) a verificação de nome de host para certificados de servidor remoto.
 
-O código a seguir é uma configuração de exemplo:
+O código a seguir é um exemplo de configuração:
 
 ```xml
 <IfModule disp_apache2.c>
