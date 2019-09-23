@@ -1,15 +1,15 @@
 ---
 title: A lista de verificação de segurança do Dispatcher
 seo-title: A lista de verificação de segurança do Dispatcher
-description: Uma lista de verificação de segurança que deve ser concluída antes de começar a produção.
-seo-description: Uma lista de verificação de segurança que deve ser concluída antes de começar a produção.
-uuid: 7 bfa 3202-03 f 6-48 e 9-8 d 2 e -2 a 40 e 137 ecbe
+description: Uma lista de verificação de segurança que deve ser concluída antes de iniciar a produção.
+seo-description: Uma lista de verificação de segurança que deve ser concluída antes de iniciar a produção.
+uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
 contentOwner: Usuário
-products: SG_ EXPERIENCEMANAGER/DISPATCHER
-topic-tags: dispatcher
+products: SG_EXPERIENCEMANAGER/DISPATCHER
+topic-tags: expedidor
 content-type: referência
-discoiquuid: fbfafa 55-c 029-4 ed 7-ab 3 e -1 bebfde 18248
-jcr-lastmodifiedby: remove-legacypath -6-1
+discoiquuid: fbfafa55-c029-4ed7-ab3e-1bebfde18248
+jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
@@ -19,7 +19,7 @@ source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 ---
 
 
-# The Dispatcher Security Checklist{#the-dispatcher-security-checklist}
+# A lista de verificação de segurança do Dispatcher{#the-dispatcher-security-checklist}
 
 <!-- 
 
@@ -32,31 +32,31 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
  -->
 
-O dispatcher como um sistema de front-end oferece uma camada extra de segurança à sua infraestrutura do Adobe Experience Manager. A Adobe recomenda que você preencha a lista de verificação a seguir antes de começar a produção.
+O dispatcher como sistema front-end oferece uma camada extra de segurança para sua infraestrutura do Adobe Experience Manager. A Adobe recomenda que você conclua a seguinte lista de verificação antes de continuar a produção.
 
 >[!CAUTION]
 >
->Você também deve concluir a Lista de verificação de segurança da sua versão do AEM antes de entrar em funcionamento. Please refer to the corresponding [Adobe Experience Manager documentation](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html).
+>Você também deve concluir a Lista de verificação de segurança de sua versão do AEM antes de entrar em funcionamento. Consulte a documentação [correspondente do](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html)Adobe Experience Manager.
 
-## Use the Latest Version of Dispatcher {#use-the-latest-version-of-dispatcher}
+## Usar a versão mais recente do Dispatcher {#use-the-latest-version-of-dispatcher}
 
-Você deve instalar a versão mais recente disponível disponível para a sua plataforma. Você deve atualizar a instância do Dispatcher para usar a versão mais recente para aproveitar os aprimoramentos de produto e segurança. See [Installing Dispatcher](dispatcher-install.md).
+Instale a versão mais recente disponível para a sua plataforma. Você deve atualizar sua instância do Dispatcher para usar a versão mais recente para aproveitar as vantagens dos aprimoramentos de produtos e segurança. Consulte [Instalação do Dispatcher](dispatcher-install.md).
 
 >[!NOTE]
 >
->Você pode verificar a versão atual da instalação do dispatcher observando o arquivo de log do expedidor.
+>Você pode verificar a versão atual da instalação do dispatcher observando o arquivo de log do dispatcher.
 >
 >`[Thu Apr 30 17:30:49 2015] [I] [23171(140735307338496)] Dispatcher initialized (build 4.1.9)`
 >
->To find the log file, inspect the dispatcher configuration in your `httpd.conf`.
+>Para localizar o arquivo de log, inspecione a configuração do dispatcher em seu `httpd.conf`.
 
-## Restrict Clients that Can Flush Your Cache {#restrict-clients-that-can-flush-your-cache}
+## Restringir clientes que podem liberar seu cache {#restrict-clients-that-can-flush-your-cache}
 
-Adobe recommends that you [limit the clients that can flush your cache.](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
+A Adobe recomenda [limitar os clientes que podem liberar seu cache.](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
 
-## Enable HTTPS for transport layer security {#enable-https-for-transport-layer-security}
+## Habilitar HTTPS para segurança de camada de transporte {#enable-https-for-transport-layer-security}
 
-A Adobe recomenda ativar a camada de transporte HTTPS em instâncias de autor e publicação.
+A Adobe recomenda ativar a camada de transporte HTTPS nas instâncias de autor e publicação.
 
 <!-- 
 
@@ -75,39 +75,39 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
  -->
 
-## Restrict Access {#restrict-access}
+## Restringir acesso {#restrict-access}
 
-Ao configurar o Dispatcher, você deve restringir o acesso externo sempre que possível. See [Example /filter Section](dispatcher-configuration.md#main-pars_184_1_title) in the Dispatcher documentation.
+Ao configurar o Dispatcher, você deve restringir o acesso externo o máximo possível. Consulte [Exemplo/seção](dispatcher-configuration.md#main-pars_184_1_title) de filtro na documentação do Dispatcher.
 
-## Make Sure Access to Administrative URLs is Denied {#make-sure-access-to-administrative-urls-is-denied}
+## Verifique se o acesso aos URLs administrativos foi negado {#make-sure-access-to-administrative-urls-is-denied}
 
-Certifique-se de usar filtros para bloquear acesso externo a quaisquer urls administrativos, como o Console da Web.
+Certifique-se de usar filtros para bloquear o acesso externo a quaisquer URLs administrativos, como o Console da Web.
 
-See [Testing Dispatcher Security](dispatcher-configuration.md#testing-dispatcher-security) for a list of URLs that need to be blocked.
+Consulte [Testando o Dispatcher Security](dispatcher-configuration.md#testing-dispatcher-security) para obter uma lista de URLs que precisam ser bloqueados.
 
-## Use Whitelists Instead Of Blacklists {#use-whitelists-instead-of-blacklists}
+## Usar listas de permissões em vez de listas negras {#use-whitelists-instead-of-blacklists}
 
-As permissões são uma maneira melhor de fornecer controle de acesso, uma vez inerentemente, elas assumem que todas as solicitações de acesso devem ser negadas, a menos que façam parte explícita da lista de permissões. Este modelo fornece controle mais restrito sobre novas solicitações que podem ainda não ter sido analisadas ou levadas em consideração durante um determinado estágio de configuração.
+As listas de permissões são uma maneira melhor de fornecer controle de acesso, pois, por natureza, elas assumem que todas as solicitações de acesso devem ser negadas, a menos que sejam explicitamente parte da lista de permissões. Este modelo proporciona um controle mais restritivo sobre novas solicitações que podem não ter sido ainda revisadas ou consideradas durante uma determinada fase de configuração.
 
-## Run Dispatcher with a Dedicated System User {#run-dispatcher-with-a-dedicated-system-user}
+## Execute o Dispatcher com um usuário dedicado do sistema {#run-dispatcher-with-a-dedicated-system-user}
 
-Ao configurar o Dispatcher, você deve garantir que o servidor da Web seja executado por um usuário dedicado com menos privilégios. Recomenda-se conceder somente a gravação à pasta do cache do dispatcher.
+Ao configurar o Dispatcher, você deve garantir que o servidor da Web seja executado por um usuário dedicado com menos privilégios. É recomendável conceder acesso de gravação somente à pasta de cache do dispatcher.
 
-Additionnaly, os usuários do IIS precisam configurar seu site da seguinte maneira:
+Além disso, os usuários do IIS precisam configurar seu site da seguinte maneira:
 
-1. In the physical path setting for your web site, select **Connect as specific user**.
+1. Na configuração de caminho físico do site, selecione **Connect como usuário** específico.
 1. Defina o usuário.
 
-## Prevent Denial of Service (DoS) Attacks {#prevent-denial-of-service-dos-attacks}
+## Impedir ataques de negação de serviço (DoS) {#prevent-denial-of-service-dos-attacks}
 
 Um ataque de negação de serviço (DoS) é uma tentativa de tornar um recurso de computador indisponível para os usuários pretendidos.
 
-At the dispatcher level, there are two methods of configuring to prevent DoS attacks: [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filters))
+No nível do dispatcher, há dois métodos de configuração para evitar ataques de DoS: [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filtros))
 
-* Use the mod_rewrite module (for example, [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)) to perform URL validations (if the URL pattern rules are not too complex).
+* Use o módulo mod_rewrite (por exemplo, [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)) para executar validações de URL (se as regras de padrão de URL não forem muito complexas).
 
-* Prevent the dispatcher from caching URLs with spurious extensions by using [filters](dispatcher-configuration.md#configuring-access-to-conten-tfilter).\
-   Por exemplo, altere as regras de cache para limitar o armazenamento em cache para os tipos mime esperados, como:
+* Evite que o dispatcher armazene URLs em cache com extensões espúrias usando [filtros](dispatcher-configuration.md#configuring-access-to-conten-tfilter).\
+   Por exemplo, altere as regras de cache para limitar o armazenamento em cache aos tipos MIME esperados, como:
 
    * `.html`
    * `.jpg`
@@ -117,14 +117,14 @@ At the dispatcher level, there are two methods of configuring to prevent DoS att
    * `.doc`
    * `.pdf`
    * `.ppt`
-   An example configuration file can be seen for [restricting external access](#restrict-access), this includes restrictions for mime types.
+   Um arquivo de configuração de exemplo pode ser visto para [restringir o acesso](#restrict-access)externo, o que inclui restrições para tipos mime.
 
-Para ativar com segurança a funcionalidade completa nas instâncias de publicação, configure os filtros para impedir o acesso aos seguintes nós:
+Para habilitar com segurança a funcionalidade completa nas instâncias de publicação, configure os filtros para impedir o acesso aos seguintes nós:
 
 * `/etc/`
 * `/libs/`
 
-Em seguida, configure os filtros para permitir acesso aos seguintes caminhos de nó:
+Em seguida, configure os filtros para permitir o acesso aos seguintes caminhos de nó:
 
 * `/etc/designs/*`
 * `/etc/clientlibs/*`
@@ -147,20 +147,20 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
  -->
 
-## Configure Dispatcher to prevent CSRF Attacks {#configure-dispatcher-to-prevent-csrf-attacks}
+## Configure o Dispatcher para impedir ataques CSRF {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM provides a [framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) aimed at preventing Cross-Site Request Forgery attacks. Para usar corretamente essa estrutura, você precisa de suporte de token CSRF de lista de permissões no dispatcher. Você pode fazer isso:
+O AEM fornece uma [estrutura](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) destinada a impedir ataques de falsificação de solicitações entre sites. Para utilizar adequadamente essa estrutura, é necessário adicionar o suporte a token CSRF à lista de permissões no dispatcher. Você pode fazer isso:
 
-1. Creating a filter to allow the `/libs/granite/csrf/token.json` path;
-1. Add the `CSRF-Token` header to the `clientheaders` section of the Dispatcher configuration.
+1. Criação de um filtro para permitir o `/libs/granite/csrf/token.json` caminho;
+1. Adicione o `CSRF-Token` cabeçalho à `clientheaders` seção da configuração do Dispatcher.
 
-## Prevent Clickjacking {#prevent-clickjacking}
+## Impedir Clickjacking {#prevent-clickjacking}
 
-To prevent clickjacking we recommend that you configure your webserver to provide the `X-FRAME-OPTIONS` HTTP header set to `SAMEORIGIN`.
+Para evitar o clickjacking, recomendamos que você configure o servidor Web para fornecer o cabeçalho `X-FRAME-OPTIONS` HTTP definido como `SAMEORIGIN`.
 
-For more [information on clickjacking please see the OWASP site](https://www.owasp.org/index.php/Clickjacking).
+Para obter mais [informações sobre clickjacking, consulte o site](https://www.owasp.org/index.php/Clickjacking)da OWASP.
 
-## Perform a Penetration Test {#perform-a-penetration-test}
+## Execute um teste de penetração {#perform-a-penetration-test}
 
-A Adobe recomenda que você realize um teste de penetração da sua infraestrutura do AEM antes de começar a produção.
+A Adobe recomenda executar um teste de penetração da sua infraestrutura do AEM antes de continuar a produção.
 
