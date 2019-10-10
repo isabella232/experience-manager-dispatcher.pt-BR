@@ -6,11 +6,11 @@ seo-description: Saiba como configurar o Dispatcher.
 uuid: 253ef0f7-2491-4cec-ab22-97439df29fd6
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: '1193211344162'
-topic-tags: expedidor
+topic-tags: dispatcher
 content-type: referência
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: a997d2296e80d182232677af06a2f4ab5a14bfd5
+source-git-commit: 119f952439a59e51f769f285c79543aec8fdda37
 
 ---
 
@@ -163,7 +163,7 @@ A `/farms` propriedade define um ou mais conjuntos de comportamentos do Dispatch
 
 A `/farms` propriedade é uma propriedade de nível superior na estrutura de configuração. Para definir um farm, adicione uma propriedade filho à `/farms` propriedade. Use um nome de propriedade que identifique exclusivamente o farm na instância do Dispatcher.
 
-A `/*farmname*` propriedade tem vários valores e contém outras propriedades que definem o comportamento do Dispatcher:
+A `/farmname` propriedade tem vários valores e contém outras propriedades que definem o comportamento do Dispatcher:
 
 * Os URLs das páginas às quais o farm se aplica.
 * Um ou mais URLs de serviço (normalmente de instâncias de publicação do AEM) a serem usados para renderizar documentos.
@@ -213,6 +213,7 @@ Cada propriedade farm pode conter as seguintes propriedades secundárias:
 | [/retryDelay](#specifying-the-page-retry-delay) | O atraso antes de tentar novamente uma conexão com falha. |
 | [/unavailablePenalidade](#reflecting-server-unavailability-in-dispatcher-statistics) | Sanções que afetam as estatísticas relativas aos cálculos de balanceamento de carga. |
 | [/failover](#using-the-fail-over-mechanism) | Reenviar solicitações para renderizações diferentes quando a solicitação original falhar. |
+| [/auth_checker](permissions-cache.md) | Para obter acesso a cache sensível a permissões, consulte [Armazenamento em cache de conteúdo](permissions-cache.md)protegido. |
 
 ## Especificar uma página padrão (somente IIS) - /homepage {#specify-a-default-page-iis-only-homepage}
 
@@ -545,7 +546,7 @@ Com a versão **4.1.6** do Dispatcher, é possível configurar a `/always-resolv
 Além disso, essa propriedade pode ser usada no caso de problemas de resolução dinâmica de IP, conforme mostrado na seguinte amostra:
 
 ```xml
-/rend {
+/renders {
   /0001 {
      /hostname "host-name-here"
      /port "4502"
@@ -974,6 +975,7 @@ A `/cache` seção controla como o Dispatcher armazena documentos em cache. Conf
 * /cabeçalhos
 * /mode
 * /GracePeriod
+* /enableTTL
 
 
 Uma seção de cache de exemplo pode ter a seguinte aparência:
@@ -1064,7 +1066,7 @@ A `/rules` propriedade controla quais documentos são armazenados em cache de ac
 
 >[!NOTE]
 >
->Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. Para obter informações adicionais sobre o cache do cabeçalho de resposta, consulte a seção [Cache de Cabeçalhos](dispatcher-configuration.md#caching-http-response-headers) de Resposta HTTP.
+>Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. For additional information on response header caching, see the [Caching HTTP Response Headers](dispatcher-configuration.md#caching-http-response-headers) section.
 
 Cada item na propriedade /rules inclui um padrão [global](#designing-patterns-for-glob-properties) e um tipo:
 
@@ -1159,7 +1161,7 @@ Use a `/statfileslevel` propriedade para invalidar arquivos em cache de acordo c
 
 * Quando um arquivo localizado em um determinado nível é invalidado, **todos** os `.stat` arquivos do ponto **para** o nível do arquivo invalidado ou do configurado `statsfilevel` (o que for menor) serão tocados.
 
-   * Por exemplo: se você definir a propriedade `statfileslevel` como 6 e um arquivo for invalidado no nível 5, todos os arquivos `.stat` do ponto para o 5 serão tocados. Continuando com este exemplo, se um arquivo for invalidado no nível 7, então a cada . `stat` o arquivo de ponto para 6 será tocado (desde `/statfileslevel = "6"`).
+   *  Por exemplo: se você definir a propriedade `statfileslevel` como 6 e um arquivo for invalidado no nível 5, todos os arquivos `.stat` do ponto para o 5 serão tocados. Continuando com este exemplo, se um arquivo for invalidado no nível 7, então a cada . `stat` o arquivo de ponto para 6 será tocado (desde `/statfileslevel = "6"`).
 
 Somente os recursos** no caminho** para o arquivo invalidado são afetados. Considere o seguinte exemplo: um site usa a estrutura `/content/myWebsite/xx/.` Se você definir `statfileslevel` como 3, um `.stat`arquivo será criado da seguinte forma:
 
@@ -1505,7 +1507,7 @@ Para obter informações adicionais sobre o `httponly` sinalizador, leia [esta p
 
 ### secure {#secure}
 
-Quando as conexões aderentes estão ativadas, o módulo do dispatcher define o `renderid` cookie. Este cookie não tem o sinalizador **seguro** , que deve ser adicionado para melhorar a segurança. Você pode fazer isso definindo a `secure` propriedade no `/stickyConnections` nó de um arquivo de `dispatcher.any` configuração. O valor da propriedade (0 ou 1) define se o `renderid` cookie tem o `secure` atributo anexado. O valor padrão é 0, o que significa que o atributo será adicionado se* *a solicitação recebida for segura. Se o valor for definido como 1, o sinalizador seguro será adicionado independentemente de a solicitação recebida ser ou não segura.
+Quando as conexões aderentes estão ativadas, o módulo do dispatcher define o `renderid` cookie. Este cookie não tem o sinalizador **seguro** , que deve ser adicionado para melhorar a segurança. Você pode fazer isso definindo a `secure` propriedade no `/stickyConnections` nó de um arquivo de `dispatcher.any` configuração. O valor da propriedade (0 ou 1) define se o `renderid` cookie tem o `secure` atributo anexado. O valor padrão é 0, o que significa que o atributo será adicionado **se** a solicitação recebida for segura. Se o valor for definido como 1, o sinalizador seguro será adicionado independentemente de a solicitação recebida ser ou não segura.
 
 ## Tratamento de erros de conexão de renderização {#handling-render-connection-errors}
 
@@ -1786,7 +1788,7 @@ https://localhost:80/libs/wcm/core/content/siteadmin.html
 1. Ative uma página para verificar se o cache está sendo descarregado corretamente.
 1. Se tudo estiver funcionando corretamente, você pode reduzir o `loglevel` para `0`.
 
-## Usando vários despachantes {#using-multiple-dispatchers}
+## Usando vários Dispatchers v{#using-multiple-dispatchers}
 
 Em configurações complexas, você pode usar vários Dispatchers. Por exemplo, você pode usar:
 
