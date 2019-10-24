@@ -4,7 +4,7 @@ seo-title: Principais problemas do AEM Dispatcher
 description: Principais problemas do AEM Dispatcher
 seo-description: Principais problemas do Adobe AEM Dispatcher
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
@@ -23,10 +23,10 @@ Para armazenamento em cache, o módulo Dispatcher usa a capacidade do servidor W
 
 ### Como o Dispatcher executa o cache?
 
-O Dispatcher usa a capacidade do servidor da Web de fornecer conteúdo estático. O Dispatcher armazena documentos em cache na raiz do documento do servidor da Web. O Dispatcher tem dois métodos principais para atualizar o conteúdo do cache quando alterações são feitas no site.
+O Dispatcher usa a capacidade do servidor da Web de fornecer conteúdo estático. O Dispatcher armazena documentos em cache na raiz do documento do servidor da Web. O Dispatcher tem dois métodos primários para atualizar o conteúdo de cache quando mudanças forem feitas ao website.
 
-* **As Atualizações** de conteúdo removem as páginas que foram alteradas, bem como os arquivos que estão diretamente associados a elas.
-* **A Invalidação** automática invalida automaticamente as partes do cache que podem estar desatualizadas após uma atualização. Por exemplo, ele efetivamente sinaliza páginas relevantes como desatualizadas, sem excluir nada.
+* **As Atualizações de conteúdo** removem as páginas que foram alteradas, bem como os arquivos que estão diretamente associados a elas.
+* **A invalidação automática** invalida automaticamente as partes do cache que podem estar desatualizadas após uma atualização. Por exemplo, ele efetivamente sinaliza páginas relevantes como desatualizadas, sem excluir nada.
 
 ### Quais são os benefícios do balanceamento de carga?
 
@@ -154,7 +154,7 @@ Como o Dispatcher determina se um documento está atualizado?
 Para determinar se um documento está atualizado, o Dispatcher executa estas ações:
 
 Verifica se o documento está sujeito a invalidação automática. Caso contrário, o documento será considerado atualizado.
-Se o documento estiver configurado para invalidação automática, o Dispatcher verificará se ele é mais antigo ou mais recente do que a última alteração disponível. Se for mais antiga, o Dispatcher solicitará a versão atual da instância do AEM e substituirá a versão no cache.
+Se o documento estiver configurado para invalidação automática, o Dispatcher verificará se ele é mais antigo ou mais recente do que a última alteração disponível. Se for mais antigo, o Dispatcher solicitará a versão atual da instância do AEM e substituirá a versão no cache.
 
 ### Como o Dispatcher retorna documentos?
 
@@ -162,7 +162,7 @@ Você pode definir se o Dispatcher armazena um documento em cache usando o arqui
 
 A `/rules` propriedade controla quais documentos são armazenados em cache de acordo com o caminho do documento. Independentemente da `/rules` propriedade, o Dispatcher nunca armazena um documento em cache nas seguintes circunstâncias:
 
-* Se o URI de solicitação contiver um ponto de interrogação `(?)`.
+* Se o URI da solicitação contiver um ponto de interrogação `(?)`.
 * Isso geralmente indica uma página dinâmica, como um resultado de pesquisa que não precisa ser armazenado em cache.
 * A extensão do arquivo está ausente.
 * O servidor Web precisa da extensão para determinar o tipo de documento (o tipo MIME).
@@ -176,7 +176,7 @@ O Dispatcher armazena arquivos em cache no servidor da Web como se fossem parte 
 
 >[!NOTE]
 >
->Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. Para obter informações adicionais sobre o cache do cabeçalho de resposta, consulte a seção [Cache de Cabeçalhos](dispatcher-configuration.md#caching-http-response-headers) de Resposta HTTP.
+>Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. For additional information on response header caching, see the [Caching HTTP Response Headers](dispatcher-configuration.md#caching-http-response-headers) section.
 
 ### É possível implementar vários Dispatchers em uma configuração?
 
