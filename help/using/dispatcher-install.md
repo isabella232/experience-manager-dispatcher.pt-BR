@@ -6,11 +6,11 @@ seo-description: Saiba como instalar o módulo Dispatcher do AEM no Microsoft In
 uuid: 2384b907-1042-4707-b02f-fba2125618cf
 contentOwner: Usuário
 converted: verdadeiro
-topic-tags: expedidor
+topic-tags: dispatcher
 content-type: referência
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
@@ -250,7 +250,7 @@ Use o procedimento a seguir para gravar mensagens de log do Dispatcher em um arq
    `IIS AppPool\DefaultAppPool`
 
 1. Clique no botão Verificar nomes. Quando o Windows resolver a conta de usuário, clique em OK.
-1. Na caixa de diálogo Permissões da pasta dispatcher, selecione a conta que você acabou de adicionar, ative todas as permissões para a conta** exceto para Controle total,** e clique em OK. Clique em OK para fechar a caixa de diálogo Propriedades da pasta.
+1. Na caixa de diálogo Permissões da pasta do dispatcher, selecione a conta que você acabou de adicionar, ative todas as permissões para a conta, **exceto para Controle total,** e clique em OK. Clique em OK para fechar a caixa de diálogo Propriedades da pasta.
 1. Use um editor de texto para abrir o `disp_iis.ini` arquivo.
 1. Adicione uma linha de texto semelhante ao exemplo a seguir para configurar o local do arquivo de log e depois salvar o arquivo:
 
@@ -294,7 +294,7 @@ Os arquivos de arquivamento de instalação contêm os seguintes arquivos - depe
 
 | Arquivo | Descrição |
 |--- |--- |
-| disp_apache&lt;x.y&gt;.dll | Windows: O arquivo da biblioteca de links dinâmicos do Dispatcher. |
+| disp_apache&lt;x.y&gt;.dll | Windows:O arquivo da biblioteca de links dinâmicos do Dispatcher. |
 | dispatcher-apache&lt;x.y&gt;-&lt;rel-nr&gt;.so | Unix: O arquivo da biblioteca de objetos compartilhados do Dispatcher. |
 | mod_dispatcher.so | Unix: Um link de exemplo. |
 | http.conf.disp&lt;x&gt; | Um arquivo de configuração de exemplo para o servidor Apache. |
@@ -569,7 +569,7 @@ Os arquivos de arquivamento de instalação contêm os seguintes arquivos - depe
 
 | Arquivo | Descrição |
 |---|---|
-| `disp_ns.dll` | Windows: O arquivo da biblioteca de links dinâmicos do Dispatcher. |
+| `disp_ns.dll` | Windows:O arquivo da biblioteca de links dinâmicos do Dispatcher. |
 | `dispatcher.so` | Unix: O arquivo da biblioteca de objetos compartilhados do Dispatcher. |
 | `dispatcher.so` | Unix: Um link de exemplo. |
 | `obj.conf.disp` | Um arquivo de configuração de exemplo para o servidor Web iPlanet / Sun Java System. |
