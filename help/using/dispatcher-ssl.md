@@ -1,24 +1,24 @@
 ---
-title: Uso do SSL com o Dispatcher
-seo-title: Uso do SSL com o Dispatcher
+title: Utilização de SSL com Dispatcher
+seo-title: Utilização de SSL com Dispatcher
 description: Saiba como configurar o Dispatcher para se comunicar com o AEM usando conexões SSL.
 seo-description: Saiba como configurar o Dispatcher para se comunicar com o AEM usando conexões SSL.
 uuid: 1a8f448c-d3d8-4798-a5cb-9579171171ed
 contentOwner: Usuário
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: expedidor
+topic-tags: dispatcher
 content-type: referência
 discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
 
-# Uso do SSL com o Dispatcher {#using-ssl-with-dispatcher}
+# Utilização de SSL com Dispatcher {#using-ssl-with-dispatcher}
 
 Use conexões SSL entre o Dispatcher e o computador de renderização:
 
@@ -162,7 +162,7 @@ Use o OpenSSL para criar as solicitações de certificado para enviar à CA de t
 Quando você cria um certificado, o OpenSSL usa a propriedade Common Name para identificar o titular do certificado. Para o certificado da instância de renderização, use o nome de host do computador da instância como o Nome Comum se você estiver configurando o Dispatcher para aceitar o certificado somente se ele corresponder ao nome do host da instância Publicar. (See the [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) property.)
 
 1. Abra um terminal e altere o diretório atual para o diretório que contém o arquivo CH.sh das bibliotecas OpenSSL.
-1. Digite o seguinte comando e forneça valores quando solicitado. Se necessário, use o nome de host da instância de publicação como o Nome comum. O nome do host é um nome que pode ser resolvido por DNS para o endereço IP da renderização:
+1. Digite o seguinte comando e forneça valores quando solicitado. Se necessário, use o nome de host da instância de publicação como Nome comum. O nome do host é um nome que pode ser resolvido por DNS para o endereço IP da renderização:
 
    ```shell
    ./CA.sh -newreq
