@@ -5,12 +5,12 @@ description: Saiba como configurar o Dispatcher.
 seo-description: Saiba como configurar o Dispatcher.
 uuid: 253ef0f7-2491-4cec-ab22-97439df29fd6
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
-pageversionid: '1193211344162'
+pageversionid: 1193211344162
 topic-tags: dispatcher
-content-type: referência
+content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: 71bca4bea15ca8fa89888e10770743422c56b827
 
 ---
 
@@ -1161,7 +1161,7 @@ Use a `/statfileslevel` propriedade para invalidar arquivos em cache de acordo c
 
 * Quando um arquivo localizado em um determinado nível é invalidado, **todos** os `.stat` arquivos do ponto **para** o nível do arquivo invalidado ou do configurado `statsfilevel` (o que for menor) serão tocados.
 
-   *  Por exemplo: se você definir a propriedade `statfileslevel` como 6 e um arquivo for invalidado no nível 5, todos os arquivos `.stat` do ponto para o 5 serão tocados. Continuando com este exemplo, se um arquivo for invalidado no nível 7, então a cada . `stat` o arquivo de ponto para 6 será tocado (desde `/statfileslevel = "6"`).
+   * Por exemplo: se você definir a propriedade `statfileslevel` como 6 e um arquivo for invalidado no nível 5, todos os arquivos `.stat` do ponto para o 5 serão tocados. Continuando com este exemplo, se um arquivo for invalidado no nível 7, então a cada . `stat` o arquivo de ponto para 6 será tocado (desde `/statfileslevel = "6"`).
 
 Somente os recursos **ao longo do caminho** para o arquivo invalidado são afetados. Considere o seguinte exemplo: um site usa a estrutura `/content/myWebsite/xx/.` Se você definir `statfileslevel` como 3, um `.stat`arquivo será criado da seguinte forma:
 
@@ -1383,19 +1383,13 @@ A `/gracePeriod` propriedade define o número de segundos em que um recurso obso
 
 Para obter mais detalhes, leia também as `/invalidate` seções `/statfileslevel`e acima.
 
-## Configurando a Invalidação do Cache Baseado em Tempo - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
+### Configurando a Invalidação do Cache Baseado em Tempo - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-Se definida, a `enableTTL` propriedade avaliará os cabeçalhos de resposta do backend e, se contiverem uma idade `Cache-Control` máxima ou uma `Expires` data, um arquivo vazio e auxiliar ao lado do arquivo de cache será criado, com o tempo de modificação igual à data de expiração. Quando o arquivo em cache é solicitado após a hora de modificação, ele é automaticamente solicitado novamente do backend.
-
-Você pode ativar o recurso adicionando esta linha ao `dispatcher.any` arquivo:
-
-```xml
-/enableTTL "1"
-```
+Se definida, a `/enableTTL` propriedade avaliará os cabeçalhos de resposta do backend e, se contiverem uma idade `Cache-Control` máxima ou uma `Expires` data, um arquivo vazio e auxiliar ao lado do arquivo de cache será criado, com o tempo de modificação igual à data de expiração. Quando o arquivo em cache é solicitado após a hora de modificação, ele é automaticamente solicitado novamente do backend.
 
 >[!NOTE]
 >
->Este recurso está disponível na versão **4.1.11** do Dispatcher.
+>Esse recurso está disponível na versão **4.1.11** ou posterior do Dispatcher.
 
 ## Configuração do balanceamento de carga - /statistics {#configuring-load-balancing-statistics}
 
@@ -1838,7 +1832,7 @@ Abaixo está uma lista contendo os cabeçalhos de resposta que `X-Dispatcher-Inf
    O arquivo de destino - a concatenação da raiz do documento e do arquivo de URL - excede o nome de arquivo mais longo possível no sistema.
 * **não pode ser armazenado em cache: caminho de arquivo temporário muito longo**\
    O modelo de nome de arquivo temporário excede o maior nome de arquivo possível no sistema. O dispatcher cria um arquivo temporário primeiro, antes de realmente criar ou substituir o arquivo em cache. O nome do arquivo temporário é o nome do arquivo de destino com os caracteres `_YYYYXXXXXX` anexados a ele, no qual o arquivo `Y` e `X` será substituído para criar um nome exclusivo.
-* **não pode ser armazenado em cache: o URL de solicitação não tem extensão**\
+* **não pode ser armazenado em cache: a URL de solicitação não tem extensão**\
    O URL da solicitação não tem extensão ou há um caminho após a extensão do arquivo, por exemplo: `/test.html/a/path`.
 * **não pode ser armazenado em cache: não era GET ou HEAD** O método HTTP não é GET nem HEAD. O dispatcher supõe que a saída conterá dados dinâmicos que não devem ser armazenados em cache.
 * **não pode ser armazenado em cache: solicitação continha uma string de consulta**\
