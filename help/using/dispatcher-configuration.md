@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 71bca4bea15ca8fa89888e10770743422c56b827
+source-git-commit: fb7891406af215c59e9768b699a5d191ba4b1eb2
 
 ---
 
@@ -118,7 +118,7 @@ Por exemplo, para incluir o arquivo myFarm.any na configuração /farms, use o s
   }
 ```
 
-Use o asterisco ("*") como curinga para especificar uma variedade de arquivos a serem incluídos.
+Use o asterisco (&quot;*&quot;) como curinga para especificar uma variedade de arquivos a serem incluídos.
 
 Por exemplo, se os arquivos `farm_1.any` até para `farm_5.any` conter a configuração de farm de um a cinco, você pode incluí-los da seguinte maneira:
 
@@ -221,7 +221,7 @@ Cada propriedade farm pode conter as seguintes propriedades secundárias:
 >
 >O `/homepage`parâmetro (somente IIS) não funciona mais. Em vez disso, você deve usar o Módulo [de regravação de URL do](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)IIS.
 >
->Se estiver usando o Apache, você deve usar o `mod_rewrite` módulo. Consulte a documentação do site do Apache para obter informações sobre `mod_rewrite` (por exemplo, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). Ao usar `mod_rewrite`, é aconselhável usar o sinalizador **['passthrough|PT' (passar para o próximo manipulador)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** para forçar o mecanismo de regravação a definir o `uri` campo da `request_rec` estrutura interna para o valor do `filename` campo.
+>Se estiver usando o Apache, você deve usar o `mod_rewrite` módulo. Consulte a documentação do site do Apache para obter informações sobre `mod_rewrite` (por exemplo, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). Ao usar `mod_rewrite`, é aconselhável usar o sinalizador **[&#39;passthrough|PT&#39; (passar para o próximo manipulador)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)**para forçar o mecanismo de regravação a definir o`uri`campo da`request_rec`estrutura interna para o valor do`filename`campo.
 
 <!-- 
 
@@ -322,7 +322,7 @@ O código a seguir é um exemplo de configuração para `/clientheaders`:
 
 ## Como identificar hosts virtuais {#identifying-virtual-hosts-virtualhosts}
 
-A `/virtualhosts` propriedade define uma lista de todas as combinações de nome de host/URI aceitas pelo Dispatcher para este farm. Você pode usar o caractere asterisco ("*") como curinga. Os valores para a propriedade / `virtualhosts` usam o seguinte formato:
+A `/virtualhosts` propriedade define uma lista de todas as combinações de nome de host/URI aceitas pelo Dispatcher para este farm. Você pode usar o caractere asterisco (&quot;*&quot;) como curinga. Os valores para a propriedade / `virtualhosts` usam o seguinte formato:
 
 ```xml
 [scheme]host[uri][*]
@@ -405,7 +405,7 @@ Usando este exemplo, a tabela a seguir mostra os hosts virtuais que são resolvi
 
 | URL de solicitação | Host virtual resolvido |
 |---|---|
-| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*;` |
+| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*` |
 | `https://www.mycompany.com/about.html` | `www.mycompany.com` |
 
 ## Habilitar Sessões Seguras - /sessionmanagement {#enabling-secure-sessions-sessionmanagement}
@@ -441,7 +441,7 @@ O diretório que armazena as informações da sessão. Se o diretório não exis
 
 **/encode** (opcional)
 
-Como as informações da sessão são codificadas. Use "md5" para criptografia usando o algoritmo md5 ou "hex" para codificação hexadecimal. Se você criptografar os dados da sessão, um usuário com acesso ao sistema de arquivos não poderá ler o conteúdo da sessão. O padrão é "md5".
+Como as informações da sessão são codificadas. Use &quot;md5&quot; para criptografia usando o algoritmo md5 ou &quot;hex&quot; para codificação hexadecimal. Se você criptografar os dados da sessão, um usuário com acesso ao sistema de arquivos não poderá ler o conteúdo da sessão. O padrão é &quot;md5&quot;.
 
 **/header** (opcional)
 
@@ -449,7 +449,7 @@ O nome do cabeçalho HTTP ou cookie que armazena as informações de autorizaç�
 
 **/timeout** (opcional)
 
-O número de segundos até que a sessão atinja o tempo limite após ser usada por último. Se não for especificado "800", a sessão expirará pouco mais de 13 minutos após a última solicitação do usuário.
+O número de segundos até que a sessão atinja o tempo limite após ser usada por último. Se não for especificado &quot;800&quot;, a sessão expirará pouco mais de 13 minutos após a última solicitação do usuário.
 
 Um exemplo de configuração tem a seguinte aparência:
 
@@ -482,7 +482,7 @@ A propriedade /renders define o URL para o qual o Dispatcher envia solicitaçõe
   }
 ```
 
-A seguinte seção de exemplo/renderização identifica uma instância do AEM que é executada no mesmo computador que o Dispatcher:
+A seguinte seção de exemplo/renderização identifica uma instância do AEM que é executada no mesmo computador que o dispatcher:
 
 ```xml
 /renders
@@ -517,11 +517,11 @@ A seguinte seção de exemplo/renderização distribui as solicitações de rend
 
 **/timeout**
 
-Especifica o tempo limite de conexão acessando a instância do AEM em milissegundos. O padrão é "0", fazendo com que o Dispatcher aguarde indefinidamente.
+Especifica o tempo limite de conexão acessando a instância do AEM em milissegundos. O padrão é &quot;0&quot;, fazendo com que o Dispatcher aguarde indefinidamente.
 
 **/receiveTimeout**
 
-Especifica o tempo, em milissegundos, que uma resposta pode levar. O padrão é "600000", fazendo com que o Dispatcher aguarde 10 minutos. Uma configuração de "0" elimina completamente o tempo limite.\
+Especifica o tempo, em milissegundos, que uma resposta pode levar. O padrão é &quot;600000&quot;, fazendo com que o Dispatcher aguarde 10 minutos. Uma configuração de &quot;0&quot; elimina completamente o tempo limite.\
 Se o tempo limite for atingido ao analisar cabeçalhos de resposta, um Status HTTP 504 (Gateway inválido) será retornado. Se o tempo limite for atingido enquanto o corpo da resposta for lido, o Dispatcher retornará a resposta incompleta ao cliente, mas excluirá qualquer arquivo de cache que possa ter sido gravado.
 
 **/ipv4**
@@ -534,13 +534,13 @@ O Amazon Elastic Load Balancing (ELB) é um serviço que responde a getaddrinfo 
 
 **/secure**
 
-Se a `/secure` propriedade tiver um valor de "1", o Dispatcher usará HTTPS para se comunicar com a instância do AEM. Para obter detalhes adicionais, consulte também [Configuração do Dispatcher para Usar SSL](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl).
+Se a `/secure` propriedade tiver um valor de &quot;1&quot;, o Dispatcher usará HTTPS para se comunicar com a instância do AEM. Para obter detalhes adicionais, consulte também [Configuração do Dispatcher para Usar SSL](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl).
 
 **/always-resolve**
 
 Com a versão **4.1.6** do Dispatcher, é possível configurar a `/always-resolve` propriedade da seguinte maneira:
 
-* Quando definido como "1", ele resolverá o nome do host em cada solicitação (o Dispatcher nunca armazenará em cache nenhum endereço IP). Pode haver um pequeno impacto no desempenho devido à chamada adicional necessária para obter as informações do host para cada solicitação.
+* Quando definido como &quot;1&quot;, ele resolverá o nome do host em cada solicitação (o Dispatcher nunca armazenará em cache nenhum endereço IP). Pode haver um pequeno impacto no desempenho devido à chamada adicional necessária para obter as informações do host para cada solicitação.
 * Se a propriedade não estiver definida, o endereço IP será armazenado em cache por padrão.
 
 Além disso, essa propriedade pode ser usada no caso de problemas de resolução dinâmica de IP, conforme mostrado na seguinte amostra:
@@ -601,13 +601,13 @@ você deve usar
 
 HTTP/1.1 define a linha de [solicitação](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html) da seguinte maneira:
 
-*Método Request-URI HTTP-Version*&lt;CRLF&gt;
+*Método Request-URI HTTP-Version*&lt;CRLF>
 
-Os caracteres &lt;CRLF&gt; representam um retorno de carro seguido por um feed de linha. O exemplo a seguir é a linha de solicitação recebida quando um cliente solicita a página final do site Geometrixx-Outoors:
+Os caracteres &lt;CRLF> representam um retorno de carro seguido por um feed de linha. O exemplo a seguir é a linha de solicitação recebida quando um cliente solicita a página final do site Geometrixx-Outoors:
 
-OBTENHA O /content/geometrixx-outdoors/en.html HTTP.1.1&lt;CRLF&gt;
+OBTENHA O /content/geometrixx-outdoors/en.html HTTP.1.1&lt;CRLF>
 
-Seus padrões devem levar em conta os caracteres de espaço na linha de solicitação e os caracteres &lt;CRLF&gt;.
+Seus padrões devem levar em conta os caracteres de espaço na linha de solicitação e os caracteres &lt;CRLF>.
 
 #### Aspas duplas x aspas simples {#double-quotes-vs-single-quotes}
 
@@ -955,7 +955,7 @@ Use o procedimento a seguir para habilitar o acesso a URLs personalizados.
 
 Normalmente, as solicitações de sindicalização são destinadas apenas ao Dispatcher, portanto, por padrão, elas não são enviadas ao renderizador (por exemplo, uma instância do AEM).
 
-Se necessário, defina a propriedade /propagateSyndPost como "1" para encaminhar solicitações de sindicalização ao Dispatcher. Se definido, verifique se as solicitações POST não foram negadas na seção de filtro.
+Se necessário, defina a propriedade /propagateSyndPost como &quot;1&quot; para encaminhar solicitações de sindicalização ao Dispatcher. Se definido, verifique se as solicitações POST não foram negadas na seção de filtro.
 
 ## Configuração do Cache do Dispatcher - /cache {#configuring-the-dispatcher-cache-cache}
 
@@ -1029,7 +1029,7 @@ O arquivo de status não tem conteúdo. Quando o conteúdo é atualizado, o Disp
 
 A `/serveStaleOnError` propriedade controla se o Dispatcher retorna documentos invalidados quando o servidor de renderização retorna um erro. Por padrão, quando um arquivo de status é tocado e invalida o conteúdo em cache, o Dispatcher exclui o conteúdo em cache na próxima vez que for solicitado.
 
-Se `/serveStaleOnError` estiver definido como "1", o Dispatcher não excluirá o conteúdo invalidado do cache, a menos que o servidor de renderização retorne uma resposta bem-sucedida. Uma resposta 5xx do AEM ou um tempo limite de conexão faz com que o Dispatcher sirva o conteúdo desatualizado e responda com o Status HTTP 111 (Falha na Revalidação).
+Se `/serveStaleOnError` estiver definido como &quot;1&quot;, o Dispatcher não excluirá o conteúdo invalidado do cache, a menos que o servidor de renderização retorne uma resposta bem-sucedida. Uma resposta 5xx do AEM ou um tempo limite de conexão faz com que o Dispatcher sirva o conteúdo desatualizado e responda com o Status HTTP 111 (Falha na Revalidação).
 
 ### Armazenamento em cache quando a autenticação é usada {#caching-when-authentication-is-used}
 
@@ -1053,7 +1053,7 @@ No entanto, se seus requisitos permitirem o cache de documentos autenticados, de
 
 A `/rules` propriedade controla quais documentos são armazenados em cache de acordo com o caminho do documento. Independentemente da propriedade /rules, o Dispatcher nunca armazena um documento em cache nas seguintes circunstâncias:
 
-* Se o URI da solicitação contiver um ponto de interrogação ("?").\
+* Se o URI da solicitação contiver um ponto de interrogação (&quot;?&quot;).\
    Isso geralmente indica uma página dinâmica, como um resultado de pesquisa que não precisa ser armazenado em cache.
 * A extensão do arquivo está ausente.\
    O servidor Web precisa da extensão para determinar o tipo de documento (o tipo MIME).
@@ -1292,7 +1292,7 @@ Para especificar quais parâmetros são ignorados, adicione regras de valor glob
 * Para ignorar um parâmetro, crie uma propriedade global que permita o parâmetro.
 * Para impedir que a página seja armazenada em cache, crie uma propriedade global que negue o parâmetro.
 
-O exemplo a seguir faz com que o Dispatcher ignore o parâmetro "q", para que os URLs de solicitação que incluem o parâmetro q sejam armazenados em cache:
+O exemplo a seguir faz com que o Dispatcher ignore o parâmetro &quot;q&quot;, para que os URLs de solicitação que incluem o parâmetro q sejam armazenados em cache:
 
 ```xml
 /ignoreUrlParams
@@ -1377,7 +1377,7 @@ O valor padrão é 0755, que permite que o proprietário leia, grave ou pesquise
 
 ### A limitar o toque do ficheiro .stat {#throttling-stat-file-touching}
 
-Com a `/invalidate` propriedade padrão, cada ativação invalida efetivamente todos os `.html` `/invalidate` arquivos (quando seu caminho corresponde à seção). Em um site com tráfego considerável, várias ativações subsequentes aumentarão a carga da cpu no backend. Nesse cenário, seria desejável "limitar" o `.stat` toque do arquivo para manter o site responsivo. Você pode fazer isso usando a `/gracePeriod` propriedade.
+Com a `/invalidate` propriedade padrão, cada ativação invalida efetivamente todos os `.html` `/invalidate` arquivos (quando seu caminho corresponde à seção). Em um site com tráfego considerável, várias ativações subsequentes aumentarão a carga da cpu no backend. Nesse cenário, seria desejável &quot;limitar&quot; o `.stat` toque do arquivo para manter o site responsivo. Você pode fazer isso usando a `/gracePeriod` propriedade.
 
 A `/gracePeriod` propriedade define o número de segundos em que um recurso obsoleto e autovalidado ainda pode ser servido do do cache após a última ativação ocorrida. A propriedade pode ser usada em uma configuração em que um lote de ativações invalidaria repetidamente o cache inteiro. O valor recomendado é de 2 segundos.
 
@@ -1465,7 +1465,7 @@ Por exemplo, a penalidade é aplicada quando a conexão TCP/IP com o nome do hos
 
 A `/unavailablePenalty` propriedade é um filho direto da `/farm` seção (um irmão da `/statistics` seção).
 
-Se não houver nenhuma `/unavailablePenalty` propriedade, um valor de "1" será usado.
+Se não houver nenhuma `/unavailablePenalty` propriedade, um valor de &quot;1&quot; será usado.
 
 ```xml
 /unavailablePenalty "1"
@@ -1581,7 +1581,7 @@ Internamente, o Dispatcher lê a resposta do servidor remoto (ou seja, AEM) usan
 read more data  
 }`
 
-Essas mensagens podem ser geradas quando `EINTR` ocorrem na seção " `read more data`" e são causadas pela recepção de um sinal antes de qualquer dado ser recebido.
+Essas mensagens podem ser geradas quando `EINTR` ocorrem na seção &quot; `read more data`&quot; e são causadas pela recepção de um sinal antes de qualquer dado ser recebido.
 
 Para ignorar essas interrupções, adicione o seguinte parâmetro a `dispatcher.any` (antes `/farms`):
 
@@ -1598,7 +1598,7 @@ Os valores globais podem incluir caracteres curingas e caracteres alfanuméricos
 | Caracteres válidos | Descrição | Exemplos |
 |--- |--- |--- |
 | `*` | Corresponde a zero ou mais instâncias contíguas de qualquer caractere na string. O caractere final da correspondência é determinado por uma das seguintes situações: <br/>Um caractere na string corresponde ao caractere seguinte no padrão, e esse caractere tem as seguintes características:<br/><ul><li>Não é um *</li><li>Não é um?</li><li>Um caractere literal (incluindo um espaço) ou uma classe de caractere.</li><li>O fim do padrão é atingido.</li></ul>Dentro de uma classe de caracteres, o caractere é interpretado literalmente. | `*/geo*` Corresponde a qualquer página abaixo do `/content/geometrixx` nó e do `/content/geometrixx-outdoors` nó. As seguintes solicitações HTTP correspondem ao padrão global: <br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*` Corresponde <br/>a qualquer página abaixo do `/content/geometrixx-outdoors` nó. Por exemplo, a seguinte solicitação HTTP corresponde ao padrão global: <br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
-| `?` | Corresponde a qualquer caractere único. Use classes de caracteres externas. Dentro de uma classe de caracteres, esse caractere é interpretado literalmente. | `*outdoors/??/*`<br/> Corresponde as páginas para qualquer idioma no site geometrixx-outdoors. Por exemplo, a seguinte solicitação HTTP corresponde ao padrão global: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>A solicitação a seguir não corresponde ao padrão global: <br/><ul><li>"OBTENHA /content/geometrixx-outdoors/en.html"</li></ul> |
+| `?` | Corresponde a qualquer caractere único. Use classes de caracteres externas. Dentro de uma classe de caracteres, esse caractere é interpretado literalmente. | `*outdoors/??/*`<br/> Corresponde as páginas para qualquer idioma no site geometrixx-outdoors. Por exemplo, a seguinte solicitação HTTP corresponde ao padrão global: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>A solicitação a seguir não corresponde ao padrão global: <br/><ul><li>&quot;OBTENHA /content/geometrixx-outdoors/en.html&quot;</li></ul> |
 | `[ and ]` | Demarca o início e o fim de uma classe de caracteres. As classes de caracteres podem incluir um ou mais intervalos de caracteres e caracteres únicos.<br/>Uma correspondência ocorre se o caractere de destino corresponde a qualquer um dos caracteres na classe de caracteres, ou dentro de um intervalo definido.<br/>Se o colchete de fechamento não estiver incluído, o padrão não produz correspondências. | `*[o]men.html*`<br/> Corresponde à seguinte solicitação HTTP:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>Não corresponde à seguinte solicitação HTTP:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*` Corresponde <br/>às seguintes solicitações HTTP: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | Indica um intervalo de caracteres. Para uso em classes de caracteres.  Fora de uma classe de caracteres, esse caractere é interpretado literalmente. | `*[m-p]men.html*` Corresponde à seguinte solicitação HTTP: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>Não corresponde à seguinte solicitação HTTP:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `!` | Nega o caractere ou a classe de caractere a seguir. Use apenas para negar caracteres e intervalos de caracteres nas classes de caracteres. Equivalente ao `^ wildcard`. <br/>Fora de uma classe de caracteres, esse caractere é interpretado literalmente. | `*[!o]men.html*`<br/> Corresponde à seguinte solicitação HTTP: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>Não corresponde à seguinte solicitação HTTP: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/> Não corresponde à seguinte solicitação HTTP:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` ou `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
@@ -1850,5 +1850,5 @@ Abaixo está uma lista contendo os cabeçalhos de resposta que `X-Dispatcher-Inf
 * **não pode ser armazenado em cache: acesso negado ao verificador de autorização**\
    O verificador de autorização do farm negou acesso ao arquivo em cache.
 * **não pode ser armazenado em cache: sessão inválida** O cache do farm é regido por um gerenciador de sessão (a configuração contém um `sessionmanagement` nó) e a sessão do usuário não é ou não é mais válida.
-* **não pode ser armazenado em cache: a resposta contém`no_cache `** O servidor remoto retornou um `Dispatcher: no_cache` cabeçalho, proibindo o dispatcher de armazenar a saída em cache.
+* **não pode ser armazenado em cache: a resposta contém`no_cache `**O servidor remoto retornou um`Dispatcher: no_cache`cabeçalho, proibindo o dispatcher de armazenar a saída em cache.
 * **não pode ser armazenado em cache: comprimento do conteúdo da resposta é zero** O comprimento do conteúdo da resposta é zero; o dispatcher não criará um arquivo de comprimento zero.
