@@ -1,22 +1,22 @@
 ---
-title: 'Uso do Dispatcher com Vários Domínios '
-seo-title: 'Uso do Dispatcher com Vários Domínios '
+title: 'Utilização do Dispatcher com vários domínios '
+seo-title: 'Utilização do Dispatcher com vários domínios '
 description: Saiba como usar o Dispatcher para processar solicitações de página em vários domínios da Web.
 seo-description: Saiba como usar o Dispatcher para processar solicitações de página em vários domínios da Web.
 uuid: 7342a1c2-fe61-49be-a240-b487d53c7ec1
-contentOwner: Usuário
-cq-exporttemplate: /etc/contentsync/models/geometrixx/page/rewrite
+contentOwner: User
+cq-exporttemplate: /etc/contentsync/templates/geometrixx/page/rewrite
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: expedidor
-content-type: referência
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: 851202feff9b8fe3c6a44241d0ed12822b07b806
 
 ---
 
 
-# Uso do Dispatcher com Vários Domínios {#using-dispatcher-with-multiple-domains}
+# Utilização do Dispatcher com vários domínios{#using-dispatcher-with-multiple-domains}
 
 >[!NOTE]
 >
@@ -70,8 +70,8 @@ Para usar o Dispatcher com vários domínios, é necessário configurar o AEM, o
 
 Para permitir que URLs de domínio e caminhos de conteúdo sejam resolvidos para arquivos em cache, em algum momento do processo um caminho de arquivo ou URL de página deve ser convertido. São fornecidas descrições das seguintes estratégias comuns, onde traduções de caminho ou URL ocorrem em diferentes pontos do processo:
 
-* (Recomendado) A instância de publicação do AEM usa o mapeamento Sling para resolução de recursos para implementar regras internas de regravação de URL. Os URLs de domínio são convertidos em caminhos de repositório de conteúdo. (Consulte [AEM regrava URLs](dispatcher-domains.md#main-pars-title-2)de entrada.)
-* O servidor da Web usa regras internas de regravação de URL que traduzem URLs de domínio em caminhos de cache. (Consulte [O Servidor Web Substitui Os URLs](dispatcher-domains.md#main-pars-title-1)De Entrada.)
+* (Recomendado) A instância de publicação do AEM usa o mapeamento Sling para resolução de recursos para implementar regras internas de regravação de URL. Os URLs de domínio são convertidos em caminhos de repositório de conteúdo. (Consulte [AEM regrava URLs](#aem-rewrites-incoming-urls)de entrada.)
+* O servidor da Web usa regras internas de regravação de URL que traduzem URLs de domínio em caminhos de cache. (Consulte [O Servidor Web Substitui Os URLs](#the-web-server-rewrites-incoming-urls)De Entrada.)
 
 Geralmente, é desejável usar URLs curtos para páginas da Web. Normalmente, os URLs de página espelham a estrutura das pastas do repositório que contêm o conteúdo da Web. No entanto, os URLs não revelam os principais nós do repositório, como `/content`. O cliente não está necessariamente ciente da estrutura do repositório do AEM.
 
