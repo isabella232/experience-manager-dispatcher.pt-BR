@@ -11,7 +11,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 translation-type: tm+mt
-source-git-commit: 851202feff9b8fe3c6a44241d0ed12822b07b806
+source-git-commit: 64d26d802dbc9bb0b6815011a16e24c63a7672aa
 
 ---
 
@@ -70,8 +70,8 @@ Para usar o Dispatcher com vários domínios, é necessário configurar o AEM, o
 
 Para permitir que URLs de domínio e caminhos de conteúdo sejam resolvidos para arquivos em cache, em algum momento do processo um caminho de arquivo ou URL de página deve ser convertido. São fornecidas descrições das seguintes estratégias comuns, onde traduções de caminho ou URL ocorrem em diferentes pontos do processo:
 
-* (Recomendado) A instância de publicação do AEM usa o mapeamento Sling para resolução de recursos para implementar regras internas de regravação de URL. Os URLs de domínio são convertidos em caminhos de repositório de conteúdo. (Consulte [AEM regrava URLs](#aem-rewrites-incoming-urls)de entrada.)
-* O servidor da Web usa regras internas de regravação de URL que traduzem URLs de domínio em caminhos de cache. (Consulte [O Servidor Web Substitui Os URLs](#the-web-server-rewrites-incoming-urls)De Entrada.)
+* (Recomendado) A instância de publicação do AEM usa o mapeamento Sling para resolução de recursos para implementar regras internas de regravação de URL. Os URLs de domínio são convertidos em caminhos de repositório de conteúdo. Consulte [AEM regrava URLs](#aem-rewrites-incoming-urls)de entrada.
+* O servidor da Web usa regras internas de regravação de URL que traduzem URLs de domínio em caminhos de cache. Consulte [O Servidor Web regrava URLs](#the-web-server-rewrites-incoming-urls)de Entrada.
 
 Geralmente, é desejável usar URLs curtos para páginas da Web. Normalmente, os URLs de página espelham a estrutura das pastas do repositório que contêm o conteúdo da Web. No entanto, os URLs não revelam os principais nós do repositório, como `/content`. O cliente não está necessariamente ciente da estrutura do repositório do AEM.
 
