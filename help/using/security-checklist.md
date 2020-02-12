@@ -1,25 +1,25 @@
 ---
-title: A lista de verificação de segurança do Dispatcher
-seo-title: A lista de verificação de segurança do Dispatcher
+title: Lista de verificação de segurança do Dispatcher
+seo-title: Lista de verificação de segurança do Dispatcher
 description: Uma lista de verificação de segurança que deve ser concluída antes de iniciar a produção.
 seo-description: Uma lista de verificação de segurança que deve ser concluída antes de iniciar a produção.
 uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
-contentOwner: Usuário
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: expedidor
-content-type: referência
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: fbfafa55-c029-4ed7-ab3e-1bebfde18248
 jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 
 ---
 
 
-# A lista de verificação de segurança do Dispatcher{#the-dispatcher-security-checklist}
+# Lista de verificação de segurança do Dispatcher{#the-dispatcher-security-checklist}
 
 <!-- 
 
@@ -147,7 +147,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
  -->
 
-## Configure o Dispatcher para impedir ataques CSRF {#configure-dispatcher-to-prevent-csrf-attacks}
+## Configure Dispatcher to prevent CSRF Attacks {#configure-dispatcher-to-prevent-csrf-attacks}
 
 O AEM fornece uma [estrutura](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) destinada a impedir ataques de falsificação de solicitações entre sites. Para utilizar adequadamente essa estrutura, é necessário adicionar o suporte a token CSRF à lista de permissões no dispatcher. Você pode fazer isso:
 
