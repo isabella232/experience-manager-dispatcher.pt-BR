@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: fb7891406af215c59e9768b699a5d191ba4b1eb2
+source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 
 ---
 
@@ -200,19 +200,19 @@ Cada propriedade farm pode conter as seguintes propriedades secundárias:
 |--- |--- |
 | [/homepage](#specify-a-default-page-iis-only-homepage) | Página inicial padrão (opcional) (somente IIS) |
 | [/clientheaders](#specifying-the-http-headers-to-pass-through-clientheaders) | Os cabeçalhos da solicitação HTTP do cliente para passar. |
-| [/virtualhosts](#identifying-virtual-hosts-virtual-hosts) | Os hosts virtuais para este farm. |
-| [/sessionmanagement](#enabling-secure-sessions-session-management) | Suporte para gerenciamento e autenticação de sessão. |
+| [/virtualhosts](#identifying-virtual-hosts-virtualhosts) | Os hosts virtuais para este farm. |
+| [/sessionmanagement](#enabling-secure-sessions-sessionmanagement) | Suporte para gerenciamento e autenticação de sessão. |
 | [/renders](#defining-page-renderers-renders) | Os servidores que fornecem páginas renderizadas (normalmente, instâncias de publicação do AEM). |
 | [/filter](#configuring-access-to-content-filter) | Define os URLs aos quais o Dispatcher ativa o acesso. |
 | [/vanity_urls](#enabling-access-to-vanity-urls-vanity-urls) | Configura o acesso a URLs personalizados. |
-| [/propagateSyndPost](#forwarding-syndication-requests-propagate-syndpost) | Suporte para o encaminhamento de solicitações de sindicalização. |
+| [/propagateSyndPost](#forwarding-syndication-requests-propagatesyndpost) | Suporte para o encaminhamento de solicitações de sindicalização. |
 | [/cache](#configuring-the-dispatcher-cache-cache) | Configura o comportamento de cache. |
 | [/statistics](#configuring-load-balancing-statistics) | Definição de categorias estatísticas para cálculos de balanceamento de carga. |
-| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-sticky-connections-for) | A pasta que contém documentos adesivos. |
+| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-stickyconnectionsfor) | A pasta que contém documentos adesivos. |
 | [/health_check](#specifying-a-health-check-page) | O URL a ser usado para determinar a disponibilidade do servidor. |
 | [/retryDelay](#specifying-the-page-retry-delay) | O atraso antes de tentar novamente uma conexão com falha. |
 | [/unavailablePenalidade](#reflecting-server-unavailability-in-dispatcher-statistics) | Sanções que afetam as estatísticas relativas aos cálculos de balanceamento de carga. |
-| [/failover](#using-the-fail-over-mechanism) | Reenviar solicitações para renderizações diferentes quando a solicitação original falhar. |
+| [/failover](#using-the-failover-mechanism) | Reenviar solicitações para renderizações diferentes quando a solicitação original falhar. |
 | [/auth_checker](permissions-cache.md) | Para obter acesso a cache sensível a permissões, consulte [Armazenamento em cache de conteúdo](permissions-cache.md)protegido. |
 
 ## Especificar uma página padrão (somente IIS) - /homepage {#specify-a-default-page-iis-only-homepage}
