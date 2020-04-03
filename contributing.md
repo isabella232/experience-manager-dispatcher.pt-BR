@@ -24,7 +24,7 @@ Queremos facilitar ao máximo a apresentação das suas contribuições. Você p
 * [Criar um problema](#create-an-issue)
 * [Criar uma solicitação de baixa automática](#create-a-pull-request)
 
-Qual método você escolhe depende de quão confortável você está editando a documentação no GitHub.
+Qual método você escolhe depende do quão confortável você está editando a documentação no GitHub.
 
 >[!NOTE]
 >
