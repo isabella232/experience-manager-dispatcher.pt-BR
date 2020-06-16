@@ -14,7 +14,10 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
+source-git-commit: 9ffdc1d85d1a0da45f95e0780227ee6569cd4b3d
+workflow-type: tm+mt
+source-wordcount: '672'
+ht-degree: 1%
 
 ---
 
@@ -32,7 +35,7 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
  -->
 
-O dispatcher como sistema front-end oferece uma camada extra de segurança para sua infraestrutura do Adobe Experience Manager. A Adobe recomenda que você conclua a seguinte lista de verificação antes de continuar a produção.
+O dispatcher como um sistema front-end oferta uma camada extra de segurança para a sua infraestrutura de Adobe Experience Manager. A Adobe recomenda que você conclua a seguinte lista de verificação antes de continuar a produção.
 
 >[!CAUTION]
 >
@@ -40,7 +43,7 @@ O dispatcher como sistema front-end oferece uma camada extra de segurança para 
 
 ## Usar a versão mais recente do Dispatcher {#use-the-latest-version-of-dispatcher}
 
-Instale a versão mais recente disponível para a sua plataforma. Você deve atualizar sua instância do Dispatcher para usar a versão mais recente para aproveitar as vantagens dos aprimoramentos de produtos e segurança. Consulte [Instalação do Dispatcher](dispatcher-install.md).
+Instale a versão mais recente disponível para a sua plataforma. Atualize sua instância do Dispatcher para usar a versão mais recente para aproveitar as vantagens dos aprimoramentos de produtos e segurança. Consulte [Instalação do Dispatcher](dispatcher-install.md).
 
 >[!NOTE]
 >
@@ -52,7 +55,7 @@ Instale a versão mais recente disponível para a sua plataforma. Você deve atu
 
 ## Restringir clientes que podem liberar seu cache {#restrict-clients-that-can-flush-your-cache}
 
-A Adobe recomenda [limitar os clientes que podem liberar seu cache.](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
+A Adobe recomenda que você [limite os clientes que podem liberar seu cache.](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
 
 ## Habilitar HTTPS para segurança de camada de transporte {#enable-https-for-transport-layer-security}
 
@@ -77,7 +80,7 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 ## Restringir acesso {#restrict-access}
 
-Ao configurar o Dispatcher, você deve restringir o acesso externo o máximo possível. Consulte [Exemplo/seção](dispatcher-configuration.md#main-pars_184_1_title) de filtro na documentação do Dispatcher.
+Ao configurar o Dispatcher, você deve restringir o acesso externo ao máximo possível. Consulte [Exemplo/seção](dispatcher-configuration.md#main-pars_184_1_title) de filtro na documentação do Dispatcher.
 
 ## Verifique se o acesso aos URLs administrativos foi negado {#make-sure-access-to-administrative-urls-is-denied}
 
@@ -85,11 +88,11 @@ Certifique-se de usar filtros para bloquear o acesso externo a quaisquer URLs ad
 
 Consulte [Testando o Dispatcher Security](dispatcher-configuration.md#testing-dispatcher-security) para obter uma lista de URLs que precisam ser bloqueados.
 
-## Usar listas de permissões em vez de listas negras {#use-whitelists-instead-of-blacklists}
+## Usar Listas De Permissões Em Vez De Listas De Bloqueios {#use-allowlists-instead-of-blocklists}
 
-As listas de permissões são uma maneira melhor de fornecer controle de acesso, pois, por natureza, elas assumem que todas as solicitações de acesso devem ser negadas, a menos que sejam explicitamente parte da lista de permissões. Este modelo proporciona um controle mais restritivo sobre novas solicitações que podem não ter sido ainda revisadas ou consideradas durante uma determinada fase de configuração.
+As listas de permissão são uma maneira melhor de fornecer controles de acesso, pois, por natureza, elas assumem que todas as solicitações de acesso devem ser negadas, a menos que sejam explicitamente parte da lista de permissões. Este modelo proporciona um controle mais restritivo sobre novas solicitações que podem não ter sido ainda revisadas ou consideradas durante uma determinada fase de configuração.
 
-## Execute o Dispatcher com um usuário dedicado do sistema {#run-dispatcher-with-a-dedicated-system-user}
+## Execute o Dispatcher com um usuário de sistema dedicado {#run-dispatcher-with-a-dedicated-system-user}
 
 Ao configurar o Dispatcher, você deve garantir que o servidor da Web seja executado por um usuário dedicado com menos privilégios. É recomendável conceder acesso de gravação somente à pasta de cache do dispatcher.
 
@@ -149,7 +152,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Configure Dispatcher to prevent CSRF Attacks {#configure-dispatcher-to-prevent-csrf-attacks}
 
-O AEM fornece uma [estrutura](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) destinada a impedir ataques de falsificação de solicitações entre sites. Para utilizar adequadamente essa estrutura, é necessário adicionar o suporte a token CSRF à lista de permissões no dispatcher. Você pode fazer isso:
+O AEM fornece uma [estrutura](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) destinada a impedir ataques de falsificação de solicitações entre sites. Para utilizar adequadamente essa estrutura, é necessário permitir o suporte ao token CSRF no dispatcher. Você pode fazer isso:
 
 1. Criação de um filtro para permitir o `/libs/granite/csrf/token.json` caminho;
 1. Adicione o `CSRF-Token` cabeçalho à `clientheaders` seção da configuração do Dispatcher.
