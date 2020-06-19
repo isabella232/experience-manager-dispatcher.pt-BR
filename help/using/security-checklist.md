@@ -120,6 +120,7 @@ No nível do dispatcher, há dois métodos de configuração para evitar ataques
    * `.doc`
    * `.pdf`
    * `.ppt`
+
    Um arquivo de configuração de exemplo pode ser visto para [restringir o acesso](#restrict-access)externo, o que inclui restrições para tipos mime.
 
 Para habilitar com segurança a funcionalidade completa nas instâncias de publicação, configure os filtros para impedir o acesso aos seguintes nós:
