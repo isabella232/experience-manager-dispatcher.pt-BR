@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+source-git-commit: 31dc02adc1d16ec61d5191b86d0d1276c2e1da46
 workflow-type: tm+mt
-source-wordcount: '8802'
+source-wordcount: '8582'
 ht-degree: 2%
 
 ---
@@ -626,7 +626,7 @@ Se os filtros não estiverem acionando da forma esperada, ative o [Rastreamento 
 
 #### Exemplo de filtro: Negar tudo {#example-filter-deny-all}
 
-A seção de filtro de exemplo a seguir faz com que o Dispatcher negue solicitações para todos os arquivos. Você deve negar o acesso a todos os arquivos e permitir o acesso a áreas específicas.
+A seguinte seção de filtro de exemplo faz com que o Dispatcher negue solicitações para todos os arquivos. Você deve negar o acesso a todos os arquivos e permitir o acesso a áreas específicas.
 
 ```xml
   /0001  { /glob "*" /type "deny" }
@@ -847,60 +847,60 @@ Uma única entrada pode ter um *valor global* ou alguma combinação de *método
 
 Os filtros do Dispatcher devem bloquear o acesso às páginas e scripts a seguir AEM instâncias de publicação. Use um navegador da Web para tentar abrir as páginas a seguir como um visitante do site faria e verificar se um código 404 é retornado. Se qualquer outro resultado for obtido, ajuste as filtros.
 
-Observe que você deve ver a renderização de página normal para /content/add_valid_page.html?debug=layout.
+Observe que você deve ver a renderização de página normal para `/content/add_valid_page.html?debug=layout`.
 
 
-* /admin
-* /system/console
-* /dav/crx.default
-* /crx
-* /bin/crxde/logs
-* /jcr:system/jcr:versionStorage.json
-* /_jcr_system/_jcr_versionStorage.json
-* /libs/wcm/core/content/siteadmin.html
-* /libs/collab/core/content/admin.html
-* /libs/cq/ui/content/dumplibs.html
-* /var/linkchecker.html
-* /etc/linkchecker.html
-* /home/users/a/admin/profile.json
-* /home/users/a/admin/profile.xml
-* /libs/cq/core/content/login.json
-* /content/../libs/foundation/components/text/text.jsp
-* /content/.{.}/libs/foundation/components/text/text.jsp
-* /apps/sling/config/org.apache.felix.webconsole.internal.servlet.OsgiManager.config/jcr%3acontent/jcr%3adata
-* /libs/foundation/components/primary/cq/workflow/components/participants/json.GET.servlet
-* /content.pages.json
-* /content.languages.json
-* /content.blueprint.json
-* /content.-1.json
-* /content.10.json
-* /content.infinity.json
-* /content.tidy.json
-* /content.tidy.-1.blubber.json
-* /content/dam.tidy.-100.json
-* /content/content/geometrixx.sitemap.txt
-* /content/add_valid_page.query.json?Statement=//*
-* /content/add_valid_page.qu%65ry.js%6Fn?Statement=//*
-* /content/add_valid_page.query.json?Statement=//*[@transportPassword]/(@transportPassword%20|%20@transportUri%20|%20@transportUser)
-* /content/add_valid_path_to_a_page/_jcr_content.json
-* /content/add_valid_path_to_a_page/jcr:content.json
-* /content/add_valid_path_to_a_page/_jcr_content.feed
-* /content/add_valid_path_to_a_page/jcr:content.feed
-* /content/add_valid_path_to_a_page/pagename._jcr_content.feed
-* /content/add_valid_path_to_a_page/pagename.jcr:content.feed
-* /content/add_valid_path_to_a_page/pagename.docview.xml
-* /content/add_valid_path_to_a_page/pagename.docview.json
-* /content/add_valid_path_to_a_page/pagename.sysview.xml
-* /etc.xml
-* /content.feed.xml
-* /content.rss.xml
-* /content.feed.html
-* /content/add_valid_page.html?debug=layout
-* /projetos
-* /marcação
-* /etc/replication.html
-* /etc/cloudservices.html
-* /bem-vindo
+* `/admin`
+* `/system/console`
+* `/dav/crx.default`
+* `/crx`
+* `/bin/crxde/logs`
+* `/jcr:system/jcr:versionStorage.json`
+* `/_jcr_system/_jcr_versionStorage.json`
+* `/libs/wcm/core/content/siteadmin.html`
+* `/libs/collab/core/content/admin.html`
+* `/libs/cq/ui/content/dumplibs.html`
+* `/var/linkchecker.html`
+* `/etc/linkchecker.html`
+* `/home/users/a/admin/profile.json`
+* `/home/users/a/admin/profile.xml`
+* `/libs/cq/core/content/login.json`
+* `/content/../libs/foundation/components/text/text.jsp`
+* `/content/.{.}/libs/foundation/components/text/text.jsp`
+* `/apps/sling/config/org.apache.felix.webconsole.internal.servlet.OsgiManager.config/jcr%3acontent/jcr%3adata`
+* `/libs/foundation/components/primary/cq/workflow/components/participants/json.GET.servlet`
+* `/content.pages.json`
+* `/content.languages.json`
+* `/content.blueprint.json`
+* `/content.-1.json`
+* `/content.10.json`
+* `/content.infinity.json`
+* `/content.tidy.json`
+* `/content.tidy.-1.blubber.json`
+* `/content/dam.tidy.-100.json`
+* `/content/content/geometrixx.sitemap.txt `
+* `/content/add_valid_page.query.json?statement=//*`
+* `/content/add_valid_page.qu%65ry.js%6Fn?statement=//*`
+* `/content/add_valid_page.query.json?statement=//*[@transportPassword]/(@transportPassword%20|%20@transportUri%20|%20@transportUser)`
+* `/content/add_valid_path_to_a_page/_jcr_content.json`
+* `/content/add_valid_path_to_a_page/jcr:content.json`
+* `/content/add_valid_path_to_a_page/_jcr_content.feed`
+* `/content/add_valid_path_to_a_page/jcr:content.feed`
+* `/content/add_valid_path_to_a_page/pagename._jcr_content.feed`
+* `/content/add_valid_path_to_a_page/pagename.jcr:content.feed`
+* `/content/add_valid_path_to_a_page/pagename.docview.xml`
+* `/content/add_valid_path_to_a_page/pagename.docview.json`
+* `/content/add_valid_path_to_a_page/pagename.sysview.xml`
+* `/etc.xml`
+* `/content.feed.xml`
+* `/content.rss.xml`
+* `/content.feed.html`
+* `/content/add_valid_page.html?debug=layout`
+* `/projects`
+* `/tagging`
+* `/etc/replication.html`
+* `/etc/cloudservices.html`
+* `/welcome`
 
 Execute o seguinte comando em um terminal ou prompt de comando para determinar se o acesso anônimo de gravação está ativado. Não é possível gravar dados no nó.
 
@@ -1231,7 +1231,7 @@ A integração AEM com a Adobe Analytics fornece dados de configuração em um a
 
 A propriedade /invalidateHandler permite definir um script que é chamado para cada solicitação de invalidação recebida pelo Dispatcher.
 
-É chamada com os seguintes argumentos:
+É chamado com os seguintes argumentos:
 
 * Alça\
    O caminho de conteúdo que é invalidado
@@ -1277,7 +1277,7 @@ Para obter informações sobre propriedades globais, consulte [Criar padrões pa
 
 >[!CAUTION]
 >
->É recomendável definir os /allowClients.
+>É recomendável definir o /allowClients.
 >
 >Se isso não for feito, qualquer cliente poderá emitir uma chamada para limpar o cache; se isso for feito repetidamente, isso pode afetar gravemente o desempenho do site.
 
@@ -1799,7 +1799,7 @@ Nesse caso, verifique se cada solicitação passa por apenas um Dispatcher. Um D
 
 ## Depuração {#debugging}
 
-Ao adicionar o cabeçalho `X-Dispatcher-Info` a uma solicitação, o Dispatcher responde se o público alvo foi armazenado em cache, retornado do cache ou não é armazenado em cache. O cabeçalho de resposta `X-Cache-Info` contém essas informações em um formulário legível. Você pode usar esses cabeçalhos de resposta para depurar problemas que envolvam respostas armazenadas em cache pelo Dispatcher.
+Ao adicionar o cabeçalho `X-Dispatcher-Info` a uma solicitação, o Dispatcher responde se o público alvo foi armazenado em cache, retornado do cache ou não pode ser armazenado em cache. O cabeçalho de resposta `X-Cache-Info` contém essas informações em um formulário legível. Você pode usar esses cabeçalhos de resposta para depurar problemas que envolvam respostas armazenadas em cache pelo Dispatcher.
 
 Essa funcionalidade não está ativada por padrão, portanto, para que o cabeçalho de resposta seja incluído, o farm deve conter a seguinte entrada: `X-Cache-Info`
 
