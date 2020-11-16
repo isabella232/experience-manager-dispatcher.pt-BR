@@ -1,19 +1,22 @@
 ---
 title: Utilização de SSL com Dispatcher
 seo-title: Utilização de SSL com Dispatcher
-description: Saiba como configurar o Dispatcher para se comunicar com o AEM usando conexões SSL.
-seo-description: Saiba como configurar o Dispatcher para se comunicar com o AEM usando conexões SSL.
+description: Saiba como configurar o Dispatcher para se comunicar com AEM usando conexões SSL.
+seo-description: Saiba como configurar o Dispatcher para se comunicar com AEM usando conexões SSL.
 uuid: 1a8f448c-d3d8-4798-a5cb-9579171171ed
-contentOwner: Usuário
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
-content-type: referência
+content-type: reference
 discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: f9fb0e94dbd1c67bf87463570e8b5eddaca11bf3
+workflow-type: tm+mt
+source-wordcount: '1375'
+ht-degree: 0%
 
 ---
 
@@ -22,33 +25,33 @@ source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 Use conexões SSL entre o Dispatcher e o computador de renderização:
 
-* [SSL unidirecional](dispatcher-ssl.md#main-pars-title-1)
-* [SSL mútuo](dispatcher-ssl.md#main-pars-title-2)
+* [SSL unidirecional](#use-ssl-when-dispatcher-connects-to-aem)
+* [SSL mútuo](#configuring-mutual-ssl-between-dispatcher-and-aem)
 
 >[!NOTE]
 >
 >As operações relacionadas aos certificados SSL estão vinculadas a produtos de terceiros. Eles não são cobertos pelo contrato de manutenção e suporte do Adobe Platinum.
 
-## Usar SSL quando o Dispatcher se conecta ao AEM {#use-ssl-when-dispatcher-connects-to-aem}
+## Usar SSL quando o Dispatcher se conecta a AEM {#use-ssl-when-dispatcher-connects-to-aem}
 
-Configure o Dispatcher para se comunicar com a instância de renderização do AEM ou CQ usando conexões SSL.
+Configure o Dispatcher para se comunicar com a instância de renderização AEM ou CQ usando conexões SSL.
 
 Antes de configurar o Dispatcher, configure o AEM ou o CQ para usar o SSL:
 
-* AEM 6.2: [Ativando HTTP por SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1: [Ativando HTTP por SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* Versões anteriores do AEM: consulte [esta página](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
+* AEM 6.2: [Habilitando HTTP por SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Habilitando HTTP por SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Versões AEM antigas: consulte [esta página](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
 
 ### Cabeçalhos de solicitação relacionados a SSL {#ssl-related-request-headers}
 
-Quando o Dispatcher recebe uma solicitação HTTPS, o Dispatcher inclui os seguintes cabeçalhos na solicitação subsequente que ele envia para o AEM ou CQ:
+Quando o Dispatcher recebe uma solicitação HTTPS, o Dispatcher inclui os seguintes cabeçalhos na solicitação subsequente que ele envia para AEM ou CQ:
 
 * `X-Forwarded-SSL`
 * `X-Forwarded-SSL-Cipher`
 * `X-Forwarded-SSL-Keysize`
 * `X-Forwarded-SSL-Session-ID`
 
-Uma solicitação por meio do Apache-2.4 com cabeçalhos `mod_ssl` semelhantes ao seguinte exemplo:
+Uma solicitação por meio do Apache-2.4 com cabeçalhos `mod_ssl` semelhantes ao exemplo a seguir:
 
 ```shell
 X-Forwarded-SSL: on
@@ -61,7 +64,7 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 Para configurar o Dispatcher para se conectar ao AEM ou CQ sobre SSL, seu arquivo [dispatcher.any](dispatcher-configuration.md) requer as seguintes propriedades:
 
 * Um host virtual que lida com solicitações HTTPS.
-* A `renders` seção do host virtual inclui um item que identifica o nome do host e a porta da instância CQ ou AEM que usa HTTPS.
+* A `renders` seção do host virtual inclui um item que identifica o nome do host e a porta da instância do CQ ou AEM que usa HTTPS.
 * O `renders` item inclui uma propriedade chamada `secure` de valor `1`.
 
 Observação: Crie outro host virtual para manipular solicitações HTTP, se necessário.
@@ -114,9 +117,9 @@ O exemplo dispatcher.any file mostra os valores de propriedade para conexão usa
 }
 ```
 
-## Configuração do SSL mútuo entre o Dispatcher e o AEM {#configuring-mutual-ssl-between-dispatcher-and-aem}
+## Configurando o SSL Mútuo entre o Dispatcher e o AEM {#configuring-mutual-ssl-between-dispatcher-and-aem}
 
-Configure as conexões entre o Dispatcher e o computador de renderização (normalmente uma instância de publicação de AEM ou CQ) para usar o SSL mútuo:
+Configure as conexões entre o Dispatcher e o computador de renderização (normalmente uma instância de publicação AEM ou CQ) para usar o SSL Mútuo:
 
 * O Dispatcher se conecta à instância de renderização por SSL.
 * A instância de renderização verifica a validade do certificado do Dispatcher.
@@ -155,14 +158,14 @@ Se você estiver atuando como a CA, use o [OpenSSL](https://www.openssl.org/) pa
    >
    >Várias propriedades no arquivo openssl.cnf controlam o comportamento do script CA.sh. Você deve modificar esse arquivo conforme necessário antes de criar sua CA.
 
-#### Criação de certificados {#creating-the-certificates}
+#### Criação dos certificados {#creating-the-certificates}
 
 Use o OpenSSL para criar as solicitações de certificado para enviar à CA de terceiros ou para fazer logon com a CA.
 
 Quando você cria um certificado, o OpenSSL usa a propriedade Common Name para identificar o titular do certificado. Para o certificado da instância de renderização, use o nome de host do computador da instância como o Nome Comum se você estiver configurando o Dispatcher para aceitar o certificado somente se ele corresponder ao nome do host da instância Publicar. (See the [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) property.)
 
 1. Abra um terminal e altere o diretório atual para o diretório que contém o arquivo CH.sh das bibliotecas OpenSSL.
-1. Digite o seguinte comando e forneça valores quando solicitado. Se necessário, use o nome de host da instância de publicação como Nome comum. O nome do host é um nome que pode ser resolvido por DNS para o endereço IP da renderização:
+1. Digite o seguinte comando e forneça valores quando solicitado. Se necessário, use o nome de host da instância de publicação como o Nome comum. O nome do host é um nome que pode ser resolvido por DNS para o endereço IP da renderização:
 
    ```shell
    ./CA.sh -newreq
@@ -241,7 +244,7 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
    -Djavax.net.ssl.trustStore=<location of cacerts.keystore>
    ```
 
-   Por exemplo, se você usar o script crx-quickstart/bin/quickstart para iniciar a instância de publicação, poderá modificar a propriedade CQ_JVM_OPTS:
+   Por exemplo, se você usar o script crx-quickstart/bin/quickstart para start da sua instância de publicação, poderá modificar a propriedade CQ_JVM_OPTS:
 
    ```shell
    CQ_JVM_OPTS='-server -Xmx2048m -XX:MaxPermSize=512M -Djavax.net.ssl.trustStore=/usr/lib/cq6.0/publish/ssl/cacerts.keystore'
@@ -251,9 +254,9 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 Use o certificado de renderização com as instruções na seção *Ativar SSL na seção Publicar instância* para configurar o serviço HTTP da instância de renderização para usar SSL:
 
-* AEM 6.2: [Ativando HTTP por SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1: [Ativando HTTP por SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* Versões anteriores do AEM: consulte [esta página.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
+* AEM 6.2: [Habilitando HTTP por SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Habilitando HTTP por SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Versões AEM antigas: consulte [esta página.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
 
 ### Configuração do SSL para o módulo Dispatcher {#configuring-ssl-for-the-dispatcher-module}
 
@@ -283,7 +286,7 @@ Combine o certificado do dispatcher e a chave privada não criptografada em um �
    -----END CERTIFICATE-----
    ```
 
-### Especificação do certificado a ser usado pelo Dispatcher {#specifying-the-certificate-to-use-for-dispatcher}
+### Especificação do certificado a ser usado para o Dispatcher {#specifying-the-certificate-to-use-for-dispatcher}
 
 Adicione as seguintes propriedades à configuração [do módulo](dispatcher-install.md#main-pars-55-35-1022) Dispatcher (em `httpd.conf`):
 
