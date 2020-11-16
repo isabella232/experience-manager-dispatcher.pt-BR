@@ -13,7 +13,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 translation-type: tm+mt
-source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+source-git-commit: 9af0dc22d32f1176b84c28a70b1a4701414d434e
 workflow-type: tm+mt
 source-wordcount: '553'
 ht-degree: 6%
@@ -25,7 +25,7 @@ ht-degree: 6%
 
 >[!NOTE]
 >
->As versões do Dispatcher são independentes do AEM, no entanto, a documentação do Dispatcher é incorporada na documentação AEM. Use sempre a documentação do Dispatcher incorporada na documentação para obter a versão mais recente do AEM.
+>As versões do Dispatcher são independentes do AEM, no entanto, a documentação do Dispatcher é incorporada na documentação do AEM. Use sempre a documentação do Dispatcher incorporada na documentação para obter a versão mais recente do AEM.
 >
 >Você pode ter sido redirecionado para esta página se tiver seguido um link para a documentação do Dispatcher incorporada à documentação de uma versão anterior do AEM.
 
@@ -37,10 +37,10 @@ ht-degree: 6%
 
 Como sempre, as primeiras etapas são verificar as noções básicas:
 
-* [Confirmar operação básica](#ConfirmBasicOperation)
-* Verifique todos os arquivos de log para seu servidor da Web e despachante. Se necessário, aumente o `loglevel` usado para o [registro](#Logging)do dispatcher.
+* [Confirmar operação básica](/help/using/dispatcher-configuration.md#confirming-basic-operation)
+* Verifique todos os arquivos de log para seu servidor da Web e despachante. Se necessário, aumente o `loglevel` usado para o [registro](/help/using/dispatcher-configuration.md#logging)do dispatcher.
 
-* [Verifique sua configuração](#ConfiguringtheDispatcher):
+* [Verifique sua configuração](/help/using/dispatcher-configuration.md):
 
    * Você tem vários Dispatchers?
 
@@ -126,6 +126,6 @@ O Dispatcher não intercepta a `mod_dir` correção, mas lida completamente com 
 
 Se isso acontecer, você deverá:
 
-* desativar `mod_dir` para a `Directory` subárvore ou `Location` subárvore manuseada pelo expedidor
+* desativar `mod_dir` para a `Directory` subárvore ou `Location` subárvore manuseada pelo dispatcher
 
 * use `DirectorySlash Off` para configurar `mod_dir` para não anexar `/`
