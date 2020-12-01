@@ -1,15 +1,18 @@
 ---
 title: Problemas principais do Dispatcher
-seo-title: Principais problemas do AEM Dispatcher
-description: Principais problemas do AEM Dispatcher
-seo-description: Principais problemas do Adobe AEM Dispatcher
+seo-title: Principais problemas do Dispatcher AEM
+description: Principais problemas do Dispatcher AEM
+seo-description: Principais problemas do Dispatcher de Adobe AEM
 translation-type: tm+mt
 source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+workflow-type: tm+mt
+source-wordcount: '1644'
+ht-degree: 14%
 
 ---
 
 
-# Perguntas frequentes sobre os principais problemas do AEM Dispatcher
+# Perguntas frequentes sobre os principais problemas do Dispatcher AEM
 
 ![Configurando o Dispatcher](assets/CQDispatcher_workflow_v2.png)
 
@@ -17,7 +20,7 @@ source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ### O que é o Dispatcher?
 
-O Dispatcher é a ferramenta de cache e/ou balanceamento de carga do Adobe Experience Manager que ajuda a realizar um ambiente de autoria da Web rápido e dinâmico. Para armazenamento em cache, o Dispatcher funciona como parte de um servidor HTTP, como o Apache, com o objetivo de armazenar (ou "armazenar") o máximo possível de conteúdo estático do site e acessar o mecanismo de layout do site com a menor frequência possível. Em uma função de balanceamento de carga, o Dispatcher distribui solicitações de usuário (carga) em diferentes instâncias do AEM (renderizações).
+O Dispatcher é uma ferramenta de cache e/ou balanceamento de carga da Adobe Experience Manager que ajuda a realizar um ambiente rápido e dinâmico de autoria da Web. Para armazenamento em cache, o Dispatcher funciona como parte de um servidor HTTP, como o Apache, com o objetivo de armazenar (ou &quot;armazenar&quot;) o máximo possível de conteúdo estático do site e acessar o mecanismo de layout do site com a menor frequência possível. Em uma função de balanceamento de carga, o Dispatcher distribui solicitações de usuário (carga) em diferentes instâncias AEM (renderizações).
 
 Para armazenamento em cache, o módulo Dispatcher usa a capacidade do servidor Web de fornecer conteúdo estático. O Dispatcher coloca os documentos em cache na raiz do documento do servidor Web.
 
@@ -26,51 +29,51 @@ Para armazenamento em cache, o módulo Dispatcher usa a capacidade do servidor W
 O Dispatcher usa a capacidade do servidor da Web de fornecer conteúdo estático. O Dispatcher armazena documentos em cache na raiz do documento do servidor da Web. O Dispatcher tem dois métodos primários para atualizar o conteúdo de cache quando mudanças forem feitas ao website.
 
 * **As Atualizações de conteúdo** removem as páginas que foram alteradas, bem como os arquivos que estão diretamente associados a elas.
-* **A invalidação automática** invalida automaticamente as partes do cache que podem estar desatualizadas após uma atualização. Por exemplo, ele efetivamente sinaliza páginas relevantes como desatualizadas, sem excluir nada.
+* **A invalidação automática** invalida automaticamente as partes do cache que podem estar desatualizadas após uma atualização. Por exemplo, ele efetivamente sinaliza as páginas relevantes como desatualizadas, sem excluir nada.
 
 ### Quais são os benefícios do balanceamento de carga?
 
-O Balanceamento de Carga distribui solicitações de usuário (carga) em várias instâncias do AEM. A lista a seguir descreve as vantagens do balanceamento de carga:
+O Balanceamento de Carga distribui solicitações de usuário (carga) em várias instâncias AEM. A lista a seguir descreve as vantagens do balanceamento de carga:
 
-* **Maior poder** de processamento: Na prática, isso significa que o Dispatcher compartilha solicitações de documento entre várias instâncias do AEM. Como cada instância tem menos documentos para processar, você tem tempos de resposta mais rápidos. O Dispatcher mantém estatísticas internas para cada categoria de documento, de modo que ele possa estimar o carregamento e distribuir as consultas com eficiência.
-* **Maior cobertura**&#x200B;à prova de falhas: Se o Dispatcher não receber respostas de uma instância, ele retornará automaticamente solicitações para uma das outras instâncias. Assim, se uma instância se tornar indisponível, o único efeito é um abrandamento do site, proporcional à potência computacional perdida.
+* **Maior poder** de processamento: Na prática, isso significa que o Dispatcher compartilha solicitações de documentos entre várias instâncias de AEM. Como cada instância tem menos documentos para processar, você tem tempos de resposta mais rápidos. O Dispatcher mantém estatísticas internas para cada categoria de documento, de modo que ele possa estimar o carregamento e distribuir as consultas com eficiência.
+* **Maior cobertura** à prova de falhas: Se o Dispatcher não receber respostas de uma instância, ele retornará automaticamente solicitações para uma das outras instâncias. Assim, se uma instância se tornar indisponível, o único efeito é um abrandamento do site, proporcional à potência computacional perdida.
 
 >[!NOTE]
 >
->Para obter mais detalhes, consulte a página Visão geral do [Dispatcher](dispatcher.md)
+>Para obter mais detalhes, consulte a página [Visão geral do Dispatcher](dispatcher.md)
 
 ## Instalar e configurar
 
 ### De onde faço download do módulo Dispatcher?
 
-Você pode baixar o módulo Dispatcher mais recente da página Notas [de versão do](release-notes.md) Dispatcher.
+Você pode baixar o módulo Dispatcher mais recente da página [Notas de versão do Dispatcher](release-notes.md).
 
 ### Como instalo o módulo Dispatcher?
 
-Consulte a página [Instalação do Dispatcher](dispatcher-install.md)
+Consulte a página [Instalando o Dispatcher](dispatcher-install.md)
 
 ### Como configurar o módulo Dispatcher?
 
-Consulte a página [Configurando o Dispatcher](dispatcher-configuration.md) .
+Consulte a página [Configurando o Dispatcher](dispatcher-configuration.md).
 
-### Como configurar o Dispatcher para a instância do autor?
+### Como faço para configurar o Dispatcher para a instância do autor?
 
-Consulte [Usando o Dispatcher com uma Instância](dispatcher.md#using-a-dispatcher-with-an-author-server) de Autor para obter as etapas detalhadas.
+Consulte [Usando o Dispatcher com uma Instância de Autor](dispatcher.md#using-a-dispatcher-with-an-author-server) para obter as etapas detalhadas.
 
 ### Como configurar o Dispatcher com vários domínios?
 
 Você pode configurar o CQ Dispatcher com vários domínios, desde que os domínios atendam às seguintes condições:
 
-* O conteúdo da Web para ambos os domínios é armazenado em um único repositório do AEM
+* O conteúdo da Web para ambos os domínios é armazenado em um único repositório AEM
 * Os arquivos no cache do Dispatcher podem ser invalidados separadamente para cada domínio
 
 Leia [Usando o Dispatcher com Vários Domínios](dispatcher-domains.md) para obter mais detalhes.
 
 ### Como faço para configurar o Dispatcher, de modo que todas as solicitações de um usuário sejam encaminhadas para a mesma instância de publicação?
 
-Você pode usar o recurso de conexões [](dispatcher-configuration.md#identifying-a-sticky-connection-folder-stickyconnectionsfor) aderentes, que garante que todos os documentos de um usuário sejam processados na mesma instância do AEM. Esse recurso é importante se você usar páginas personalizadas e dados de sessão. Os dados são armazenados na instância. Portanto, as solicitações subsequentes do mesmo usuário devem retornar a essa instância ou os dados são perdidos.
+Você pode usar o recurso [conexões adesivas](dispatcher-configuration.md#identifying-a-sticky-connection-folder-stickyconnectionsfor), que garante que todos os documentos de um usuário sejam processados na mesma instância do AEM. Esse recurso é importante se você usar páginas personalizadas e dados de sessão. Os dados são armazenados na instância. Portanto, as solicitações subsequentes do mesmo usuário devem retornar a essa instância ou os dados são perdidos.
 
-Como as conexões aderentes restringem a capacidade do Dispatcher de otimizar solicitações, você deve usar essa abordagem somente quando necessário. Você pode especificar a pasta que contém os documentos "fixos", garantindo assim que todos os documentos nessa pasta sejam processados na mesma instância para um usuário.
+Como as conexões aderentes restringem a capacidade do Dispatcher de otimizar solicitações, você deve usar essa abordagem somente quando necessário. Você pode especificar a pasta que contém os documentos &quot;fixos&quot;, garantindo assim que todos os documentos dessa pasta sejam processados na mesma instância para um usuário.
 
 ### Posso usar conexões pegajosas e cache em tandem?
 
@@ -103,23 +106,25 @@ Content-Length: 0
 
 O Dispatcher exclui os arquivos e pastas em cache que têm nomes que correspondem ao valor do cabeçalho de Identificador de CQ. Por exemplo, um identificador de CQ de `/content/geomtrixx-outdoors/en` corresponde aos seguintes itens:
 
-Todos os arquivos (de qualquer extensão de arquivo) nomeados em en no diretório geometrixx-outdoorsQualquer diretório nomeado `_jcr_content` abaixo do diretório en (que, se existir, contém renderizações em cache de subnós da página)O diretório en só será excluído se o diretório `CQ-Action` for `Delete` ou `Deactivate`.
+Todos os arquivos (de qualquer extensão de arquivo) nomeados em en no diretório geometrixx-outdoors
+Qualquer diretório chamado `_jcr_content` abaixo do diretório en (que, se existir, contém renderizações em cache de subnós da página)
+O diretório en só será excluído se `CQ-Action` for `Delete` ou `Deactivate`.
 
-Para obter mais detalhes sobre esse tópico, consulte [Invalidando manualmente o Cache](page-invalidate.md)do Dispatcher.
+Para obter mais detalhes sobre esse tópico, consulte [Invalidando manualmente o Cache do Dispatcher](page-invalidate.md).
 
 ### Como faço para implementar o cache sensível a permissões?
 
-Consulte a página [Cache de conteúdo](permissions-cache.md) seguro.
+Consulte a página [Armazenamento em cache de conteúdo protegido](permissions-cache.md).
 
-### Como proteger as comunicações entre as instâncias do Dispatcher e do CQ?
+### Como faço para proteger as comunicações entre as instâncias do Dispatcher e do CQ?
 
-Consulte a Lista de verificação [de segurança do](security-checklist.md) Dispatcher e as páginas Lista de verificação [de segurança do](https://helpx.adobe.com/experience-manager/6-4/sites/administering/using/security-checklist.html) AEM.
+Consulte as páginas [Dispatcher Security Checklist](security-checklist.md) e [AEM Security Checklist](https://helpx.adobe.com/experience-manager/6-4/sites/administering/using/security-checklist.html).
 
 ### Problema do Dispatcher `jcr:content` alterado para `jcr%3acontent`
 
-**Pergunta**: Recentemente, enfrentamos um problema no nível do despachante em que uma das chamadas ajax que estava recebendo alguns dados do repositório do CQ estava `jcr:content` nela e foi codificada para `jcr%3acontent` resultar em um resultado errado.
+**Pergunta**: Recentemente, enfrentamos um problema no nível do despachante em que uma das chamadas ajax que estava recebendo alguns dados do repositório do CQ estava  `jcr:content` nele e foi codificada para  `jcr%3acontent` resultar em um conjunto de resultados incorreto.
 
-**Resposta**: Use `ResourceResolver.map()` o método para obter um URL "Amigável" para ser usado/receber solicitações de e também para resolver o problema de armazenamento em cache com o Dispatcher. O método map() codifica os dois `:` pontos para sublinhados e o método resolve() os decodifica de volta ao formato legível SLING JCR. Você precisa usar o método map() para gerar o URL usado na chamada Ajax.
+**Resposta**: Use o  `ResourceResolver.map()` método para obter um URL &quot;Amigável&quot; para ser usado/receber solicitações de e também para resolver o problema de armazenamento em cache com o Dispatcher. O método map() codifica os dois pontos `:` para sublinhados e o método resolve() os decodifica de volta ao formato legível SLING JCR.Você precisa usar o método map() para gerar o URL usado na chamada Ajax.
 
 Mais: [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
@@ -127,26 +132,26 @@ Mais: [https://sling.apache.org/documentation/the-sling-engine/mappings-for-reso
 
 ### Como faço para configurar os agentes de liberação do Dispatcher em uma instância de Publicação?
 
-Consulte a página [Replicação](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents) .
+Consulte a página [Replicação](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents).
 
 ### Como soluciono problemas de rubor do Dispatcher?
 
-[Consulte este artigo](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) de solução de problemas que responde às seguintes perguntas:
+[Consulte este ](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) artigo de solução de problemas que responde às seguintes perguntas:
 
 * Como devo depurar uma situação em que nenhum conteúdo é salvo no cache do Dispatcher?
 * Como faço para depurar uma situação em que os arquivos de cache não são atualizados?
 * Como faço para depurar uma situação em que nada relacionado ao rubor do Dispatcher está funcionando?
 
-Se as operações de exclusão estiverem fazendo com que o Dispatcher esvazie, [use a solução alternativa nesta publicação do blog da comunidade pelo Sensei Martin](https://mkalugin-cq.blogspot.in/2012/04/i-have-been-working-on-following.html).
+Se as operações de exclusão estiverem fazendo com que o Dispatcher esvazie, [use a solução alternativa nesta publicação do blog da comunidade por Sensei Martin](https://mkalugin-cq.blogspot.in/2012/04/i-have-been-working-on-following.html).
 
-### Como liberar ativos DAM do cache do Dispatcher?
+### Como faço para liberar ativos DAM do cache do Dispatcher?
 
-Você pode usar o recurso "replicação em cadeia".  Com esse recurso ativado, o agente de liberação do dispatcher envia uma solicitação de liberação quando uma replicação é recebida do autor.
+Você pode usar o recurso &quot;replicação em cadeia&quot;.  Com esse recurso ativado, o agente de liberação do dispatcher envia uma solicitação de liberação quando uma replicação é recebida do autor.
 
 Para ativá-lo:
 
-1. [Siga as etapas aqui](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) para criar agentes de descarga ao publicar
-1. Vá para a configuração de cada um desses agentes e, na guia **Acionadores** , marque a caixa **Ao receber** .
+1. [Siga as etapas ](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) aqui para criar agentes de descarga ao publicar
+1. Vá para a configuração de cada um desses agentes e, na guia **Acionadores**, marque a caixa **Ao receber**.
 
 ## Diversos
 
@@ -158,27 +163,27 @@ Se o documento estiver configurado para invalidação automática, o Dispatcher 
 
 ### Como o Dispatcher retorna documentos?
 
-Você pode definir se o Dispatcher armazena um documento em cache usando o arquivo de configuração [do](dispatcher-configuration.md) Dispatcher `dispatcher.any`. O Dispatcher verifica a solicitação em relação à lista de documentos que podem ser armazenados em cache. Se o documento não estiver nessa lista, o Dispatcher solicitará o documento da instância do AEM.
+Você pode definir se o Dispatcher armazena um documento em cache usando o arquivo [Dispatcher configuration](dispatcher-configuration.md), `dispatcher.any`. O Dispatcher verifica a solicitação em relação à lista de documentos que podem ser armazenados em cache. Se o documento não estiver nessa lista, o Dispatcher solicitará o documento da instância do AEM.
 
-A `/rules` propriedade controla quais documentos são armazenados em cache de acordo com o caminho do documento. Independentemente da `/rules` propriedade, o Dispatcher nunca armazena um documento em cache nas seguintes circunstâncias:
+A propriedade `/rules` controla quais documentos são armazenados em cache de acordo com o caminho do documento. Independentemente da propriedade `/rules`, o Dispatcher nunca armazena um documento em cache nas seguintes circunstâncias:
 
 * Se o URI da solicitação contiver um ponto de interrogação `(?)`.
 * Isso geralmente indica uma página dinâmica, como um resultado de pesquisa que não precisa ser armazenado em cache.
 * A extensão do arquivo está ausente.
 * O servidor Web precisa da extensão para determinar o tipo de documento (o tipo MIME).
 * O cabeçalho de autenticação está definido (isso pode ser configurado)
-* Se a instância do AEM responder com os seguintes cabeçalhos:
+* Se a instância AEM responder com os seguintes cabeçalhos:
    * no-cache
    * no-store
    * must-revalidate
 
-O Dispatcher armazena arquivos em cache no servidor da Web como se fossem parte de um site estático. Se um usuário solicitar um documento em cache, o Dispatcher verificará se o documento existe no sistema de arquivos do servidor da Web. Em caso afirmativo, o Dispatcher retornará os documentos. Caso contrário, o Dispatcher solicitará o documento da instância do AEM.
+O Dispatcher armazena arquivos em cache no servidor da Web como se fossem parte de um site estático. Se um usuário solicitar um documento em cache, o Dispatcher verificará se o documento existe no sistema de arquivos do servidor da Web. Em caso afirmativo, o Dispatcher retornará os documentos. Caso contrário, o Dispatcher solicitará o documento da instância AEM.
 
 >[!NOTE]
 >
->Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. For additional information on response header caching, see the [Caching HTTP Response Headers](dispatcher-configuration.md#caching-http-response-headers) section.
+>Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. Para obter informações adicionais sobre o cache do cabeçalho de resposta, consulte a seção [Cache de Cabeçalhos de Resposta HTTP](dispatcher-configuration.md#caching-http-response-headers).
 
 ### É possível implementar vários Dispatchers em uma configuração?
 
-Sim. Nesses casos, verifique se ambos os Dispatchers podem acessar o site do AEM diretamente. Um Dispatcher não pode lidar com solicitações provenientes de outro Dispatcher.
+Sim. Nesses casos, verifique se ambos os Dispatchers podem acessar o site da AEM diretamente. Um Dispatcher não pode lidar com solicitações provenientes de outro Dispatcher.
 
