@@ -39,11 +39,11 @@ A Adobe recomenda que você preencha a seguinte lista de verificação antes de 
 
 >[!CAUTION]
 >
->Você também deve preencher a Lista de verificação de segurança da sua versão do AEM antes de entrar em funcionamento. Consulte a documentação [da](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html)Adobe Experience Manager correspondente.
+>Você também deve preencher a Lista de verificação de segurança da sua versão do AEM antes de entrar em funcionamento. Consulte a documentação correspondente [Adobe Experience Manager](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html).
 
 ## Usar a versão mais recente do Dispatcher {#use-the-latest-version-of-dispatcher}
 
-Instale a versão mais recente disponível para a sua plataforma. Você deve atualizar sua instância do Dispatcher para usar a versão mais recente para aproveitar as vantagens dos aprimoramentos de produtos e de segurança. Consulte [Instalação do Dispatcher](dispatcher-install.md).
+Instale a versão mais recente disponível para a sua plataforma. Você deve atualizar sua instância do Dispatcher para usar a versão mais recente para aproveitar as vantagens dos aprimoramentos de produtos e de segurança. Consulte [Instalando o Dispatcher](dispatcher-install.md).
 
 >[!NOTE]
 >
@@ -80,7 +80,7 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 ## Restringir acesso {#restrict-access}
 
-Ao configurar o Dispatcher, você deve restringir o acesso externo o máximo possível. Consulte [Exemplo/seção](dispatcher-configuration.md#main-pars_184_1_title) de filtro na documentação do Dispatcher.
+Ao configurar o Dispatcher, você deve restringir o acesso externo o máximo possível. Consulte [Exemplo /filter Section](dispatcher-configuration.md#main-pars_184_1_title) na documentação do Dispatcher.
 
 ## Verifique se o acesso aos URLs administrativos foi negado {#make-sure-access-to-administrative-urls-is-denied}
 
@@ -88,17 +88,17 @@ Certifique-se de usar filtros para bloquear o acesso externo a quaisquer URLs ad
 
 Consulte [Testando o Dispatcher Security](dispatcher-configuration.md#testing-dispatcher-security) para obter uma lista de URLs que precisam ser bloqueados.
 
-## Usar Lista de permissões Em Vez De Listas de bloqueios {#use-allowlists-instead-of-blocklists}
+## Usar Lista de permissões em vez de Listas de bloqueios {#use-allowlists-instead-of-blocklists}
 
 As Lista de permissões são uma maneira melhor de fornecer controle de acesso, pois, por natureza, assumem que todas as solicitações de acesso devem ser negadas, a menos que sejam explicitamente parte da lista de permissões. Este modelo proporciona um controle mais restritivo sobre novas solicitações que podem não ter sido ainda revisadas ou consideradas durante uma determinada fase de configuração.
 
-## Execute o Dispatcher com um usuário de sistema dedicado {#run-dispatcher-with-a-dedicated-system-user}
+## Execute o Dispatcher com um Usuário Dedicado do Sistema {#run-dispatcher-with-a-dedicated-system-user}
 
 Ao configurar o Dispatcher, você deve garantir que o servidor da Web seja executado por um usuário dedicado com menos privilégios. É recomendável conceder acesso de gravação somente à pasta de cache do dispatcher.
 
 Além disso, os usuários do IIS precisam configurar seu site da seguinte maneira:
 
-1. Na configuração de caminho físico do site, selecione **Connect como usuário** específico.
+1. Na configuração do caminho físico do site, selecione **Conectar como usuário específico**.
 1. Defina o usuário.
 
 ## Impedir ataques de negação de serviço (DoS) {#prevent-denial-of-service-dos-attacks}
@@ -121,7 +121,7 @@ No nível do dispatcher, há dois métodos de configuração para evitar ataques
    * `.pdf`
    * `.ppt`
 
-   Um arquivo de configuração de exemplo pode ser visto para [restringir o acesso](#restrict-access)externo, o que inclui restrições para tipos mime.
+   Um arquivo de configuração de exemplo pode ser visto para [restringir o acesso externo](#restrict-access), isso inclui restrições para tipos MIME.
 
 Para habilitar com segurança a funcionalidade completa nas instâncias de publicação, configure os filtros para impedir o acesso aos seguintes nós:
 
@@ -151,18 +151,18 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
  -->
 
-## Configure Dispatcher to prevent CSRF Attacks {#configure-dispatcher-to-prevent-csrf-attacks}
+## Configure o Dispatcher para impedir ataques CSRF {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM fornece uma [estrutura](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) destinada a prevenir ataques de falsificação de solicitações entre sites. Para utilizar adequadamente essa estrutura, é necessário lista de permissões o suporte a token CSRF no dispatcher. Você pode fazer isso:
+AEM fornece uma [estrutura](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) destinada a impedir ataques de Permissão de Solicitação entre Sites. Para utilizar adequadamente essa estrutura, é necessário lista de permissões o suporte a token CSRF no dispatcher. Você pode fazer isso:
 
-1. Criação de um filtro para permitir o `/libs/granite/csrf/token.json` caminho;
-1. Adicione o `CSRF-Token` cabeçalho à `clientheaders` seção da configuração do Dispatcher.
+1. Criando um filtro para permitir o caminho `/libs/granite/csrf/token.json`;
+1. Adicione o cabeçalho `CSRF-Token` à seção `clientheaders` da configuração do Dispatcher.
 
-## Impedir Clickjacking {#prevent-clickjacking}
+## Impedir que os cliques sejam ativados {#prevent-clickjacking}
 
-Para evitar o clickjacking, recomendamos que você configure o servidor Web para fornecer o cabeçalho `X-FRAME-OPTIONS` HTTP definido como `SAMEORIGIN`.
+Para evitar o clickjacking, recomendamos que você configure seu servidor Web para fornecer o cabeçalho HTTP `X-FRAME-OPTIONS` definido como `SAMEORIGIN`.
 
-Para obter mais [informações sobre clickjacking, consulte o site](https://www.owasp.org/index.php/Clickjacking)da OWASP.
+Para obter mais [informações sobre clickjacking, consulte o site da OWASP](https://www.owasp.org/index.php/Clickjacking).
 
 ## Execute um teste de penetração {#perform-a-penetration-test}
 
