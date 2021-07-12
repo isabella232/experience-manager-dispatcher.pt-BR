@@ -8,12 +8,11 @@ breadcrumb-title: Guia do Dispatcher
 user-guide-description: Saiba como usar o Dispatcher para armazenamento em cache, balanceamento de carga e melhoria da segurança para seu servidor AEM.
 feature-set: Experience Manager
 feature: Dispatcher
-topic: Administration
-role: Administrator
-translation-type: tm+mt
-source-git-commit: da6af93fa3dec8e3b2f146e9c8c6183a3185199b
+topic: Administração
+role: Admin
+source-git-commit: 4439a4f0adfb8e2e0d08636225d2399638d27af3
 workflow-type: tm+mt
-source-wordcount: '90'
+source-wordcount: '89'
 ht-degree: 85%
 
 ---
@@ -31,9 +30,9 @@ ht-degree: 85%
    + [Invalidar páginas em cache do AEM](page-invalidate.md)
    + [Otimização de um site para desempenho de cache](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
    + [Armazenamento em cache de conteúdo protegido](permissions-cache.md)
-   + [Utilização do Dispatcher com vários domínios](dispatcher-domains.md)
+   + [Utilização do Dispatcher com vários domínios ](dispatcher-domains.md)
    + [Utilização de SSL com Dispatcher](dispatcher-ssl.md)
    + [Configuração do Dispatcher para Evitar Ataques CSRF](configuring-dispatcher-to-prevent-csrf.md)
-+ Resolução de Problemas{#troubleshooting}
++ Resolução de problemas {#troubleshooting}
    + [Resolução de Problemas do Dispatcher](dispatcher-troubleshooting.md)
    + [Perguntas Frequentes do Dispatcher](dispatcher-faq.md)
