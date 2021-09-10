@@ -8,14 +8,13 @@ pageversionid: 1193211344162
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
-translation-type: tm+mt
-source-git-commit: 10f436e941e553bd85abe978059aac3a60c6769f
-workflow-type: tm+mt
+exl-id: c9266683-6890-4359-96db-054b7e856dd0
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+workflow-type: ht
 source-wordcount: '3199'
-ht-degree: 90%
+ht-degree: 100%
 
 ---
-
 
 # Visão geral do Dispatcher {#dispatcher-overview}
 
@@ -23,48 +22,48 @@ ht-degree: 90%
 >
 >As versões do Dispatcher são independentes do AEM. Você pode ter sido redirecionado para esta página se tiver seguido um link para a documentação do Dispatcher incorporada à documentação de uma versão anterior do AEM.
 
-O Dispatcher é uma ferramenta de cache e/ou balanceamento de carga da Adobe Experience Manager que pode ser usada em conjunto com um servidor Web de classe empresarial.
+O Dispatcher é uma ferramenta de armazenamento em cache e/ou balanceamento de carga do Adobe Experience Manager, que pode ser usado em conjunto com um servidor Web de classe empresarial.
 
-O processo de implantação do dispatcher é independente do servidor da Web e da plataforma de SO escolhida:
+O processo de implantação do Dispatcher é independente do servidor Web e da plataforma de SO escolhida:
 
-1. Saiba mais sobre o Dispatcher (nesta página). Além disso, consulte [perguntas frequentes sobre o dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
-1. Instale um [servidor Web suportado](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) de acordo com a documentação do servidor Web.
-1. [Instale o módulo Dispatcher](dispatcher-install.md) em seu servidor da web e configure o servidor da web apropriadamente.
-1. [Configurar o Dispatcher (qualquer arquivo no dispatcher).](dispatcher-configuration.md)
+1. Saiba mais sobre o Dispatcher (nesta página). Além disso, consulte as [perguntas frequentes sobre o Dispatcher](https://helpx.adobe.com/br/experience-manager/using/dispatcher-faq.html).
+1. Instale um [servidor Web compatível](https://helpx.adobe.com/br/experience-manager/6-3/sites/deploying/using/technical-requirements.html) de acordo com a documentação do servidor Web.
+1. [Instale o módulo Dispatcher](dispatcher-install.md) em seu servidor Web e configure o servidor Web apropriadamente.
+1. [Configurar o Dispatcher](dispatcher-configuration.md) (qualquer arquivo no dispatcher).
 1. [Configure o AEM](page-invalidate.md) para que atualizações de conteúdo invalidem o cache.
 
 >[!NOTE]
 >
->Para entender melhor como o Dispatcher trabalha com AEM:
+>Para entender melhor como o Dispatcher funciona com o AEM:
 >
->* Consulte [Fale com os especialistas da Comunidade AEM para julho de 2017](https://bit.ly/ATACE0717).
->* Acesse [este repositório](https://github.com/adobe/aem-dispatcher-experiments). Contém uma coleção de experiências num formato de laboratório &quot;levar para casa&quot;.
+>* Consulte [Pergunte aos especialistas da comunidade AEM, de julho de 2017](https://bit.ly/ATACE0717).
+>* Acesse [este repositório](https://github.com/adobe/aem-dispatcher-experiments). Ele contém uma coleção de experiências num formato de laboratório &quot;móvel&quot;.
 
 
 
-Use as seguintes informações como necessário:
+Use as seguintes informações conforme necessário:
 
 * [Lista de verificação de segurança do Dispatcher](security-checklist.md)
-* [A Base De Conhecimento Do Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
-* [Otimizando um site para o desempenho do cache](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+* [Base de conhecimento do Dispatcher](https://helpx.adobe.com/pt/experience-manager/kb/index/dispatcher.html)
+* [Otimização de um site para desempenho de cache](https://helpx.adobe.com/br/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
 * [Utilização do Dispatcher com vários domínios](dispatcher-domains.md)
-* [Utilização de SSL com Dispatcher](dispatcher-ssl.md)
-* [Implementação de cache sensível a permissões](permissions-cache.md)
-* [Resolução de Problemas do Dispatcher](dispatcher-troubleshooting.md)
-* [Perguntas Frequentes do Dispatcher](dispatcher-faq.md)
+* [Utilização do SSL com o Dispatcher](dispatcher-ssl.md)
+* [Implementação de armazenamento em cache sensível a permissões](permissions-cache.md)
+* [Resolução de problemas do Dispatcher](dispatcher-troubleshooting.md)
+* [Perguntas frequentes sobre os principais problemas do Dispatcher](dispatcher-faq.md)
 
 >[!NOTE]
 >
 >**O uso mais comum do Dispatcher** é armazenar em cache as respostas de uma **instância de publicação** do AEM, para aumentar a capacidade de resposta e a segurança de seu site publicado voltado para o exterior. A maior parte da discussão se concentra nesse caso.
 >
->Mas o Dispatcher também pode ser usado para aumentar a capacidade de resposta da instância do seu **autor**, principalmente se você tiver um grande número de usuários editando e atualizando seu site. Para obter detalhes específicos deste caso, consulte [Uso de um Dispatcher com um servidor de autor,](#using-a-dispatcher-with-an-author-server) abaixo.
+>Mas o Dispatcher também pode ser usado para aumentar a capacidade de resposta da instância do seu **autor**, principalmente se você tiver um grande número de usuários editando e atualizando seu site. Para obter detalhes específicos deste caso, consulte [Uso de um Dispatcher com um servidor de autor](#using-a-dispatcher-with-an-author-server), abaixo.
 
-## Por que usar o Dispatcher para implementar o Cache? {#why-use-dispatcher-to-implement-caching}
+## Por que usar o Dispatcher para implementar o armazenamento em cache? {#why-use-dispatcher-to-implement-caching}
 
 Há duas abordagens básicas para publicação na Web:
 
 * **Servidores Web estáticos**: como Apache ou IIS, são muito simples, mas rápidos.
-* **Servidores** que fornecem conteúdo dinâmico, em tempo real e inteligente, mas exigem muito mais tempo de computação e outros recursos.
+* **Servidores**: que fornecem conteúdo dinâmico, em tempo real e inteligente, mas exigem muito mais tempo de computação e outros recursos.
 
 O Dispatcher ajuda a realizar um ambiente rápido e dinâmico. Funciona como parte de um servidor HTML estático, como o Apache, com o objetivo de:
 
@@ -81,7 +80,7 @@ O Dispatcher contém mecanismos para gerar e atualizar HTML estático com base n
 
 A presente seção ilustra os princípios subjacentes a este fato.
 
-### Servidor web estático {#static-web-server}
+### Servidor Web estático {#static-web-server}
 
 ![](assets/chlimage_1-3.png)
 
@@ -97,25 +96,25 @@ Se você usar um Servidor de gerenciamento de conteúdo, como o AEM, um mecanism
 
 Isso permite que você crie conteúdo dinâmico e mais rico, o que aumenta a flexibilidade e funcionalidade do seu site. No entanto, o mecanismo de layout requer mais potência do que um servidor estático, portanto, essa configuração pode ser sujeita a lentidão se muitos visitantes usarem o sistema.
 
-## Como o Dispatcher executa o Cache {#how-dispatcher-performs-caching}
+## Como o Dispatcher executa o armazenamento em cache {#how-dispatcher-performs-caching}
 
 ![](assets/chlimage_1-5.png)
 
-**O diretório** de cache para armazenamento em cache, o módulo Dispatcher, usa a capacidade do servidor Web de fornecer conteúdo estático. O Dispatcher coloca os documentos em cache na raiz do documento no servidor da web.
+**O diretório** de cache para armazenamento em cache, o módulo Dispatcher, usa a capacidade do servidor Web de fornecer conteúdo estático. O Dispatcher coloca os documentos em cache na raiz do documento do servidor web.
 
 >[!NOTE]
 >
->Quando falta a configuração para o HTTP Header Caching, o Dispatcher armazena apenas o código HTML da página - não armazena os cabeçalhos HTTP. Isso pode ser um problema se você usar diferentes codificações dentro do seu website, pois elas podem se perder. Para permitir o HTTP Header Caching, veja [Configuração do Cache do Dispatcher.](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)
+>Quando falta a configuração para o HTTP Header Caching, o Dispatcher armazena apenas o código HTML da página - não armazena os cabeçalhos HTTP. Isso pode ser um problema se você usar diferentes codificações dentro do seu website, pois elas podem se perder. Para permitir o HTTP Header Caching, veja [Configuração do Cache do Dispatcher.](https://helpx.adobe.com/pt/experience-manager/dispatcher/using/dispatcher-configuration.html)
 
 >[!NOTE]
 >
->Localizar o documento-raiz do seu servidor da web no armazenamento anexo à rede (NAS) causa degradação de desempenho. Da mesma forma, quando um documento-raiz que está localizado no NAS é compartilhado entre vários servidores da web, bloqueios intermitentes podem ocorrer quando ações de replicação são realizadas.
+>Localizar o documento-raiz do seu servidor Web no armazenamento anexo à rede (NAS) causa degradação de desempenho. Da mesma forma, quando um documento-raiz que está localizado no NAS é compartilhado entre vários servidores Web, bloqueios intermitentes podem ocorrer quando ações de replicação são realizadas.
 
 >[!NOTE]
 >
->O Dispatcher armazena o documento em cache em uma estrutura igual à URL solicitada.
+>O Dispatcher armazena o documento em cache em uma estrutura igual ao URL solicitado.
 >
->Pode haver limitações a nível de OS para o comprimento do nome do arquivo; por exemplo, se você tem uma URL com muitos seletores.
+>Pode haver limitações a nível de SO para o comprimento do nome do arquivo; por exemplo, se você tem um URL com muitos seletores.
 
 ### Métodos de cache
 
@@ -157,9 +156,9 @@ Mais uma vez, é de salientar alguns pontos:
 
 ![](assets/chlimage_1-6.png)
 
-### Determinar se um documento está sujeito ao cache
+### Determinar se um documento está sujeito ao armazenamento em cache
 
-Você pode [definir quais documentos o Dispatcher armazena em cache no arquivo de configuração](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). O Dispatcher verifica a solicitação em relação à lista de documentos que podem ser armazenados em cache. Se o documento não estiver nessa lista, o Dispatcher solicitará o documento da instância do AEM.
+Você pode [definir quais documentos o Dispatcher armazena em cache no arquivo de configuração](https://helpx.adobe.com/pt/experience-manager/dispatcher/using/dispatcher-configuration.html). O Dispatcher verifica a solicitação em relação à lista de documentos que podem ser armazenados em cache. Se o documento não estiver nessa lista, o Dispatcher solicitará o documento da instância do AEM.
 
 O Dispatcher *sempre* solicita o documento diretamente da instância do AEM nos seguintes casos:
 
@@ -169,11 +168,11 @@ O Dispatcher *sempre* solicita o documento diretamente da instância do AEM nos 
 
 >[!NOTE]
 >
->Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. Para obter informações adicionais sobre o cache do cabeçalho de resposta, consulte a seção [Cache de Cabeçalhos de Resposta HTTP](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html).
+>Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. Para obter informações adicionais sobre o armazenamento em cache do cabeçalho de resposta, consulte a seção [Armazenamento em cache de cabeçalhos de resposta HTTP](https://helpx.adobe.com/pt/experience-manager/dispatcher/using/dispatcher-configuration.html).
 
 ### Determinar se um documento está em cache
 
-O Dispatcher armazena os arquivos em cache no servidor da Web como se fossem parte de um site estático. Se um usuário solicitar um documento armazenável em cache, o Dispatcher verificará se esse documento existe no sistema de arquivos do servidor Web:
+O Dispatcher armazena os arquivos em cache no servidor Web como se fossem parte de um site estático. Se um usuário solicitar um documento armazenável em cache, o Dispatcher verificará se esse documento existe no sistema de arquivos do servidor Web:
 
 * se o documento estiver em cache, o Dispatcher retornará o arquivo.
 * se não estiver em cache, o Dispatcher solicitará o documento da instância do AEM.
@@ -199,7 +198,7 @@ Você ganha:
 
 * **maior poder de processamento** Na prática, isso significa que o Dispatcher compartilha solicitações de documento entre várias instâncias do AEM. Como cada instância agora tem menos documentos para processar, você tem tempos de resposta mais rápidos. O Dispatcher mantém estatísticas internas para cada categoria de documento, de modo que ele possa estimar o carregamento e distribuir as consultas com eficiência.
 
-* **maior cobertura à prova de falhas** Se o Dispatcher não receber respostas de uma instância, ele retornará automaticamente solicitações para uma das outras instâncias. Assim, se uma instância se tornar indisponível, o único efeito é um abrandamento do site, proporcional à potência computacional perdida. No entanto, todos os serviços continuarão.
+* **maior cobertura à prova de falhas** Se o Dispatcher não receber respostas de uma instância, ele retornará automaticamente solicitações para uma das outras instâncias. Assim, se uma instância se tornar indisponível, o único efeito é uma desaceleração do site, proporcional à potência computacional perdida. No entanto, todos os serviços continuarão.
 
 * você também pode gerenciar sites diferentes no mesmo servidor Web estático.
 
@@ -211,7 +210,7 @@ Você ganha:
 >
 >Embora um único Dispatcher possa normalmente saturar a capacidade das instâncias de Publicação disponíveis, para alguns aplicativos raros, pode fazer sentido balancear adicionalmente a carga entre duas instâncias do Dispatcher. As configurações com vários Dispatchers precisam ser consideradas com cuidado, já que um Dispatcher adicional aumentará a carga nas instâncias de Publicação disponíveis e poderá facilmente diminuir o desempenho na maioria dos aplicativos.
 
-## Como o Dispatcher executa o Balanceamento de Carga {#how-the-dispatcher-performs-load-balancing}
+## Como o Dispatcher executa o balanceamento de carga {#how-the-dispatcher-performs-load-balancing}
 
 ### Estatísticas de desempenho
 
@@ -233,7 +232,7 @@ Como as conexões aderentes restringem a capacidade do Dispatcher de otimizar as
 >
 >Para *algumas* aplicações, pode ser possível utilizar ligações aderentes e armazenamento em cache; por exemplo, se você exibir um formulário que grava dados na sessão.
 
-## Usando vários Dispatchers v{#using-multiple-dispatchers}
+## Uso de vários Dispatchers {#using-multiple-dispatchers}
 
 Em configurações complexas, você pode usar vários Dispatchers. Por exemplo, você pode usar:
 
@@ -270,7 +269,7 @@ Há várias maneiras de controlar por quanto tempo um CDN armazenará em cache u
    Configure por quanto tempo os recursos específicos são mantidos no cache do CDN, dependendo do tipo mime, extensão, tipo de solicitação etc.
 
 1. Cabeçalhos de expiração e controle de cache\
-   A maioria dos CDNs respeitará `Expires:` e os `Cache-Control:`HTTP Headers serão enviados pelo servidor upstream. Isso pode ser feito, por exemplo, usando o [mod_expire](https://httpd.apache.org/docs/2.4/mod/mod_expires.html) Módulo Apache.
+   A maioria dos CDNs respeitará `Expires:` e os `Cache-Control:` HTTP Headers serão enviados pelo servidor upstream. Isso pode ser feito, por exemplo, usando o Módulo Apache [mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html).
 
 1. Invalidação manual\
    As CDNs permitem que os recursos sejam removidos do cache por meio de interfaces da Web.
@@ -281,17 +280,17 @@ Em uma configuração típica do AEM, a configuração por extensão e/ou caminh
 
 Se essa abordagem for usada para armazenar em cache conteúdo gerenciado, isso implica que as alterações de conteúdo só estarão visíveis para os usuários finais depois que o período de cache configurado expirar e o documento for buscado do Dispatcher novamente.
 
-Para obter um controle mais refinado, a invalidação com base em API permite invalidar o cache de um CDN quando o cache do Dispatcher for invalidado. Com base na API de CDNs, você pode implementar seu próprio [ContentBuilder](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/ContentBuilder.html) e [TransportHandler](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/TransportHandler.html) (se a API não for baseada em REST) e configurar um Agente de Replicação que os usará para invalidar o cache do CDN.
+Para obter um controle mais refinado, a invalidação com base em API permite invalidar o cache de um CDN quando o cache do Dispatcher for invalidado. Com base na API de CDNs, você pode implementar seu próprio [ContentBuilder](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/ContentBuilder.html) e [TransportHandler](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/TransportHandler.html), se a API não for baseada em REST, e configurar um Agente de Replicação que os usará para invalidar o cache do CDN.
 
 >[!NOTE]
 >
->Consulte também [AEM (CQ) Dispatcher Security e CDN+Browser Caching](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) e apresentação gravada em [Dispatcher Caching](https://docs.adobe.com/content/ddc/en/gems/dispatcher-caching---new-features-and-optimizations.html).
+>Consulte também [Segurança do AEM (CQ) Dispatcher e Armazenamento em cache de CDN+Browser](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) e uma apresentação gravada sobre [Armazenamento em cache do Dispatcher](https://docs.adobe.com/content/ddc/en/gems/dispatcher-caching---new-features-and-optimizations.html).
 
 ## Uso de um Dispatcher com um Servidor de Autores {#using-a-dispatcher-with-an-author-server}
 
 >[!CAUTION]
 >
->se você estiver usando [AEM com a interface de usuário de toque](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) você deverá **não** armazenar em cache o conteúdo da instância do autor. Se o cache tiver sido ativado para a instância do autor, será necessário desativá-lo e excluir o conteúdo do diretório do cache. Para desativar o armazenamento em cache, edite o `author_dispatcher.any` arquivo e modifique a propriedade `/rule` da `/cache` seção da seguinte maneira:
+>se você estiver usando o [AEM com Touch UI](https://helpx.adobe.com/br/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), **não** armazene em cache o conteúdo da instância do autor. Se o cache tiver sido ativado para a instância do autor, será necessário desativá-lo e excluir o conteúdo do diretório do cache. Para desativar o armazenamento em cache, edite o `author_dispatcher.any` arquivo e modifique a propriedade `/rule` da `/cache` seção da seguinte maneira:
 
 ```xml
 /rules
@@ -303,14 +302,14 @@ Para obter um controle mais refinado, a invalidação com base em API permite in
 
 Um Dispatcher pode ser usado na frente de uma instância do autor para melhorar o desempenho da criação. Para configurar um Dispatcher de criação, faça o seguinte:
 
-1. Instale um Dispatcher em um servidor da Web (pode ser o Apache ou o IIS, consulte [Instalação do Dispatcher](dispatcher-install.md)).
+1. Instale um Dispatcher em um servidor Web (pode ser o Apache ou o IIS, consulte [Instalação do Dispatcher](dispatcher-install.md)).
 1. Você pode testar o Dispatcher recém-instalado em relação a uma instância de publicação do AEM em funcionamento, para garantir que uma instalação correta da linha de base tenha sido atingida.
 1. Agora, verifique se o Dispatcher consegue se conectar via TCP/IP à sua instância do autor.
 1. Substitua o arquivo dispatcher.any de amostra pelo arquivo author_dispatcher.any fornecido com o download do [Dispatcher](release-notes.md#downloads).
 1. Abra o `author_dispatcher.any` em um editor de texto e faça as seguintes alterações:
 
    1. Altere o `/hostname` e `/port` da `/renders` seção para apontar para a instância do autor.
-   1. Altere o `/docroot` da `/cache` seção para apontar para um diretório de cache. Caso esteja usando [AEM com interface de usuário de toque](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), consulte o aviso acima.
+   1. Altere o `/docroot` da `/cache` seção para apontar para um diretório de cache. Caso esteja usando o [AEM com Touch UI](https://helpx.adobe.com/br/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), consulte o aviso acima.
    1. Salve as alterações.
 
 1. Exclua todos os arquivos existentes no diretório `/cache` > `/docroot` que você configurou acima.
@@ -318,14 +317,14 @@ Um Dispatcher pode ser usado na frente de uma instância do autor para melhorar 
 
 >[!NOTE]
 >
->Observe que, com a configuração fornecida, ao instalar um pacote de recursos, uma correção ou um pacote de código de aplicativo do CQ5 que afeta qualquer conteúdo sob `author_dispatcher.any` ou `/libs` `/apps` você deve excluir os arquivos em cache nesses diretórios no cache do dispatcher para garantir que, na próxima vez que forem solicitados, os arquivos recém-atualizados sejam buscados e não os arquivos em cache antigos.
+>Observe que, com a `author_dispatcher.any` configuração fornecida, ao instalar um pacote de recursos, uma correção ou um pacote de código de aplicativo do CQ5 que afeta qualquer conteúdo sob `/libs` ou `/apps` você deve excluir os arquivos em cache nesses diretórios no cache do dispatcher para garantir que, na próxima vez que forem solicitados, os arquivos recém-atualizados sejam buscados e não os arquivos em cache antigos.
 
 >[!CAUTION]
 >
->Se você tiver usado o despachante do autor previamente configurado e ativado um agente *de despachante do* despachante, faça o seguinte:
+>Se você tiver usado o Dispatcher do autor previamente configurado e ativado um *agente de limpeza do dispatcher*, faça o seguinte:
 
-1. Exclua ou desative o agente de descarga do **autor dispatcher** na instância do autor do AEM.
-1. Refaça a configuração do dispatcher do autor seguindo as novas instruções acima.
+1. Exclua ou desative o agente de limpeza do **Dispatcher do autor** na instância do autor do AEM.
+1. Refaça a configuração do Dispatcher do autor seguindo as novas instruções acima.
 
 <!--
 [Author Dispatcher configuration file (Dispatcher 4.1.2 or later)](assets/author_dispatchernew.any)
