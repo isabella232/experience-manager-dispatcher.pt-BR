@@ -11,9 +11,9 @@ feature: Dispatcher
 topic: Administração
 role: Admin
 source-git-commit: 4439a4f0adfb8e2e0d08636225d2399638d27af3
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '89'
-ht-degree: 85%
+ht-degree: 100%
 
 ---
 
@@ -24,15 +24,15 @@ ht-degree: 85%
 + Introdução {#getting-started}
    + [Instalação do Dispatcher](dispatcher-install.md)
    + [Lista de verificação de segurança do Dispatcher](security-checklist.md)
-   + [Notas de lançamento do AEM Dispatcher Release ](release-notes.md)
+   + [Notas de versão do AEM Dispatcher ](release-notes.md)
 + Configuração {#configuring}
-   + [Configurando o Dispatcher](dispatcher-configuration.md)
+   + [Configuração do Dispatcher](dispatcher-configuration.md)
    + [Invalidar páginas em cache do AEM](page-invalidate.md)
-   + [Otimização de um site para desempenho de cache](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+   + [Otimização de um site para desempenho de cache](https://helpx.adobe.com/br/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
    + [Armazenamento em cache de conteúdo protegido](permissions-cache.md)
    + [Utilização do Dispatcher com vários domínios ](dispatcher-domains.md)
-   + [Utilização de SSL com Dispatcher](dispatcher-ssl.md)
-   + [Configuração do Dispatcher para Evitar Ataques CSRF](configuring-dispatcher-to-prevent-csrf.md)
+   + [Utilização do SSL com o Dispatcher](dispatcher-ssl.md)
+   + [Configuração do Dispatcher para evitar ataques CSRF](configuring-dispatcher-to-prevent-csrf.md)
 + Resolução de problemas {#troubleshooting}
-   + [Resolução de Problemas do Dispatcher](dispatcher-troubleshooting.md)
-   + [Perguntas Frequentes do Dispatcher](dispatcher-faq.md)
+   + [Resolução de problemas do Dispatcher](dispatcher-troubleshooting.md)
+   + [Perguntas frequentes sobre os principais problemas do Dispatcher](dispatcher-faq.md)
