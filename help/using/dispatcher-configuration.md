@@ -1340,10 +1340,8 @@ Veja abaixo um exemplo da configuração padrão:
 >
 >* Adicione o nome do cabeçalho na seção `/cache/headers`.
 >* Adicione a seguinte [diretiva do Apache](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) na seção relacionada ao Dispatcher:
-
 >
->
-```xml
+>```xml
 >FileETag none
 >```
 
