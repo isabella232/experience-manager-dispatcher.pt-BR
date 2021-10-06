@@ -1,8 +1,8 @@
 ---
 title: Otimização de um site para desempenho de cache
-seo-title: Otimização de um site para desempenho de cache
+seo-title: Optimizing a Website for Cache Performance
 description: Saiba como projetar seu site para potencializar os benefícios do armazenamento em cache.
-seo-description: O Dispatcher oferece vários mecanismos integrados que você pode usar para aprimorar o desempenho. Saiba como projetar seu site para potencializar os benefícios do armazenamento em cache.
+seo-description: Dispatcher offers a number of built-in mechanisms that you can use to optimize performance. Learn how to design your web site to maximize the benefits of caching.
 uuid: 2d4114d1-f464-4e10-b25c-a1b9a9c715d1
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -15,7 +15,7 @@ internal: n
 snippet: y
 source-git-commit: 2ca816ac0776d72be651b76ff4f45e0c3ed1450f
 workflow-type: ht
-source-wordcount: '1167'
+source-wordcount: '1134'
 ht-degree: 100%
 
 ---
@@ -45,6 +45,7 @@ O Dispatcher oferece vários mecanismos integrados que você pode usar para apri
 >
 >* pode armazenar em cache tudo que pode ser armazenado como uma página e solicitado usando um URL
 >* não pode armazenar outras coisas, como cabeçalhos HTTP, cookies, dados de sessão e dados de formulário.
+
 >
 >Em geral, muitas estratégias de armazenamento em cache envolvem selecionar bons URLs e não depender desses dados adicionais.
 
@@ -93,7 +94,7 @@ www.myCompany.com/news/main.large.html
 >
 >Para a maioria dos aspectos de layout, também é possível usar folhas de estilos e/ou scripts do cliente. Normalmente, eles funcionam muito bem com o armazenamento em cache.
 >
->Isso também é útil para uma versão impressa, na qual você pode usar um URL como: &grave;&grave;
+>Isso também é útil para uma versão impressa, na qual você pode usar um URL como: ``
 >
 >`www.myCompany.com/news/main.print.html`
 >
@@ -141,8 +142,8 @@ O Dispatcher não pode armazenar dados personalizados em cache, portanto, é rec
 >
 >* usar iFrames para dividir a página em uma parte que seja a mesma para todos os usuários e uma parte que seja a mesma para todas as páginas do usuário. Depois, é possível armazenar em cache essas duas partes.
 >* usar o JavaScript do lado do cliente para exibir informações personalizadas. No entanto, é necessário assegurar que a página ainda seja exibida corretamente se um usuário desativar o JavaScript.
->
 
+>
 
 
 ## Conexões adesivas {#sticky-connections}
