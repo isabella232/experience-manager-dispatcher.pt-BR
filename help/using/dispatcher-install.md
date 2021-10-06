@@ -1,8 +1,8 @@
 ---
 title: Instalação do Dispatcher
-seo-title: Instalação do AEM Dispatcher
+seo-title: Installing AEM Dispatcher
 description: Saiba como instalar o módulo Dispatcher no Microsoft Internet Information Server, Apache Web Server e Sun Java Web Server-iPlanet.
-seo-description: Saiba como instalar o módulo AEM Dispatcher no Microsoft Internet Information Server, Apache Web Server e Sun Java Web Server-iPlanet.
+seo-description: Learn how to install the AEM Dispatcher module on Microsoft Internet Information Server, Apache Web Server and Sun Java Web Server-iPlanet.
 uuid: 2384b907-1042-4707-b02f-fba2125618cf
 contentOwner: User
 converted: true
@@ -12,7 +12,7 @@ discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
 workflow-type: ht
-source-wordcount: '3684'
+source-wordcount: '3660'
 ht-degree: 100%
 
 ---
