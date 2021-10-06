@@ -825,7 +825,6 @@ Uma única entrada pode ter `glob` ou alguma combinação de `method`, `url`, `q
 >
 >No exemplo acima, se as solicitações para `/etc` que não têm cadeia de caracteres de consulta também forem permitidas, as seguintes regras serão necessárias:
 
-
 ```xml
 /filter {  
 >/0001 { /type "deny" /method “*" /url "/path/*" }  
@@ -1340,6 +1339,7 @@ Veja abaixo um exemplo da configuração padrão:
 >
 >* Adicione o nome do cabeçalho na seção `/cache/headers`.
 >* Adicione a seguinte [diretiva do Apache](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) na seção relacionada ao Dispatcher:
+
 >
 >```xml
 >FileETag none
