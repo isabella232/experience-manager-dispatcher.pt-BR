@@ -3,9 +3,9 @@ title: Configuração do Dispatcher
 description: Saiba como configurar o Dispatcher.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 9ad35121bde90916a0376b33853e190b382ce5cd
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8528'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
