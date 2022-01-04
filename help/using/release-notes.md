@@ -10,9 +10,9 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '941'
-ht-degree: 91%
+ht-degree: 100%
 
 ---
 
@@ -50,7 +50,7 @@ Para obter instruções detalhadas, consulte [Instalação do Dispatcher](dispat
 
 **Melhorias**:
 
-* DISP-874 - Cria uma configuração de dispatcher para ativar ou desativar a implementação do DISP-818 por meio de um sinalizador `DispatcherRestrictUncacheableContent`. O valor padrão é Desativado. Quando Desativado, remove todos os cabeçalhos de cache definidos por modo expiram para conteúdo não armazenável em cache. Isso é diferente do comportamento encontrado na versão 4.3.3 (mas as mesmas versões anteriores à 4.3.3). Manutenção `DispatcherRestrictUncacheableContent`O padrão Desativado é a abordagem recomendada para que o cache do navegador tenha mais flexibilidade. Se, ao atualizar da versão 4.3.3 para a 4.3.4, quiser manter o mesmo comportamento na versão 4.3.3, defina explicitamente `DispatcherRestrictUncacheableContent` para Ligado.
+* DISP-874 - Cria uma configuração de Dispatcher para ativar ou desativar a implementação do DISP-818 por meio de um sinalizador `DispatcherRestrictUncacheableContent`. O valor padrão é Desativado. Quando Desativado, remove todos os cabeçalhos de cache definidos por mod_expires para conteúdo não armazenável em cache. Isso é diferente do comportamento encontrado na versão 4.3.3 (mas o mesmo das versões anteriores à 4.3.3). Manter o padrão do `DispatcherRestrictUncacheableContent` como Desativado é a abordagem recomendada para que o cache do navegador tenha mais flexibilidade. Se, ao atualizar da versão 4.3.3 para a 4.3.4, você quiser manter o mesmo comportamento da versão 4.3.3, defina o `DispatcherRestrictUncacheableContent` explicitamente para Ligado.
 * DISP-841 - O Dispatcher não respeita /serverStaleOnError para o código de resposta 504
 * DISP-874 - Cria uma configuração de Dispatcher para ativar ou desativar a implementação do DISP-818
 * DISP-883 - Rastreio que exibe a decomposição da solicitação de URL no Dispatcher
@@ -159,20 +159,20 @@ Para obter instruções detalhadas, consulte [Instalação do Dispatcher](dispat
 | Plataforma | Arquitetura | Compatível com OpenSSL | Download |
 |---|---|---|---|
 | Linux | i686 (32-bit) | Nenhum | [dispatcher-apache2.4-linux-i686-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.4.tar.gz) |
-| Linux | i686 (32 bits) | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.4.tar.gz) |
-| Linux | i686 (32 bits) | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.4.tar.gz) |
+| Linux | i686 (32-bit) | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.4.tar.gz) |
+| Linux | i686 (32-bit) | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.4.tar.gz) |
 | Linux | x86_64 (64-bit) | Nenhum | [dispatcher-apache2.4-linux-x86_64-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.4.tar.gz) |
-| Linux | x86_64 (64 bits) | 1,0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.4.tar.gz) |
-| Linux | x86_64 (64 bits) | 1.1. | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.4.tar.gz) |
-| macOS | x86_64 (64 bits) | Nenhum | [dispatcher-apache2.4-darwin-x86_64-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.4.tar.gz) |
+| Linux | x86_64 (64-bit) | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.4.tar.gz) |
+| Linux | x86_64 (64-bit) | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.4.tar.gz) |
+| macOS | x86_64 (64-bit) | Nenhum | [dispatcher-apache2.4-darwin-x86_64-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.4.tar.gz) |
 
 ### IIS {#iis}
 
-| Plataforma | Arquitetura | Compatível com OpenSSL | Baixar |
+| Plataforma | Arquitetura | Compatível com OpenSSL | Download |
 |---|---|---|---|
 | Windows | x86 (32-bit) | Nenhum | [dispatcher-iis-windows-x86-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.4.zip) |
-| Windows | x86 (32 bits) | 1,0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.4.zip) |
-| Windows | x86 (32 bits) | 1.1. | [dispatcher-iis-windows-x86-ssl1.1-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.4.zip) |
+| Windows | x86 (32-bit) | 1.0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.4.zip) |
+| Windows | x86 (32-bit) | 1.1 | [dispatcher-iis-windows-x86-ssl1.1-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.4.zip) |
 | Windows | x64 (64-bit) | Nenhum | [dispatcher-iis-windows-x64-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.4.zip) |
-| Windows | x64 (64 bits) | 1,0 | [dispatcher-iis-windows-x64-ssl1.0-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.4.zip) |
-| Windows | x64 (64 bits) | 1.1. | [dispatcher-iis-windows-x64-ssl1.1-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.4.zip) |
+| Windows | x64 (64-bit) | 1.0 | [dispatcher-iis-windows-x64-ssl1.0-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.4.zip) |
+| Windows | x64 (64-bit) | 1.1 | [dispatcher-iis-windows-x64-ssl1.1-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.4.zip) |
