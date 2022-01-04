@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3693'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -53,7 +53,7 @@ A tabela a seguir lista o identificador do servidor Web usado em nomes de arquiv
 
 >[!NOTE]
 >
->Os clientes que atualizam especificamente da versão 4.3.3 para a 4.3.4 notarão um comportamento diferente em como os cabeçalhos de cache são definidos para conteúdo não armazenável em cache. Para ler mais sobre esta alteração, consulte o [Notas de versão](/help/using/release-notes.md#nov) página.
+>Os clientes que atualizam especificamente da versão 4.3.3 para a 4.3.4 notarão um comportamento diferente na maneira como os cabeçalhos de cache são definidos para conteúdo não armazenável em cache. Para ler mais sobre esta alteração, consulte a página [Notas de versão](/help/using/release-notes.md#nov).
 
 Cada repositório contém os seguintes arquivos:
 
@@ -178,7 +178,7 @@ O agente de replicação de limpeza padrão na instância do autor é configurad
 Se o site usar um método de autenticação, o agente de replicação de limpeza deverá ser configurado adequadamente.
 
 1. Abra o Gerenciador do IIS e selecione o site que você está usando como cache do Dispatcher.
-1. Usando o modo Exibição de recursos, na seção do IIS, clique duas vezes em Autenticação. 
+1. Usando o modo Exibição de recursos, na seção do IIS, clique duas vezes em Autenticação.
 1. Selecione Autenticação anônima, caso esta opção não esteja ativada, e na área Ações, clique em Ativar.
 
 ### Integração do Módulo ISAPI do Dispatcher ao IIS 8.5 e 10 {#integrating-the-dispatcher-isapi-module-iis-and}
@@ -305,8 +305,8 @@ O conjunto de arquivos de instalação contêm os seguintes arquivos - dependend
 | mod_dispatcher.so | Unix: um link de exemplo. |
 | http.conf.disp&lt;x> | Um exemplo de arquivo de configuração para o servidor Apache. |
 | dispatcher.any | Um exemplo de arquivo de configuração para o Dispatcher. |
-| LEITURA | Arquivo Readme, que contém instruções de instalação e informações de última hora. **Observação**: verifique este arquivo antes de iniciar a instalação. |
-| ALTERAÇÕES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
+| README | Arquivo Readme, que contém instruções de instalação e informações de última hora. **Observação**: verifique este arquivo antes de iniciar a instalação. |
+| CHANGES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
 
 Use as seguintes etapas para adicionar o Dispatcher ao seu Apache Web Server:
 
@@ -410,7 +410,7 @@ Os parâmetros de configuração individuais:
 | DispatcherLogLevel | Nível de log do arquivo de log: <br/>0 - Erros <br/>1 - Avisos <br/>2 - Informações <br/>3 - Depuração <br/>**Observação**: é recomendável definir o nível de log como 3 durante a instalação e o teste, e depois como 0 durante a execução em um ambiente de produção. |
 | DispatcherNoServerHeader | *Este parâmetro está obsoleto e não tem mais efeito.*<br/><br/> Define o cabeçalho do servidor que será usado: <br/><ul><li>indefinido ou 0 - o cabeçalho do servidor HTTP contém a versão do AEM. </li><li>1 - o cabeçalho do servidor Apache é usado.</li></ul> |
 | DispatcherDeclineRoot | Define se as solicitações devem ser rejeitadas para a raiz &quot;/&quot;: <br/>**0** - aceitar solicitações para / <br/>**1** - solicitações para / não são tratadas pelo Dispatcher; use mod_alias para o mapeamento correto. |
-| DispatcherUseProcessedURL | Define se os URLs pré-processados devem ser usados para todo o processamento adicional pelo Dispatcher: <br/>**0** - use o URL original transmitido ao servidor Web. <br/>**1** - o Dispatcher usa o URL já processado pelos manipuladores que precedem o Dispatcher (ou seja, `mod_rewrite`) em vez do URL original enviado ao servidor Web.  Por exemplo, o URL original ou processado corresponde aos filtros do Dispatcher. O URL também é usado como a base para a estrutura do arquivo de cache. Consulte a documentação no site do Apache para obter informações sobre mod_rewrite. Por exemplo, Apache 2.4. Ao usar o mod_rewrite, é aconselhável usar o sinalizador “passthrough | PT” (passe para o próximo manipulador), para forçar o mecanismo de reescrita a definir o campo uri da estrutura interna request_rec para o valor do campo filename. |
+| DispatcherUseProcessedURL | Define se os URLs pré-processados devem ser usados para todo o processamento adicional pelo Dispatcher: <br/>**0** - use o URL original transmitido ao servidor Web. <br/>**1** - o Dispatcher usa o URL já processado pelos manipuladores que precedem o Dispatcher (ou seja, `mod_rewrite`) em vez do URL original enviado ao servidor Web.  Por exemplo, o URL original ou processado corresponde aos filtros do Dispatcher. O URL também é usado como a base para a estrutura do arquivo de cache.   Consulte a documentação no site do Apache para obter informações sobre mod_rewrite. Por exemplo, Apache 2.4. Ao usar o mod_rewrite, é aconselhável usar o sinalizador “passthrough | PT” (passe para o próximo manipulador), para forçar o mecanismo de reescrita a definir o campo uri da estrutura interna request_rec para o valor do campo filename. |
 | DispatcherPassError | Define como aceitar códigos de erro para manipulação de ErrorDocument: <br/>**0** - O Dispatcher faz spool de todas as respostas de erro para o cliente. <br/>**1** - o Dispatcher não faz spool de uma resposta de erro para o cliente (em que o código de status é maior ou igual a 400), mas transmite o código de status para o Apache, que por exemplo, permite que uma diretiva ErrorDocument processe o código de status. <br/>**Intervalo de código** - especifica um intervalo de códigos de erro para o qual a resposta é transmitida para o Apache. Outros códigos de erro são transmitidos para o cliente. Por exemplo, a configuração a seguir transmite respostas para o erro 412 para o cliente, e todos os outros erros são transmitidos para o Apache: DispatcherPassError 400-411,413-417 |
 | DispatcherKeepAliveTimeout | Especifica o tempo limite do keep-alive, em segundos. A partir da versão 4.2.0 do Dispatcher, o valor padrão do keep-alive é 60. Um valor 0 desativa o keep-alive. |
 | DispatcherNoCanonURL | Configurar esse parâmetro como Ativado transmitirá o URL bruto para o back-end em vez do canonizado e substituirá as configurações de DispatcherUseProcessedURL. O valor padrão é Desativado. <br/>**Observação**: as regras de filtro na configuração do Dispatcher sempre serão avaliadas em relação ao URL limpo, não ao URL bruto. |
@@ -592,8 +592,8 @@ O conjunto de arquivos de instalação contêm os seguintes arquivos - dependend
 | `dispatcher.so` | Unix: um link de exemplo. |
 | `obj.conf.disp` | Um exemplo de arquivo de configuração para o servidor Web iPlanet / Sun Java System Web Server. |
 | `dispatcher.any` | Um exemplo de arquivo de configuração para o Dispatcher. |
-| LEITURA | Arquivo Readme, que contém instruções de instalação e informações de última hora. Observação: verifique este arquivo antes de iniciar a instalação. |
-| ALTERAÇÕES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
+| README | Arquivo Readme, que contém instruções de instalação e informações de última hora. Observação: verifique este arquivo antes de iniciar a instalação. |
+| CHANGES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
 
 Use as seguintes etapas para adicionar o Dispatcher ao seu servidor Web:
 
@@ -615,7 +615,7 @@ O servidor Web precisa ser configurado, usando `obj.conf`. No kit de instalaçã
    `Init funcs="dispService, dispInit"`\
    e\
    `Init fn="dispInit"`\
-   de `obj.conf.disp` para a seção de inicialização de `magnus.conf`. 
+   de `obj.conf.disp` para a seção de inicialização de `magnus.conf`.
 
 1. Salve as alterações.
 
@@ -642,7 +642,7 @@ em que:
 | Parâmetro | Descrição |
 |--- |--- |
 | config | Localização e nome do arquivo de configuração `dispatcher.any.` |
-| arquivo de log | Localização e nome do arquivo de log. |
+| logfile | Localização e nome do arquivo de log. |
 | loglevel | Nível de log ao gravar mensagens no arquivo de log: <br/>**0** Erros <br/>**1** Avisos <br/>**2** Informações <br/>**3** Depuração <br/>**Observação:** é recomendável definir o nível de log como 3 durante a instalação e o teste, e como 0 quando executado em um ambiente de produção. |
 | keepalivetimeout | Especifica o tempo limite do keep-alive, em segundos. A partir da versão 4.2.0 do Dispatcher, o valor padrão do keep-alive é 60. Um valor 0 desativa o keep-alive. |
 
