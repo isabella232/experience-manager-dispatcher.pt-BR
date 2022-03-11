@@ -11,7 +11,7 @@ content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: d19a27256c44ec00fd440b2f8a2fe408a4a4b7c8
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3693'
 ht-degree: 100%
 
@@ -305,8 +305,8 @@ O conjunto de arquivos de instalação contêm os seguintes arquivos - dependend
 | mod_dispatcher.so | Unix: um link de exemplo. |
 | http.conf.disp&lt;x> | Um exemplo de arquivo de configuração para o servidor Apache. |
 | dispatcher.any | Um exemplo de arquivo de configuração para o Dispatcher. |
-| LEITURA | Arquivo Readme, que contém instruções de instalação e informações de última hora. **Observação**: verifique este arquivo antes de iniciar a instalação. |
-| ALTERAÇÕES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
+| README | Arquivo Readme, que contém instruções de instalação e informações de última hora. **Observação**: verifique este arquivo antes de iniciar a instalação. |
+| CHANGES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
 
 Use as seguintes etapas para adicionar o Dispatcher ao seu Apache Web Server:
 
@@ -592,8 +592,8 @@ O conjunto de arquivos de instalação contêm os seguintes arquivos - dependend
 | `dispatcher.so` | Unix: um link de exemplo. |
 | `obj.conf.disp` | Um exemplo de arquivo de configuração para o servidor Web iPlanet / Sun Java System Web Server. |
 | `dispatcher.any` | Um exemplo de arquivo de configuração para o Dispatcher. |
-| LEITURA | Arquivo Readme, que contém instruções de instalação e informações de última hora. Observação: verifique este arquivo antes de iniciar a instalação. |
-| ALTERAÇÕES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
+| README | Arquivo Readme, que contém instruções de instalação e informações de última hora. Observação: verifique este arquivo antes de iniciar a instalação. |
+| CHANGES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
 
 Use as seguintes etapas para adicionar o Dispatcher ao seu servidor Web:
 
@@ -642,7 +642,7 @@ em que:
 | Parâmetro | Descrição |
 |--- |--- |
 | config | Localização e nome do arquivo de configuração `dispatcher.any.` |
-| arquivo de log | Localização e nome do arquivo de log. |
+| logfile | Localização e nome do arquivo de log. |
 | loglevel | Nível de log ao gravar mensagens no arquivo de log: <br/>**0** Erros <br/>**1** Avisos <br/>**2** Informações <br/>**3** Depuração <br/>**Observação:** é recomendável definir o nível de log como 3 durante a instalação e o teste, e como 0 quando executado em um ambiente de produção. |
 | keepalivetimeout | Especifica o tempo limite do keep-alive, em segundos. A partir da versão 4.2.0 do Dispatcher, o valor padrão do keep-alive é 60. Um valor 0 desativa o keep-alive. |
 
