@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 753f9fc35968996ee83d5947585fd52f2b981632
+source-git-commit: 11c3d7d627c96bb6ef647b5a067d3926eca347fc
 workflow-type: tm+mt
-source-wordcount: '827'
-ht-degree: 85%
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -46,7 +46,7 @@ Os diagramas a seguir ilustram a ordem dos eventos que ocorrem quando um navegad
 
 1. O Dispatcher determina que o conteúdo não seja armazenado em cache ou exige atualização.
 1. O Dispatcher encaminha a solicitação original para o renderizador.
-1. O renderizador chama o servlet do autorizador de AEM (Este não é o servlet do Dispatcher AuthChcker) para executar uma verificação de segurança. Quando o usuário é autorizado, o renderizador inclui a página renderizada no corpo da mensagem de resposta.
+1. O renderizador chama o servlet do autorizador de AEM (esse não é o servlet do Dispatcher AuthChcker) para executar uma verificação de segurança. Quando o usuário é autorizado, o renderizador inclui a página renderizada no corpo da mensagem de resposta.
 1. O Dispatcher encaminha a resposta ao navegador. O Dispatcher adiciona o corpo da mensagem de resposta do renderizador ao cache.
 
 ## O usuário não está autorizado {#user-is-not-authorized}
@@ -57,7 +57,7 @@ Os diagramas a seguir ilustram a ordem dos eventos que ocorrem quando um navegad
 1. O Dispatcher envia uma mensagem de solicitação para o renderizador, que inclui todas as linhas de cabeçalho da solicitação do navegador.
 1. O renderizador chama o servlet do Verificador de Autenticação para executar uma verificação de segurança que falha e o renderizador encaminha a solicitação original para o Dispatcher.
 1. O Dispatcher encaminha a solicitação original para o renderizador.
-1. O renderizador chama o servlet do autorizador de AEM (Este não é o servlet do Dispatcher AuthChcker) para executar uma verificação de segurança. Quando o usuário é autorizado, o renderizador inclui a página renderizada no corpo da mensagem de resposta.
+1. O renderizador chama o servlet do autorizador de AEM (esse não é o servlet do Dispatcher AuthChcker) para executar uma verificação de segurança. Quando o usuário é autorizado, o renderizador inclui a página renderizada no corpo da mensagem de resposta.
 1. O Dispatcher encaminha a resposta ao navegador. O Dispatcher adiciona o corpo da mensagem de resposta do renderizador ao cache.
 
 
