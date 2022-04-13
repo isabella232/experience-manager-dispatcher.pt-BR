@@ -12,7 +12,7 @@ exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: 377a104f7e8e506e2f61002d90851a38657e8fe5
 workflow-type: tm+mt
 source-wordcount: '977'
-ht-degree: 94%
+ht-degree: 97%
 
 ---
 
@@ -41,12 +41,12 @@ Para obter instruções detalhadas, consulte [Instalação do Dispatcher](dispat
 
 ## Histórico da versão {#release-history}
 
-### Versão 4.3.5 (2022-abr-04) {#apr}
+### Versão 4.3.5 (04 de abril de 2022) {#apr}
 
 **Melhorias**:
 
-* DISP-954 - Suporte à invalidação mesmo se a expiração não tiver passado
-* DISP-949 - O Dispatcher retorna 200 em vez de 404 mesmo se a solicitação de POST estiver bloqueada por filtro
+* DISP-954 - suporte à invalidação mesmo se a expiração não tiver passado
+* DISP-949 - o Dispatcher retorna 200 em vez de 404 mesmo se a solicitação POST estiver bloqueada por filtro
 
 ### Versão 4.3.4 (29 de novembro de 2021) {#nov}
 
