@@ -12,7 +12,7 @@ exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: 5430d53571414cf3bf764bb8523c252bb77a3bf2
 workflow-type: tm+mt
 source-wordcount: '1037'
-ht-degree: 92%
+ht-degree: 94%
 
 ---
 
@@ -25,7 +25,7 @@ ht-degree: 92%
 | Produtos | Adobe Experience Manager (AEM) Dispatcher |
 | Versão | 4.3.5 |
 | Tipo | Versão secundária |
-| Data | 04 de abril de 2022 |
+| Data | 4 de abril de 2022 |
 | URL de download | <ul><li>[Apache 2.4](release-notes.md#apache)</li><li>[Microsoft Internet Information Services (IIS)](release-notes.md#iis)</li></ul> |
 | Compatibilidade | AEM 6.1 ou superior |
 
@@ -33,7 +33,7 @@ ht-degree: 92%
 
 Consulte a página [Plataformas compatíveis](https://helpx.adobe.com/br/experience-manager/6-4/sites/deploying/using/technical-requirements.html) para obter mais informações sobre os requisitos e pré-requisitos.
 
-O Adobe recomenda utilizar a versão mais recente do AEM Dispatcher para se beneficiar da funcionalidade mais recente, das correções de erros mais recentes e do melhor desempenho possível.
+A Adobe recomenda enfaticamente o uso da versão mais recente do AEM Dispatcher para se beneficiar das novas funções, das correções de bugs mais recentes e do melhor desempenho possível.
 
 ## Instruções de instalação {#installation-instructions}
 
