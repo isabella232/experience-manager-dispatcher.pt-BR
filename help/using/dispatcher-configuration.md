@@ -2,8 +2,8 @@
 title: Configuração do Dispatcher
 description: Saiba como configurar o Dispatcher.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 9ad35121bde90916a0376b33853e190b382ce5cd
-workflow-type: ht
+source-git-commit: deb232be3c4c5e3d11d13cbccb282409d90b93bb
+workflow-type: tm+mt
 source-wordcount: '8528'
 ht-degree: 100%
 
@@ -840,7 +840,7 @@ Uma única entrada pode ter `glob` ou alguma combinação de `method`, `url`, `q
 
 ### Teste da segurança do Dispatcher {#testing-dispatcher-security}
 
-Os filtros do Dispatcher devem bloquear o acesso às seguintes páginas e scripts nas instâncias de publicação do AEM. Use um navegador da Web para tentar abrir as seguintes páginas, como um visitante do site faria, e verificar se um código 404 é retornado. Se qualquer outro resultado for obtido, ajuste os filtros.
+Os filtros do Dispatcher devem bloquear o acesso às seguintes páginas e scripts nas instâncias de publicação do AEM. Use um navegador da Web para tentar abrir as seguintes páginas, como um visitante do site faria, e verificar se um código 403 é retornado. Se qualquer outro resultado for obtido, ajuste os filtros.
 
 Observe que você deve ver a renderização normal da página para `/content/add_valid_page.html?debug=layout`.
 
