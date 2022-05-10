@@ -11,8 +11,8 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
-workflow-type: ht
+source-git-commit: 9d168ab7139e46b0c768fc3bab37245459eca002
+workflow-type: tm+mt
 source-wordcount: '2965'
 ht-degree: 100%
 
@@ -504,7 +504,7 @@ Como de costume, a raiz do documento do cache é a mesma raiz do documento do se
 
 Para reescrever referências a arquivos com extensões diferentes de .html ou .htm, crie um componente de transformador de reescrita do Sling e adicione-o ao pipeline de reescrita padrão.
 
-Reescreva referências quando os caminhos de recursos não resolverem corretamente no contexto do servidor Web. Por exemplo, um transformador é necessário quando os componentes geradores de imagem criam links como /content/sitea/en/products.navimage.png. O componente de navegação superior de [Como criar um site completo](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/the-basics.html) cria esses links.
+Reescreva referências quando os caminhos de recursos não resolverem corretamente no contexto do servidor Web. Por exemplo, um transformador é necessário quando os componentes geradores de imagem criam links como /content/sitea/en/products.navimage.png. O componente de navegação superior de [Como criar um site completo](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/the-basics.html) cria esses links.
 
 O [reescritor Sling](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) é um módulo que pós-processa a saída do Sling. As implementações de pipeline SAX da reescrita consistem em um gerador, um ou mais transformadores e um serializador:
 
