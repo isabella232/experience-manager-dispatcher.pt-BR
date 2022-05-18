@@ -1,7 +1,7 @@
 ---
 title: Visão geral do Dispatcher
 seo-title: Adobe AEM Dispatcher Overview
-description: Este artigo fornece uma visão geral do Dispatcher.
+description: Saiba como usar o Dispatcher para melhorar a segurança, o armazenamento em cache e muito mais no AEM Cloud Services.
 seo-description: This article provides a general overview of Adobe Experience Manager Dispatcher.
 uuid: 71766f86-5e91-446b-a078-061b179d090d
 pageversionid: 1193211344162
@@ -9,10 +9,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
-workflow-type: ht
-source-wordcount: '3184'
-ht-degree: 100%
+source-git-commit: 76f7a3fc8d98657c5f46912f452c05fce1b5be61
+workflow-type: tm+mt
+source-wordcount: '3190'
+ht-degree: 99%
 
 ---
 
@@ -158,7 +158,7 @@ Mais uma vez, é de salientar alguns pontos:
 
 ### Determinar se um documento está sujeito ao armazenamento em cache
 
-Você pode [definir quais documentos o Dispatcher armazena em cache no arquivo de configuração](https://helpx.adobe.com/pt/experience-manager/dispatcher/using/dispatcher-configuration.html). O Dispatcher verifica a solicitação em relação à lista de documentos que podem ser armazenados em cache. Se o documento não estiver nessa lista, o Dispatcher solicitará o documento da instância do AEM.
+Você pode [definir quais documentos o Dispatcher armazena em cache no arquivo de configuração](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). O Dispatcher verifica a solicitação em relação à lista de documentos que podem ser armazenados em cache. Se o documento não estiver nessa lista, o Dispatcher solicitará o documento da instância do AEM.
 
 O Dispatcher *sempre* solicita o documento diretamente da instância do AEM nos seguintes casos:
 
@@ -168,7 +168,7 @@ O Dispatcher *sempre* solicita o documento diretamente da instância do AEM nos 
 
 >[!NOTE]
 >
->Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. Para obter informações adicionais sobre o armazenamento em cache do cabeçalho de resposta, consulte a seção [Armazenamento em cache de cabeçalhos de resposta HTTP](https://helpx.adobe.com/pt/experience-manager/dispatcher/using/dispatcher-configuration.html).
+>Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. Para obter informações adicionais sobre o armazenamento em cache do cabeçalho de resposta, consulte a seção [Armazenamento em cache de cabeçalhos de resposta HTTP](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html).
 
 ### Determinar se um documento está em cache
 
@@ -309,7 +309,7 @@ Um Dispatcher pode ser usado na frente de uma instância do autor para melhorar 
 1. Abra o `author_dispatcher.any` em um editor de texto e faça as seguintes alterações:
 
    1. Altere o `/hostname` e `/port` da `/renders` seção para apontar para a instância do autor.
-   1. Altere o `/docroot` da `/cache` seção para apontar para um diretório de cache. Caso esteja usando o [AEM com Touch UI](https://helpx.adobe.com/br/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), consulte o aviso acima.
+   1. Altere o `/docroot` da `/cache` seção para apontar para um diretório de cache. Caso esteja usando o [AEM com Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), consulte o aviso acima.
    1. Salve as alterações.
 
 1. Exclua todos os arquivos existentes no diretório `/cache` > `/docroot` que você configurou acima.
