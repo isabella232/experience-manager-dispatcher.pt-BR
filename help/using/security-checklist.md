@@ -15,9 +15,9 @@ internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
 source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '638'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -38,7 +38,7 @@ A Adobe recomenda concluir a seguinte lista de verificação antes de continuar 
 
 >[!CAUTION]
 >
->Você também deve concluir a Lista de verificação de segurança da sua versão do AEM antes de entrar em atividade. Consulte a [documentação do Adobe Experience Manager](https://helpx.adobe.com/experience-manager/6-5/sites/administering/using/security-checklist.html) correspondente.
+>Você também deve concluir a Lista de verificação de segurança da sua versão do AEM antes de entrar em atividade. Consulte a [documentação do Adobe Experience Manager](https://helpx.adobe.com/br/experience-manager/6-5/sites/administering/using/security-checklist.html) correspondente.
 
 ## Usar a versão mais recente do Dispatcher {#use-the-latest-version-of-dispatcher}
 
