@@ -10,9 +10,9 @@ content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
 source-git-commit: 85a7f38ecb5f5fe620ff51a7cdbe29f546559288
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3190'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -74,7 +74,7 @@ O que significa que:
 
 * **o conteúdo** estático é manipulado com a mesma velocidade e facilidade de um servidor Web estático;*além disso, você pode usar as ferramentas de administração e segurança disponíveis para seus servidores Web estáticos*.
 
-* **o conteúdo** dinâmico é gerado conforme necessário, sem retardar o sistema além do absolutamente necessário.
+* o **conteúdo dinâmico** é gerado conforme necessário, sem retardar o sistema além do absolutamente necessário.
 
 O Dispatcher contém mecanismos para gerar e atualizar HTML estático com base no conteúdo do site dinâmico. Você pode especificar em detalhes quais documentos são armazenados como arquivos estáticos e quais são sempre gerados dinamicamente.
 
@@ -128,7 +128,7 @@ O Dispatcher tem dois métodos primários para atualizar o conteúdo de cache qu
 Em uma atualização de conteúdo, um ou mais documentos do AEM são alterados. O AEM envia uma solicitação de agregação para o Dispatcher, que atualiza o cache de acordo:
 
 1. Ele exclui os arquivos modificados do cache.
-1. Ele exclui do cache todos os arquivos que iniciam com o mesmo identificador. Por exemplo, se o arquivo /pt_br/index.html for atualizado, todos os arquivos que começam com /pt_br/index. são excluídos. Esse mecanismo permite que você crie sites eficientes em cache, especialmente em relação à navegação de imagens.
+1. Ele exclui do cache todos os arquivos que iniciam com o mesmo identificador. Por exemplo, se o arquivo /en/index.html for atualizado, todos os arquivos que começam com /en/index. são excluídos. Esse mecanismo permite que você crie sites eficientes em cache, especialmente em relação à navegação de imagens.
 1. Ela *toca* o chamado **Arquivo de estado**, Isso atualiza o carimbo de data e hora do arquivo de status para indicar a data da última alteração.
 
 É de salientar os seguintes pontos:
@@ -158,7 +158,7 @@ Mais uma vez, é de salientar alguns pontos:
 
 ### Determinar se um documento está sujeito ao armazenamento em cache
 
-Você pode [definir quais documentos o Dispatcher armazena em cache no arquivo de configuração](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). O Dispatcher verifica a solicitação em relação à lista de documentos que podem ser armazenados em cache. Se o documento não estiver nessa lista, o Dispatcher solicitará o documento da instância do AEM.
+Você pode [definir quais documentos o Dispatcher armazena em cache no arquivo de configuração](https://helpx.adobe.com/pt/experience-manager/dispatcher/using/dispatcher-configuration.html). O Dispatcher verifica a solicitação em relação à lista de documentos que podem ser armazenados em cache. Se o documento não estiver nessa lista, o Dispatcher solicitará o documento da instância do AEM.
 
 O Dispatcher *sempre* solicita o documento diretamente da instância do AEM nos seguintes casos:
 
@@ -168,7 +168,7 @@ O Dispatcher *sempre* solicita o documento diretamente da instância do AEM nos 
 
 >[!NOTE]
 >
->Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. Para obter informações adicionais sobre o armazenamento em cache do cabeçalho de resposta, consulte a seção [Armazenamento em cache de cabeçalhos de resposta HTTP](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html).
+>Os métodos GET ou HEAD (para o cabeçalho HTTP) podem ser armazenados em cache pelo Dispatcher. Para obter informações adicionais sobre o armazenamento em cache do cabeçalho de resposta, consulte a seção [Armazenamento em cache de cabeçalhos de resposta HTTP](https://helpx.adobe.com/pt/experience-manager/dispatcher/using/dispatcher-configuration.html).
 
 ### Determinar se um documento está em cache
 
@@ -309,7 +309,7 @@ Um Dispatcher pode ser usado na frente de uma instância do autor para melhorar 
 1. Abra o `author_dispatcher.any` em um editor de texto e faça as seguintes alterações:
 
    1. Altere o `/hostname` e `/port` da `/renders` seção para apontar para a instância do autor.
-   1. Altere o `/docroot` da `/cache` seção para apontar para um diretório de cache. Caso esteja usando o [AEM com Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), consulte o aviso acima.
+   1. Altere o `/docroot` da `/cache` seção para apontar para um diretório de cache. Caso esteja usando o [AEM com Touch UI](https://helpx.adobe.com/br/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), consulte o aviso acima.
    1. Salve as alterações.
 
 1. Exclua todos os arquivos existentes no diretório `/cache` > `/docroot` que você configurou acima.
