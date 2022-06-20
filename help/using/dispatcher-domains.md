@@ -11,8 +11,8 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 2aed8101766363834c2fb5b27e0dbd004fc5daf9
-workflow-type: tm+mt
+source-git-commit: 7d2d1cbbb2fb444769239d48c9fbff4cfd2373a2
+workflow-type: ht
 source-wordcount: '2965'
 ht-degree: 100%
 
@@ -62,9 +62,11 @@ Quando os agentes de replicação de limpeza solicitam que o Dispatcher invalide
 
 ![](assets/chlimage_1-9.png)
 
-1. Uma página é ativada na instância do autor do AEM e o conteúdo é replicado para a instância de publicação.
-1. O agente de limpeza chama o Dispatcher para invalidar o cache do conteúdo replicado.
-1. O Dispatcher toca em um ou mais arquivos .stat para invalidar os arquivos em cache.
+<ol type="a">
+  <li>Uma página é ativada na instância do autor do AEM e o conteúdo é replicado para a instância de publicação.</li>
+  <li>O agente de limpeza chama o Dispatcher para invalidar o cache do conteúdo replicado.</li>
+  <li>O Dispatcher toca em um ou mais arquivos .stat para invalidar os arquivos em cache.</li>
+</ol>
 
 Para usar o Dispatcher com vários domínios, você precisa configurar o AEM, o Dispatcher e o servidor Web. Esta página descreve soluções gerais que se aplicam à maioria dos ambientes. Devido à complexidade de algumas topologias do AEM, sua solução pode exigir mais configurações personalizadas para resolver problemas específicos. É provável que você precise adaptar os exemplos para atender às políticas existentes de infraestrutura e gerenciamento de TI.
 
