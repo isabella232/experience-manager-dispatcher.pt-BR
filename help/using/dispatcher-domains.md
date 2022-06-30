@@ -12,9 +12,9 @@ content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
 source-git-commit: c7af1a042b0106fa0a559448398a8dd636d920c2
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '2968'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -63,7 +63,7 @@ Quando os agentes de replicação de limpeza solicitam que o Dispatcher invalide
 ![](assets/chlimage_1-9.png)
 
 * a - Uma página é ativada na instância do autor do AEM e o conteúdo é replicado para a instância de publicação.
-* b - O Agente de Liberação do Dispatcher chama o Dispatcher para invalidar o cache do conteúdo replicado.
+* b - O agente de limpeza do Dispatcher chama o Dispatcher para invalidar o cache do conteúdo replicado.
 * c - O Dispatcher toca em um ou mais arquivos .stat para invalidar os arquivos em cache.
 
 Para usar o Dispatcher com vários domínios, você precisa configurar o AEM, o Dispatcher e o servidor Web. Esta página descreve soluções gerais que se aplicam à maioria dos ambientes. Devido à complexidade de algumas topologias do AEM, sua solução pode exigir mais configurações personalizadas para resolver problemas específicos. É provável que você precise adaptar os exemplos para atender às políticas existentes de infraestrutura e gerenciamento de TI.
@@ -332,7 +332,7 @@ Use o recurso interno de reescrita de URL do seu servidor Web para traduzir URLs
 
 ![](assets/chlimage_1-13.png)
 
-O cache do Dispatcher espelha a estrutura do nó do repositório. Portanto, mediante as ativações de página, as solicitações resultantes para invalidar a página em cache não exigem URL ou traduções de caminho.
+O cache do Dispatcher espelha a estrutura do nó do repositório. Portanto, mediante ativações de página, as solicitações resultantes para invalidar a página em cache não exigem URL ou traduções de caminho.
 
 ![](assets/chlimage_1-14.png)
 
