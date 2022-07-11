@@ -13,10 +13,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
-workflow-type: ht
+source-git-commit: 25f8569bdeb6b675038bea02637900e9d0fc1f27
+workflow-type: tm+mt
 source-wordcount: '1404'
-ht-degree: 100%
+ht-degree: 99%
 
 ---
 
@@ -67,7 +67,7 @@ Use o procedimento a seguir para configurar um agente de replicação na instân
 1. Configure outros parâmetros conforme necessário.
 1. Clique em OK para ativar o agente.
 
-Como alternativa, você também pode acessar e configurar o agente de limpeza do Dispatcher direto do [AEM Touch UI](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=pt-BR).
+Como alternativa, você também pode acessar e configurar o agente de limpeza do Dispatcher direto do [AEM Touch UI](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html#configuring-a-dispatcher-flush-agent).
 
 Para obter detalhes adicionais sobre como habilitar o acesso a URLs personalizados, consulte [Habilitação de acesso a URLs personalizados](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 
