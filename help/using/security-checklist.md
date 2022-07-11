@@ -14,10 +14,10 @@ index: y
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
-workflow-type: ht
-source-wordcount: '638'
-ht-degree: 100%
+source-git-commit: 5a387498c7fd83cad1fafdbfded6a78f55acbc14
+workflow-type: tm+mt
+source-wordcount: '639'
+ht-degree: 99%
 
 ---
 
@@ -161,7 +161,7 @@ O AEM fornece uma [estrutura](https://experienceleague.adobe.com/docs/experience
 
 Para evitar clickjacking, recomendamos que você configure seu servidor Web para fornecer o cabeçalho HTTP `X-FRAME-OPTIONS` definido como `SAMEORIGIN`.
 
-Para obter mais [informações sobre clickjacking, consulte o site OWASP](https://www.owasp.org/index.php/Clickjacking).
+Para obter mais [informações sobre clickjacking, consulte o site OWASP](https://owasp.org/www-community/attacks/Clickjacking).
 
 ## Realização de teste de penetração {#perform-a-penetration-test}
 
