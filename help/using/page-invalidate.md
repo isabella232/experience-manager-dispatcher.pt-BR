@@ -14,9 +14,9 @@ content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
 source-git-commit: 25f8569bdeb6b675038bea02637900e9d0fc1f27
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1404'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -28,7 +28,7 @@ Ao usar o Dispatcher com o AEM, a interação deve ser configurada para garantir
 
 A conta de usuário `admin` padrão é usada para autenticar os agentes de replicação instalados por padrão. Você deve criar uma conta de usuário dedicada para usar com agentes de replicação.
 
-Para obter mais informações, consulte a seção [Configuração de usuários de replicação e transporte](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=pt-BR) da Lista de verificação de segurança do AEM.
+Para obter mais informações, consulte a seção [Configuração de usuários de replicação e transporte](https://helpx.adobe.com/br/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) da Lista de verificação de segurança do AEM.
 
 ## Invalidação do cache do Dispatcher no ambiente de criação {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
@@ -67,7 +67,7 @@ Use o procedimento a seguir para configurar um agente de replicação na instân
 1. Configure outros parâmetros conforme necessário.
 1. Clique em OK para ativar o agente.
 
-Como alternativa, você também pode acessar e configurar o agente de limpeza do Dispatcher direto do [AEM Touch UI](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html#configuring-a-dispatcher-flush-agent).
+Como alternativa, você também pode acessar e configurar o agente de limpeza do Dispatcher direto do [AEM Touch UI](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=pt-BR#configuring-a-dispatcher-flush-agent).
 
 Para obter detalhes adicionais sobre como habilitar o acesso a URLs personalizados, consulte [Habilitação de acesso a URLs personalizados](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 
