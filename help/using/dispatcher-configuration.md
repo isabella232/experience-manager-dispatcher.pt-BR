@@ -2,10 +2,10 @@
 title: Configuração do Dispatcher
 description: Saiba como configurar o Dispatcher. Saiba mais sobre o suporte para IPv4 e IPv6, arquivos de configuração, variáveis de ambiente, nomeação da instância, definição de farms, identificação de hosts virtuais e muito mais.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: aed3c791a308b37ac493a78e918da3a4db1c8a64
+source-git-commit: 385495c76cd770409e9a002c685e8d375b159207
 workflow-type: tm+mt
-source-wordcount: '8549'
-ht-degree: 99%
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -1374,7 +1374,11 @@ Para obter detalhes adicionais, leia também as seções `/invalidate` e `/statf
 
 ### Configuração da invalidação de cache baseada em tempo - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-Se definida, a propriedade `/enableTTL` avaliará os cabeçalhos de resposta desde o back-end e, se eles tiverem um max-age `Cache-Control` ou data de `Expires`, um arquivo auxiliar e vazio ao lado do arquivo de cache será criado, com o tempo de modificação igual à data de expiração. Quando o arquivo em cache é solicitado depois do tempo de modificação, ele é automaticamente solicitado outra vez no back-end.
+Se definida como 1 (/enableTTL &quot;1&quot;), a variável `/enableTTL` a propriedade avaliará os cabeçalhos de resposta do backend e, se eles contiverem um `Cache-Control` idade máxima ou `Expires` data, um arquivo auxiliar e vazio ao lado do arquivo de cache é criado, com o tempo de modificação igual à data de expiração. Quando o arquivo em cache é solicitado depois do tempo de modificação, ele é automaticamente solicitado outra vez no back-end.
+
+>[!NOTE]
+>
+>Lembre-se de que o armazenamento em cache com base em TTL é um superconjunto de armazenamento em cache de cabeçalho e, como tal, o `/headers` também deve ser configurada corretamente.
 
 >[!NOTE]
 >
