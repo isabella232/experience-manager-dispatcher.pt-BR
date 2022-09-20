@@ -2,10 +2,10 @@
 title: Configuração do Dispatcher
 description: Saiba como configurar o Dispatcher. Saiba mais sobre o suporte para IPv4 e IPv6, arquivos de configuração, variáveis de ambiente, nomeação da instância, definição de farms, identificação de hosts virtuais e muito mais.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 3455a90308d8661725850e19b67d7ff65f6f662f
+source-git-commit: f379daec71240150706eb90d930dbc756bbf8eb1
 workflow-type: tm+mt
-source-wordcount: '8561'
-ht-degree: 100%
+source-wordcount: '8636'
+ht-degree: 98%
 
 ---
 
@@ -1280,31 +1280,38 @@ A seção `ignoreUrlParams` define quais parâmetros de URL são ignorados ao de
 
 Quando um parâmetro é ignorado para uma página, ela é armazenada em cache na primeira vez que a página é solicitada. As solicitações subsequentes da página são enviadas para a página em cache, independentemente do valor do parâmetro na solicitação.
 
+>[!NOTE]
+>
+>É recomendável configurar a variável `ignoreUrlParams` configurando de maneira lista de permissões. Dessa forma, todos os parâmetros de consulta são ignorados e somente os parâmetros de consulta conhecidos ou esperados são isentos (&quot;negado&quot;) de serem ignorados. Para obter mais detalhes e exemplos, consulte [esta página](https://github.com/adobe/aem-dispatcher-optimizer-tool/blob/main/docs/Rules.md#dot---the-dispatcher-publish-farm-cache-should-have-its-ignoreurlparams-rules-configured-in-an-allow-list-manner).
+
 Para especificar quais parâmetros são ignorados, adicione regras glob à propriedade `ignoreUrlParams`:
 
-* Para ignorar um parâmetro, crie uma propriedade glob que permita o parâmetro.
-* Para evitar que a página seja armazenada em cache, crie uma propriedade glob que negue o parâmetro.
+* Para armazenar em cache uma página, apesar da solicitação que contém um parâmetro de URL, crie uma propriedade glob que permita o parâmetro (a ser ignorado).
+* Para evitar que a página seja armazenada em cache, crie uma propriedade glob que negue o parâmetro (a ser ignorado).
 
-O exemplo a seguir faz com que o Dispatcher ignore o parâmetro `q`, para que os URLs de solicitação que incluem o parâmetro q sejam armazenados em cache:
+O exemplo a seguir faz com que o Dispatcher ignore todos os parâmetros, exceto o `nocache` parâmetro. Assim, solicite URLs que incluam a variável `nocache` nunca são armazenados em cache pelo dispatcher:
 
 ```xml
 /ignoreUrlParams
 {
-    /0001 { /glob "*" /type "deny" }
-    /0002 { /glob "q" /type "allow" }
+    # allow-the-url-parameter-nocache-to-bypass-dispatcher-on-every-request
+    /0001 { /glob "nocache" /type "deny" }
+    # all-other-url-parameters-are-ignored-by-dispatcher-and-requests-are-cached
+    /0002 { /glob "*" /type "allow" }
 }
 ```
 
-Usando o valor `ignoreUrlParams` como exemplo, a seguinte solicitação HTTP faz com que a página seja armazenada em cache porque o parâmetro `q` é ignorado:
+No contexto da `ignoreUrlParams` exemplo de configuração acima, a seguinte solicitação HTTP faz com que a página seja armazenada em cache porque o `willbecached` é ignorado:
 
 ```xml
-GET /mypage.html?q=5
+GET /mypage.html?willbecached=true
 ```
 
-Usando o valor `ignoreUrlParams` como exemplo, a seguinte solicitação HTTP faz com que a página **não** seja armazenada em cache porque o parâmetro `p` não é ignorado:
+No contexto da `ignoreUrlParams` exemplo de configuração, a seguinte solicitação HTTP faz com que a página **not** ser armazenado em cache porque a variável `nocache` não é ignorado:
 
 ```xml
-GET /mypage.html?q=5&p=4
+GET /mypage.html?nocache=true
+GET /mypage.html?nocache=true&willbecached=true
 ```
 
 Para obter informações sobre propriedades glob, consulte [Criação de padrões para propriedades glob](#designing-patterns-for-glob-properties).
