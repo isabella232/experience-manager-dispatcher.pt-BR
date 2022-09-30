@@ -3,9 +3,9 @@ title: Configuração do Dispatcher
 description: Saiba como configurar o Dispatcher. Saiba mais sobre o suporte para IPv4 e IPv6, arquivos de configuração, variáveis de ambiente, nomeação da instância, definição de farms, identificação de hosts virtuais e muito mais.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: f379daec71240150706eb90d930dbc756bbf8eb1
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8636'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -1282,14 +1282,14 @@ Quando um parâmetro é ignorado para uma página, ela é armazenada em cache na
 
 >[!NOTE]
 >
->É recomendável configurar a variável `ignoreUrlParams` configurando de maneira lista de permissões. Dessa forma, todos os parâmetros de consulta são ignorados e somente os parâmetros de consulta conhecidos ou esperados são isentos (&quot;negado&quot;) de serem ignorados. Para obter mais detalhes e exemplos, consulte [esta página](https://github.com/adobe/aem-dispatcher-optimizer-tool/blob/main/docs/Rules.md#dot---the-dispatcher-publish-farm-cache-should-have-its-ignoreurlparams-rules-configured-in-an-allow-list-manner).
+>É recomendável definir a configuração `ignoreUrlParams` de maneira semelhante a uma lista de permissões. Dessa forma, todos os parâmetros de consulta são ignorados e somente os parâmetros conhecidos ou esperados são isentos (ou “negados”) de serem ignorados. Para obter mais detalhes e exemplos, consulte [esta página](https://github.com/adobe/aem-dispatcher-optimizer-tool/blob/main/docs/Rules.md#dot---the-dispatcher-publish-farm-cache-should-have-its-ignoreurlparams-rules-configured-in-an-allow-list-manner).
 
 Para especificar quais parâmetros são ignorados, adicione regras glob à propriedade `ignoreUrlParams`:
 
 * Para armazenar em cache uma página, apesar da solicitação que contém um parâmetro de URL, crie uma propriedade glob que permita o parâmetro (a ser ignorado).
 * Para evitar que a página seja armazenada em cache, crie uma propriedade glob que negue o parâmetro (a ser ignorado).
 
-O exemplo a seguir faz com que o Dispatcher ignore todos os parâmetros, exceto o `nocache` parâmetro. Assim, solicite URLs que incluam a variável `nocache` nunca são armazenados em cache pelo dispatcher:
+O exemplo a seguir faz com que o Dispatcher ignore todos os parâmetros, exceto o parâmetro `nocache`. Sendo assim, URLs de solicitação que incluam o parâmetro `nocache` nunca serão armazenadas em cache pelo Dispatcher:
 
 ```xml
 /ignoreUrlParams
@@ -1301,13 +1301,13 @@ O exemplo a seguir faz com que o Dispatcher ignore todos os parâmetros, exceto 
 }
 ```
 
-No contexto da `ignoreUrlParams` exemplo de configuração acima, a seguinte solicitação HTTP faz com que a página seja armazenada em cache porque o `willbecached` é ignorado:
+No contexto do exemplo da configuração `ignoreUrlParams` acima, a seguinte solicitação HTTP faz com que a página seja armazenada em cache porque o parâmetro `willbecached` é ignorado:
 
 ```xml
 GET /mypage.html?willbecached=true
 ```
 
-No contexto da `ignoreUrlParams` exemplo de configuração, a seguinte solicitação HTTP faz com que a página **not** ser armazenado em cache porque a variável `nocache` não é ignorado:
+Usando a configuração `ignoreUrlParams` como exemplo, a seguinte solicitação HTTP faz com que a página **não** seja armazenada em cache porque o parâmetro `nocache` não é ignorado:
 
 ```xml
 GET /mypage.html?nocache=true
