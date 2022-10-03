@@ -2,10 +2,10 @@
 title: Configuração do Dispatcher
 description: Saiba como configurar o Dispatcher. Saiba mais sobre o suporte para IPv4 e IPv6, arquivos de configuração, variáveis de ambiente, nomeação da instância, definição de farms, identificação de hosts virtuais e muito mais.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: f379daec71240150706eb90d930dbc756bbf8eb1
-workflow-type: ht
-source-wordcount: '8636'
-ht-degree: 100%
+source-git-commit: 112aa011e7a338be2b397d0c9b785fc2d9905b5d
+workflow-type: tm+mt
+source-wordcount: '8675'
+ht-degree: 99%
 
 ---
 
@@ -406,7 +406,7 @@ Usando este exemplo, a tabela a seguir mostra os hosts virtuais que são resolvi
 
 >[!CAUTION]
 >
->`/allowAuthorized` **deve** ser definido como `"0"` na `/cache` seção para habilitar esse recurso.
+>`/allowAuthorized` **deve** ser definido como `"0"` na `/cache` seção para habilitar esse recurso. Conforme detalhado na [Armazenamento em cache quando a autenticação é usada](#caching-when-authentication-is-used) ao definir `/allowAuthorized 0 ` as solicitações que incluem informações de autenticação são **not** em cache. Se o armazenamento em cache sensível a permissão for necessário, consulte o [Armazenamento em cache de conteúdo protegido](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/permissions-cache.html) página.
 
 Crie uma sessão segura para acessar o farm de renderização de modo que os usuários precisem fazer logon para acessar qualquer página no farm. Depois de fazer logon, os usuários podem acessar as páginas no farm. Consulte [Criação de um grupo fechado de usuários](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/cug.html?lang=pt-BR#creating-the-user-group-to-be-used) para informações sobre como usar este recurso com CUGs. Além disso, consulte a [Lista de verificação de segurança](/help/using/security-checklist.md) do Dispatcher antes de entrar em atividade.
 
