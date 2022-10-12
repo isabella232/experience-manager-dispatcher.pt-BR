@@ -14,9 +14,9 @@ content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
 source-git-commit: f255701f23a628ba0d8b6cd91228462e1b552ffa
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1421'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -114,7 +114,7 @@ A liberação do dispatcher é controlada por um agente de replicação que oper
    **Observação:** para agentes de limpeza do Dispatcher, a propriedade do URI será usada somente se você usar entradas de hosts virtuais baseadas em caminho para fazer distinção entre farms. Use esse campo para direcionar o farm a ser invalidado. Por exemplo, o farm nº 1 tem um host virtual de `www.mysite.com/path1/*`, e o farm nº 2 tem um host virtual de `www.mysite.com/path2/*`. Você pode usar um URL de `/path1/invalidate.cache` para direcionar o primeiro farm, e `/path2/invalidate.cache` para direcionar o segundo farm. Para obter mais informações, consulte [Uso do Dispatcher com vários domínios](dispatcher-domains.md).
 
 1. Configure outros parâmetros conforme necessário.
-1. Faça logon na instância de publicação e valide a configuração do agente de limpeza. Além disso, verifique se está ativado.
+1. Faça logon na instância de publicação e valide a configuração do agente de limpeza. Além disso, verifique se ele está ativado.
 1. Repita o procedimento para cada instância de publicação afetada.
 
 Após a configuração, ao ativar uma página do autor para publicar, esse agente inicia uma replicação padrão. O log inclui mensagens indicando solicitações provenientes do seu servidor de publicação, semelhantes ao seguinte exemplo:
