@@ -2,8 +2,8 @@
 title: Configuração do Dispatcher
 description: Saiba como configurar o Dispatcher. Saiba mais sobre o suporte para IPv4 e IPv6, arquivos de configuração, variáveis de ambiente, nomeação da instância, definição de farms, identificação de hosts virtuais e muito mais.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 112aa011e7a338be2b397d0c9b785fc2d9905b5d
-workflow-type: ht
+source-git-commit: 0debee043078b869d0af3258075bd83bf0312c8f
+workflow-type: tm+mt
 source-wordcount: '8675'
 ht-degree: 100%
 
@@ -841,7 +841,7 @@ Uma única entrada pode ter `glob` ou alguma combinação de `method`, `url`, `q
 
 ### Teste da segurança do Dispatcher {#testing-dispatcher-security}
 
-Os filtros do Dispatcher devem bloquear o acesso às seguintes páginas e scripts nas instâncias de publicação do AEM. Use um navegador da Web para tentar abrir as seguintes páginas, como um visitante do site faria, e verificar se um código 403 é retornado. Se qualquer outro resultado for obtido, ajuste os filtros.
+Os filtros do Dispatcher devem bloquear o acesso às seguintes páginas e scripts nas instâncias de publicação do AEM. Use um navegador da Web para tentar abrir as seguintes páginas, como um visitante do site faria, e verificar se um código 404 é retornado. Se qualquer outro resultado for obtido, ajuste os filtros.
 
 Observe que você deve ver a renderização normal da página para `/content/add_valid_page.html?debug=layout`.
 
@@ -901,7 +901,7 @@ Emita o seguinte comando em um terminal ou prompt de comando para determinar se 
 
 `curl -X POST "https://anonymous:anonymous@hostname:port/content/usergenerated/mytestnode"`
 
-Execute o seguinte comando em um terminal ou prompt de comando para tentar invalidar o cache do Dispatcher e garantir que você receba uma resposta de código 404:
+Execute o seguinte comando em um terminal ou prompt de comando para tentar invalidar o cache do Dispatcher e garantir que você receba uma resposta de código 403:
 
 `curl -H "CQ-Handle: /content" -H "CQ-Path: /content" https://yourhostname/dispatcher/invalidate.cache`
 
