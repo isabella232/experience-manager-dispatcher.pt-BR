@@ -10,8 +10,8 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 63dc6184b502b517238c60ef6223b39bd7594306
-workflow-type: ht
+source-git-commit: 663e493f3e1ae26c264e574cec4e0b271a971809
+workflow-type: tm+mt
 source-wordcount: '3693'
 ht-degree: 100%
 
@@ -305,8 +305,8 @@ O conjunto de arquivos de instalação contêm os seguintes arquivos - dependend
 | mod_dispatcher.so | Unix: um link de exemplo. |
 | http.conf.disp&lt;x> | Um exemplo de arquivo de configuração para o servidor Apache. |
 | dispatcher.any | Um exemplo de arquivo de configuração para o Dispatcher. |
-| README | Arquivo Readme, que contém instruções de instalação e informações de última hora. **Observação**: verifique este arquivo antes de iniciar a instalação. |
-| CHANGES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
+| LEITURA | Arquivo Readme, que contém instruções de instalação e informações de última hora. **Observação**: verifique este arquivo antes de iniciar a instalação. |
+| ALTERAÇÕES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
 
 Use as seguintes etapas para adicionar o Dispatcher ao seu Apache Web Server:
 
@@ -339,8 +339,8 @@ Insira os seguintes comandos em uma janela de terminal, substituindo `[path to t
 ```shell
 semanage fcontext -a -t httpd_modules_t [path to the dispatcher.so file]
 setsebool -P httpd_can_network_connect on
-chcon -R --type httpd_sys_content_t [path to the docroot]
-semanage fcontext -a -t httpd_sys_content_t "[path to the docroot](/.*)?"
+chcon -R --type httpd_sys_rw_content_t [path to the docroot]
+semanage fcontext -a -t httpd_sys_rw_content_t "[path to the docroot](/.*)?"
 ```
 
 ### Apache Web Server - Configurar o Apache Web Server para o Dispatcher {#apache-web-server-configure-apache-web-server-for-dispatcher}
@@ -592,8 +592,8 @@ O conjunto de arquivos de instalação contêm os seguintes arquivos - dependend
 | `dispatcher.so` | Unix: um link de exemplo. |
 | `obj.conf.disp` | Um exemplo de arquivo de configuração para o servidor Web iPlanet / Sun Java System Web Server. |
 | `dispatcher.any` | Um exemplo de arquivo de configuração para o Dispatcher. |
-| README | Arquivo Readme, que contém instruções de instalação e informações de última hora. Observação: verifique este arquivo antes de iniciar a instalação. |
-| CHANGES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
+| LEITURA | Arquivo Readme, que contém instruções de instalação e informações de última hora. Observação: verifique este arquivo antes de iniciar a instalação. |
+| ALTERAÇÕES | Altera o arquivo que lista os problemas corrigidos nas versões atual e anterior. |
 
 Use as seguintes etapas para adicionar o Dispatcher ao seu servidor Web:
 
@@ -642,7 +642,7 @@ em que:
 | Parâmetro | Descrição |
 |--- |--- |
 | config | Localização e nome do arquivo de configuração `dispatcher.any.` |
-| logfile | Localização e nome do arquivo de log. |
+| arquivo de log | Localização e nome do arquivo de log. |
 | loglevel | Nível de log ao gravar mensagens no arquivo de log: <br/>**0** Erros <br/>**1** Avisos <br/>**2** Informações <br/>**3** Depuração <br/>**Observação:** é recomendável definir o nível de log como 3 durante a instalação e o teste, e como 0 quando executado em um ambiente de produção. |
 | keepalivetimeout | Especifica o tempo limite do keep-alive, em segundos. A partir da versão 4.2.0 do Dispatcher, o valor padrão do keep-alive é 60. Um valor 0 desativa o keep-alive. |
 
