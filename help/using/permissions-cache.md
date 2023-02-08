@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: ef395d122b1f248cbcdad5a74ff111872c4d2b00
+source-git-commit: 31eaa42b17838d97cacd5c535e04be01a3eb6807
 workflow-type: tm+mt
-source-wordcount: '856'
-ht-degree: 96%
+source-wordcount: '918'
+ht-degree: 90%
 
 ---
 
@@ -60,7 +60,6 @@ Os diagramas a seguir ilustram a ordem dos eventos que ocorrem quando um navegad
 1. O renderizador chama o servlet do autorizador do AEM (esse não é o servlet AuthChcker do Dispatcher) para executar uma verificação de segurança. Quando o usuário é autorizado, o renderizador inclui a página renderizada no corpo da mensagem de resposta.
 1. O Dispatcher encaminha a resposta ao navegador. O Dispatcher adiciona o corpo da mensagem de resposta do renderizador ao cache.
 
-
 ## Implementação de armazenamento em cache sensível a permissões {#implementing-permission-sensitive-caching}
 
 Para implementar o armazenamento em cache sensível a permissões, execute as seguintes tarefas:
@@ -71,6 +70,11 @@ Para implementar o armazenamento em cache sensível a permissões, execute as se
 >[!NOTE]
 >
 >Normalmente, os recursos seguros são armazenados em uma pasta separada dos arquivos não seguros. Por exemplo, /content/secure/
+
+>[!NOTE]
+>
+>Quando há um CDN (ou qualquer outro cache) na frente do dispatcher, você deve definir os cabeçalhos de armazenamento em cache adequadamente para que o CDN não armazene em cache o conteúdo privado. Por exemplo: `Header always set Cache-Control private`.
+>Para AEM as a Cloud Service, consulte a [Armazenamento em cache](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html) para obter mais detalhes sobre como definir cabeçalhos de cache privados.
 
 ## Criar o servlet Auth Checker {#create-the-auth-checker-servlet}
 
