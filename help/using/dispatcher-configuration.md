@@ -5,7 +5,7 @@ exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
 workflow-type: tm+mt
 source-wordcount: '8900'
-ht-degree: 71%
+ht-degree: 72%
 
 ---
 
@@ -1387,10 +1387,10 @@ A invalidação do cache com base no tempo depende do `/enableTTL` e a presença
 
 Antes do Dispatcher 4.3.5, a lógica de invalidação TTL era baseada somente no valor TTL configurado. Com o Dispatcher 4.3.5, o TTL definido **e** as regras de invalidação do cache do Dispatcher são contabilizadas. Dessa forma, para um arquivo em cache:
 
-1. If `/enableTTL` estiver definida como 1, a expiração do arquivo será marcada. Se o arquivo tiver expirado de acordo com o TTL definido, nenhuma outra verificação será executada e o arquivo em cache será solicitado novamente do back-end.
+1. Se `/enableTTL` for definido como 1, a expiração do arquivo será verificada. Se o arquivo tiver expirado de acordo com o TTL definido, nenhuma outra verificação será executada e o arquivo em cache será solicitado novamente no back-end.
 2. Se o arquivo não tiver expirado, ou `/enableTTL` não estiver configurado, então as regras padrão de invalidação do cache serão aplicadas, como as regras definidas por [/statfileslevel](#invalidating-files-by-folder-level) e [/invalidate](#automatically-invalidating-cached-files). Esse fluxo significa que o Dispatcher pode invalidar arquivos para os quais o TTL não expirou.
 
-Essa nova implementação suporta casos de uso em que os arquivos têm um TTL mais longo (por exemplo, no CDN), mas ainda podem ser invalidados mesmo que o TTL não tenha expirado. Ele favorece a atualização do conteúdo em relação à taxa de ocorrência do cache no Dispatcher.
+Essa nova implementação aceita casos de uso em que os arquivos têm um TTL mais longo (por exemplo, no CDN), mas ainda podem ser invalidados mesmo que o TTL não tenha expirado. Ele favorece a atualização do conteúdo em relação à taxa de ocorrência do cache no Dispatcher.
 
 Por outro lado, caso precise **only** a lógica de expiração aplicada a um arquivo e, em seguida, definida `/enableTTL` para 1 e excluir esse arquivo do mecanismo de invalidação de cache padrão. Por exemplo, você pode:
 
@@ -1405,7 +1405,7 @@ Por outro lado, caso precise **only** a lógica de expiração aplicada a um arq
   }
 ```
 
-* Crie a estrutura de conteúdo de forma que seja possível definir um valor alto [/statfilelevel](#invalidating-files-by-folder-level) portanto, o arquivo não é invalidado automaticamente.
+* Projetar a estrutura de conteúdo de forma que você possa definir uma alta [/statfilelevel](#invalidating-files-by-folder-level) para que o arquivo não seja invalidado automaticamente.
 
 Isso garante que `.stat` a invalidação de arquivo não é usada e somente a expiração de TTL está ativa para os arquivos especificados.
 
@@ -1882,7 +1882,7 @@ O método HTTP não é um GET ou HEAD. O Dispatcher presume que a saída contenh
 * **não armazenável em cache: sessão não válida**
 O cache do farm é controlado por um gerenciador de sessão (a configuração contém um nó `sessionmanagement`) e a sessão do usuário não é válida ou não é mais válida.
 * **não armazenável em cache: a resposta contém`no_cache`**
-o servidor remoto retornou um cabeçalho 
+O servidor remoto retornou um cabeçalho 
 `Dispatcher: no_cache` , proibindo o Dispatcher de armazenar a saída em cache.
 * **não armazenável em cache: o comprimento do conteúdo da resposta é zero**
 O comprimento do conteúdo da resposta é zero; o Dispatcher não cria um arquivo de comprimento zero.
