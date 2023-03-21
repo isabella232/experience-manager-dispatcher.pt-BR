@@ -4,7 +4,7 @@ seo-title: Top issues for AEM Dispatcher
 description: Principais problemas do AEM Dispatcher
 seo-description: Top issues for Adobe AEM Dispatcher
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
+source-git-commit: f83b02d74a22e055b486305dfe5420e152efb452
 workflow-type: tm+mt
 source-wordcount: '1578'
 ht-degree: 74%
@@ -130,7 +130,7 @@ Leia mais: [https://sling.apache.org/documentation/the-sling-engine/mappings-for
 
 ### Como configurar agentes de limpeza do Dispatcher em uma instância de publicação?
 
-Consulte a página [Replicação](https://experienceleague.adobe.com/docs/experience-manager-64/deploying/configuring/replication.html?lang=en#configuring-your-replication-agents).
+Consulte a página [Replicação](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=en#configuring-your-replication-agents).
 
 ### Como solucionar problemas de limpeza do Dispatcher?
 

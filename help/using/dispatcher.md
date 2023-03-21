@@ -9,9 +9,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: e87af532ee3268f0a45679e20031c3febc02de58
+source-git-commit: 7dd2ba37e149af960ba428421d64a5a24542eeeb
 workflow-type: tm+mt
-source-wordcount: '3165'
+source-wordcount: '3154'
 ht-degree: 57%
 
 ---
@@ -26,7 +26,7 @@ O Dispatcher é a ferramenta de balanceamento de carga e caching da Adobe Experi
 
 O processo de implantação do Dispatcher é independente do servidor da Web e da plataforma de SO escolhida:
 
-1. Saiba mais sobre o Dispatcher (nesta página). Além disso, consulte [perguntas frequentes sobre o Dispatcher](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/troubleshooting/dispatcher-faq.html?lang=en).
+1. Saiba mais sobre o Dispatcher (nesta página). Além disso, consulte [perguntas frequentes sobre o Dispatcher](/help/using/dispatcher-faq.md).
 1. Instale um [servidor Web compatível](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/introduction/technical-requirements.html?lang=pt-BR) de acordo com a documentação do servidor Web.
 1. [Instale o módulo Dispatcher](dispatcher-install.md) em seu servidor Web e configure o servidor Web apropriadamente.
 1. [Configurar o Dispatcher](dispatcher-configuration.md) (qualquer arquivo no dispatcher).
@@ -45,7 +45,7 @@ Use as seguintes informações conforme necessário:
 
 * [Lista de verificação de segurança do Dispatcher](security-checklist.md)
 * [Base de conhecimento do Dispatcher](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html)
-* [Otimização de um site para desempenho de cache](https://experienceleague.adobe.com/docs/experience-manager-64/deploying/configuring/configuring-performance.html?lang=en)
+* [Otimização de um site para desempenho de cache](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/configuring-performance.html)
 * [Utilização do Dispatcher com vários domínios](dispatcher-domains.md)
 * [Utilização do SSL com o Dispatcher](dispatcher-ssl.md)
 * [Implementação de armazenamento em cache sensível a permissões](permissions-cache.md)
