@@ -10,13 +10,13 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: f2036e8f73d5f9f58ff713df8f04caad89d660fc
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1063'
-ht-degree: 97%
+ht-degree: 100%
 
 ---
 
-# Notas de versão do AEM Dispatcher {#aem-dispatcher-release-notes}
+# Notas de versão do AEM Dispatcher{#aem-dispatcher-release-notes}
 
 ## Informações da versão {#release-information}
 
@@ -47,7 +47,7 @@ Para obter instruções detalhadas, consulte [Instalação do Dispatcher](dispat
 
 * DISP-911 AEM-05 - A X-Edge-Key pode ser vazada em disp_apache2.c
 * DISP-937 registrando todos os seletores
-* DISP-998 tornando configurável o carregamento de urls personalizados na inicialização
+* DISP-998 tornando configurável o carregamento de URLs personalizados na inicialização
 
 ### Versão 4.3.5 (04 de abril de 2022) {#apr}
 
@@ -65,7 +65,7 @@ Para obter instruções detalhadas, consulte [Instalação do Dispatcher](dispat
 
 **Melhorias**:
 
-* DISP-874 - Cria uma configuração de Dispatcher para ativar ou desativar a implementação do DISP-818 por meio de um sinalizador `DispatcherRestrictUncacheableContent`. O valor padrão é Desativado. Quando Ativado, remove todos os cabeçalhos de cache definidos por mod_expires para conteúdo não armazenável em cache. Isso é diferente do comportamento encontrado na versão 4.3.3 (em que o padrão era Ativado), mas o mesmo das versões anteriores à 4.3.3 (em que o padrão estava Desativado). Manter o padrão do `DispatcherRestrictUncacheableContent` como Desativado é a abordagem recomendada para que o cache do navegador tenha mais flexibilidade. Se, ao atualizar da versão 4.3.3 para a 4.3.4, você quiser manter o mesmo comportamento da versão 4.3.3, defina o `DispatcherRestrictUncacheableContent` explicitamente para Ligado.
+* DISP-874 - Cria uma configuração de Dispatcher para ativar ou desativar a implementação do DISP-818 por meio de um sinalizador `DispatcherRestrictUncacheableContent`. O valor padrão é Desativado. Quando Ativado, remove todos os cabeçalhos de cache definidos por mod_expires para conteúdo não armazenável em cache. Isso é diferente do comportamento encontrado na versão 4.3.3 (em que o padrão era Ativado), mas o mesmo das versões anteriores à 4.3.3 (em que o padrão estava Desativado). Manter o padrão do `DispatcherRestrictUncacheableContent`como Desativado é a abordagem recomendada para que o cache do navegador tenha mais flexibilidade. Se, ao atualizar da versão 4.3.3 para a 4.3.4, você quiser manter o mesmo comportamento da versão 4.3.3, defina o `DispatcherRestrictUncacheableContent` explicitamente para Ligado.
 * DISP-841 - O Dispatcher não respeita /serverStaleOnError para o código de resposta 504
 * DISP-874 - Cria uma configuração de Dispatcher para ativar ou desativar a implementação do DISP-818
 * DISP-883 - Rastreio que exibe a decomposição da solicitação de URL no Dispatcher
