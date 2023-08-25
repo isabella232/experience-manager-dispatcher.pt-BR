@@ -2,10 +2,10 @@
 title: Configuração do Dispatcher
 description: Saiba como configurar o Dispatcher. Saiba mais sobre o suporte para IPv4 e IPv6, arquivos de configuração, variáveis de ambiente, nomeação da instância, definição de farms, identificação de hosts virtuais e muito mais.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 434a17077cea8958a55a637eddd1f4851fc7f2ee
+source-git-commit: 5fe3bb534b239d5aec892623cab65e84e04c7d10
 workflow-type: tm+mt
 source-wordcount: '8941'
-ht-degree: 100%
+ht-degree: 99%
 
 ---
 
@@ -368,7 +368,7 @@ O exemplo a seguir representa um trecho de um arquivo `dispatcher.any` que defin
     {
     /virtualhosts
       {
-      "www.mycompany.com"
+      "www.mycompany.com/products/*"
       }
     /renders
       {
@@ -380,7 +380,7 @@ O exemplo a seguir representa um trecho de um arquivo `dispatcher.any` que defin
     {
     /virtualhosts
       {
-      "www.mycompany.com/products/*"
+      "www.mycompany.com"
       }
     /renders
       {
@@ -647,7 +647,7 @@ O exemplo de filtro a seguir permite o envio de dados de formulário pelo métod
 
 #### Exemplo de filtro: Permitir acesso ao console Fluxo de trabalho {#example-filter-allow-access-to-the-workflow-console}
 
-O exemplo a seguir mostra um filtro usado para negar acesso externo ao console Fluxo de trabalho:
+O exemplo a seguir mostra um filtro usado para permitir acesso externo ao console Fluxo de trabalho:
 
 ```xml
 /filter {
@@ -825,6 +825,7 @@ Uma única entrada pode ter `glob` ou alguma combinação de `method`, `url`, `q
 >Se uma regra tiver um `/query`, ela só corresponderá às solicitações que tenham uma sequência de consulta e correspondam ao padrão de consulta fornecido.
 >
 >No exemplo acima, se as solicitações para `/etc` que não têm cadeia de caracteres de consulta também forem permitidas, as seguintes regras serão necessárias:
+>
 
 ```xml
 /filter {  
@@ -1849,40 +1850,38 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/wknd/us/en.html
 Veja abaixo uma lista contendo os cabeçalhos de resposta que o `X-Dispatcher-Info` retorna:
 
 * **em cache**\
-   O arquivo de destino está contido no cache e o Dispatcher determinou que é válido entregá-lo.
+  O arquivo de destino está contido no cache e o Dispatcher determinou que é válido entregá-lo.
 * **armazenamento em cache**\
-   O arquivo de destino não está contido no cache e o Dispatcher determinou que é válido armazenar a saída em cache e entregá-la.
+  O arquivo de destino não está contido no cache e o Dispatcher determinou que é válido armazenar a saída em cache e entregá-la.
 * **armazenamento em cache: o arquivo de status é mais recente**
 O arquivo de destino está contido no cache, no entanto, ele é invalidado por um arquivo de status mais recente. O Dispatcher excluirá o arquivo de destino, recriará o arquivo a partir da saída e o entregará.
 * **não armazenável em cache: nenhuma raiz do documento**
-A configuração do farm não contém uma raiz do documento (elemento de configuração 
-`cache.docroot`).
+A configuração do farm não contém uma raiz do documento (elemento de configuração `cache.docroot`).
 * **não armazenável em cache: caminho do arquivo de cache muito longo**\
-   O arquivo de destino - a concatenação da raiz do documento e do arquivo de URL - excede o maior nome de arquivo possível no sistema.
+  O arquivo de destino - a concatenação da raiz do documento e do arquivo de URL - excede o maior nome de arquivo possível no sistema.
 * **não armazenável em cache: caminho de arquivo temporário muito longo**\
-   O modelo de nome de arquivo temporário excede o nome de arquivo mais longo possível no sistema. O Dispatcher cria um arquivo temporário primeiro, antes de realmente criar ou substituir o arquivo em cache. O nome de arquivo temporário é o nome de arquivo de destino com os caracteres `_YYYYXXXXXX` anexados a ele, onde `Y` e `X` serão substituídos para criar um nome exclusivo.
+  O modelo de nome de arquivo temporário excede o nome de arquivo mais longo possível no sistema. O Dispatcher cria um arquivo temporário primeiro, antes de realmente criar ou substituir o arquivo em cache. O nome de arquivo temporário é o nome de arquivo de destino com os caracteres `_YYYYXXXXXX` anexados a ele, onde `Y` e `X` serão substituídos para criar um nome exclusivo.
 * **não armazenável em cache: o URL da solicitação não tem extensão**\
-   O URL da solicitação não tem extensão ou há um caminho após a extensão de arquivo, por exemplo: `/test.html/a/path`.
+  O URL da solicitação não tem extensão ou há um caminho após a extensão de arquivo, por exemplo: `/test.html/a/path`.
 * **não armazenável em cache: a solicitação não era GET ou HEAD**
 O método HTTP não é GET ou HEAD. O Dispatcher presume que a saída contenha dados dinâmicos que não devem ser armazenados em cache.
 * **não armazenável em cache: a solicitação continha uma cadeia de caracteres de consulta**\
-   A solicitação continha uma cadeia de caracteres de consulta. O Dispatcher presume que a saída depende da sequência de consulta fornecida e, portanto, não a armazena em cache.
+  A solicitação continha uma cadeia de caracteres de consulta. O Dispatcher presume que a saída depende da sequência de consulta fornecida e, portanto, não a armazena em cache.
 * **não armazenável em cache: o gerenciador de sessão não autenticou**\
-   O cache do farm é regido por um gerenciador de sessão (a configuração contém um nó `sessionmanagement`) e a solicitação não continha as informações de autenticação apropriadas.
+  O cache do farm é regido por um gerenciador de sessão (a configuração contém um nó `sessionmanagement`) e a solicitação não continha as informações de autenticação apropriadas.
 * **não armazenável em cache: a solicitação contém autorização**\
-   O farm não tem permissão para armazenar em cache a saída ( `allowAuthorized 0`) e a solicitação contém informações de autenticação.
+  O farm não tem permissão para armazenar em cache a saída ( `allowAuthorized 0`) e a solicitação contém informações de autenticação.
 * **não armazenável em cache: o destino é um diretório**\
-   O arquivo de destino é um diretório. Esse local pode apontar para algum erro conceitual, onde um URL e alguns URLs secundários contêm saídas armazenáveis em cache. Por exemplo, se uma solicitação para `/test.html/a/file.ext` vier primeiro e contiver uma saída armazenável em cache, o Dispatcher não será capaz de armazenar a saída de uma solicitação subsequente em cache para `/test.html`.
+  O arquivo de destino é um diretório. Esse local pode apontar para algum erro conceitual, onde um URL e alguns URLs secundários contêm saídas armazenáveis em cache. Por exemplo, se uma solicitação para `/test.html/a/file.ext` vier primeiro e contiver uma saída armazenável em cache, o Dispatcher não será capaz de armazenar a saída de uma solicitação subsequente em cache para `/test.html`.
 * **não armazenável em cache: o URL de solicitação tem uma barra à direita**\
-   O URL da solicitação tem uma barra à direita.
+  O URL da solicitação tem uma barra à direita.
 * **não armazenável em cache: o URL de solicitação não está nas regras de cache**\
-   As regras de cache do farm negam explicitamente o armazenamento em cache da saída de algum URL de solicitação.
+  As regras de cache do farm negam explicitamente o armazenamento em cache da saída de algum URL de solicitação.
 * **não armazenável em cache: acesso negado pelo verificador de autorização**\
-   O verificador de autorização do farm negou acesso ao arquivo armazenado em cache.
+  O verificador de autorização do farm negou acesso ao arquivo armazenado em cache.
 * **não armazenável em cache: sessão não válida**
 O cache do farm é controlado por um gerenciador de sessão (a configuração contém um nó `sessionmanagement`) e a sessão do usuário não é válida ou não é mais válida.
 * **não armazenável em cache: a resposta contém`no_cache`**
-O servidor remoto retornou um cabeçalho 
-Cabeçalho `Dispatcher: no_cache` que proíbe o Dispatcher de armazenar a saída em cache.
+O servidor remoto retornou um cabeçalho Cabeçalho `Dispatcher: no_cache` que proíbe o Dispatcher de armazenar a saída em cache.
 * **não armazenável em cache: o comprimento do conteúdo da resposta é zero**
 O comprimento do conteúdo da resposta é zero; o Dispatcher não pode criar um arquivo de comprimento zero.
