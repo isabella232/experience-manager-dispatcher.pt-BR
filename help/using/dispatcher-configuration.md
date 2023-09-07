@@ -3,9 +3,9 @@ title: Configuração do Dispatcher
 description: Saiba como configurar o Dispatcher. Saiba mais sobre o suporte para IPv4 e IPv6, arquivos de configuração, variáveis de ambiente, nomeação da instância, definição de farms, identificação de hosts virtuais e muito mais.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 5fe3bb534b239d5aec892623cab65e84e04c7d10
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8941'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -213,7 +213,7 @@ Cada propriedade farm pode conter as seguintes propriedades secundárias:
 
 >[!CAUTION]
 >
->O parâmetro `/homepage` (somente IIS) não funciona mais. Em vez disso, você deve usar o [Módulo de regravação de URL do IIS](https://learn.microsoft.com/pt-br/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
+>O parâmetro `/homepage`(somente IIS) não funciona mais. Em vez disso, você deve usar o [Módulo de regravação de URL do IIS](https://learn.microsoft.com/pt-br/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
 >
 >Se você estiver usando o Apache, deve usar o módulo `mod_rewrite`. Consulte a documentação do site do Apache para obter informações sobre `mod_rewrite` (por exemplo, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). Ao usar `mod_rewrite`, é aconselhável usar o sinalizador “passthrough|PT” (que transmite para o próximo manipulador) para forçar o mecanismo de reescrita a definir o campo `uri` da estrutura interna `request_rec` com o valor do campo `filename`.
 
@@ -647,7 +647,7 @@ O exemplo de filtro a seguir permite o envio de dados de formulário pelo métod
 
 #### Exemplo de filtro: Permitir acesso ao console Fluxo de trabalho {#example-filter-allow-access-to-the-workflow-console}
 
-O exemplo a seguir mostra um filtro usado para permitir acesso externo ao console Fluxo de trabalho:
+O exemplo a seguir mostra um filtro usado para permitir o acesso externo ao console Fluxo de trabalho:
 
 ```xml
 /filter {
@@ -1149,7 +1149,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
 Use a propriedade `/statfileslevel` para invalidar arquivos em cache de acordo com o caminho de cada um deles:
 
-* O Dispatcher cria arquivos `.stat` em cada pasta da pasta docroot para o nível especificado. A pasta docroot é de nível 0.
+* O Dispatcher cria arquivos `.stat`em cada pasta da pasta docroot para o nível especificado. A pasta docroot é de nível 0.
 * Os arquivos são invalidados ao tocar no arquivo `.stat`. A data da última modificação do arquivo `.stat` é comparada com a data da última modificação de um documento em cache. O documento será recuperado se o arquivo `.stat` for mais recente.
 
 * Quando um arquivo em um determinado nível é invalidado, **todos** os arquivos `.stat`, desde o docroot **até** o nível do arquivo invalidado ou do `statsfilevel` configurado (o que for menor), serão tocados.
@@ -1884,4 +1884,4 @@ O cache do farm é controlado por um gerenciador de sessão (a configuração co
 * **não armazenável em cache: a resposta contém`no_cache`**
 O servidor remoto retornou um cabeçalho Cabeçalho `Dispatcher: no_cache` que proíbe o Dispatcher de armazenar a saída em cache.
 * **não armazenável em cache: o comprimento do conteúdo da resposta é zero**
-O comprimento do conteúdo da resposta é zero; o Dispatcher não pode criar um arquivo de comprimento zero.
+O comprimento do conteúdo da resposta é zero. O Dispatcher não pode criar um arquivo de comprimento zero.
