@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 663e493f3e1ae26c264e574cec4e0b271a971809
+source-git-commit: 3bb9cb81ac98147bf12e9370d02002dd91ee374e
 workflow-type: tm+mt
-source-wordcount: '3693'
+source-wordcount: '3726'
 ht-degree: 100%
 
 ---
@@ -314,9 +314,9 @@ Use as seguintes etapas para adicionar o Dispatcher ao seu Apache Web Server:
 
    * **Windows**: Coloque `disp_apache<x.y>.dll` `<APACHE_ROOT>/modules`
    * **Unix**: Localize o diretório `<APACHE_ROOT>/libexec` ou `<APACHE_ROOT>/modules` de acordo com a sua instalação.\
-      Copie `dispatcher-apache<options>.so` neste diretório.\
-      Para simplificar a manutenção de longo prazo, você também pode criar um link simbólico chamado `mod_dispatcher.so` para o Dispatcher:\
-      `ln -s dispatcher-apache<x>-<os>-<rel-nr>.so mod_dispatcher.so`
+     Copie `dispatcher-apache<options>.so` neste diretório.\
+     Para simplificar a manutenção de longo prazo, você também pode criar um link simbólico chamado `mod_dispatcher.so` para o Dispatcher:\
+     `ln -s dispatcher-apache<x>-<os>-<rel-nr>.so mod_dispatcher.so`
 
 1. Copie o arquivo dispatcher.any para o diretório `<APACHE_ROOT>/conf`.
 
@@ -362,10 +362,10 @@ Estas etapas são obrigatórias:
 
    * O servidor Apache é iniciado como raiz, embora os processos secundários sejam iniciados como daemon (para fins de segurança). O DocumentRoot (`<APACHE_ROOT>/htdocs`) deve pertencer ao daemon do usuário:
 
-      ```xml
-      cd <APACHE_ROOT>  
-      chown -R daemon:daemon htdocs
-      ```
+     ```xml
+     cd <APACHE_ROOT>  
+     chown -R daemon:daemon htdocs
+     ```
 
 **LoadModule**
 
@@ -400,6 +400,10 @@ DispatcherKeepAliveTimeout 60
 </IfModule>
 ...
 ```
+
+>[!NOTE]
+>
+>Os clientes que atualizam especificamente da versão 4.3.3 para a 4.3.4 notarão um comportamento diferente na maneira como os cabeçalhos de cache são definidos para conteúdo não armazenável em cache. Para ler mais sobre esta alteração, consulte a página [Notas de versão](/help/using/release-notes.md#nov).
 
 Os parâmetros de configuração individuais:
 
