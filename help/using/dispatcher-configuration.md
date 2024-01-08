@@ -2,10 +2,10 @@
 title: Configuração do Dispatcher
 description: Saiba como configurar o Dispatcher. Saiba mais sobre o suporte para IPv4 e IPv6, arquivos de configuração, variáveis de ambiente, nomeação da instância, definição de farms, identificação de hosts virtuais e muito mais.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 5fe3bb534b239d5aec892623cab65e84e04c7d10
-workflow-type: ht
-source-wordcount: '8941'
-ht-degree: 100%
+source-git-commit: 410346694a134c0f32a24de905623655f15269b4
+workflow-type: tm+mt
+source-wordcount: '8857'
+ht-degree: 99%
 
 ---
 
@@ -1296,10 +1296,10 @@ O exemplo a seguir faz com que o Dispatcher ignore todos os parâmetros, exceto 
 ```xml
 /ignoreUrlParams
 {
+    # ignore-all-url-parameters-by-dispatcher-and-requests-are-cached
+    /0001 { /glob "*" /type "allow" }
     # allow-the-url-parameter-nocache-to-bypass-dispatcher-on-every-request
-    /0001 { /glob "nocache" /type "deny" }
-    # all-other-url-parameters-are-ignored-by-dispatcher-and-requests-are-cached
-    /0002 { /glob "*" /type "allow" }
+    /0002 { /glob "nocache" /type "deny" }
 }
 ```
 
@@ -1384,7 +1384,7 @@ Para obter detalhes adicionais, leia também as seções `/invalidate` e `/statf
 
 ### Configuração da invalidação de cache baseada em tempo - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-A invalidação de cache com base no tempo depende da propriedade `/enableTTL` e da presença de cabeçalhos de expiração regulares do padrão HTTP. Caso defina a propriedade para 1 (`/enableTTL "1"`), ela avaliará os cabeçalhos de resposta desde o back-end. Se os cabeçalhos contiverem uma data de `Cache-Control`, `max-age` ou `Expires`, um arquivo auxiliar e vazio ao lado do arquivo de cache será criado, com o tempo de modificação igual à data de expiração. Quando o arquivo em cache for solicitado depois do tempo de modificação, ele será automaticamente solicitado outra vez no back-end.
+A invalidação de cache com base no tempo depende da propriedade `/enableTTL` e da presença de cabeçalhos de expiração regulares do padrão HTTP. Se você definir a propriedade como 1 (`/enableTTL "1"`), ele avalia os cabeçalhos de resposta do back-end. Se os cabeçalhos contiverem uma `Cache-Control`, `max-age` ou `Expires` data, um arquivo auxiliar e vazio ao lado do arquivo em cache é criado, com o tempo de modificação igual à data de expiração. Quando o arquivo em cache for solicitado depois do tempo de modificação, ele será automaticamente solicitado outra vez no back-end.
 
 Antes da versão 4.3.5 do Dispatcher, a lógica de invalidação de TTL era baseada somente no valor TTL configurado. Com a versão 4.3.5 do Dispatcher, tanto o TTL definido **quanto** as regras de invalidação do cache do Dispatcher são considerados. Dessa forma, para um arquivo em cache:
 
@@ -1882,6 +1882,6 @@ O método HTTP não é GET ou HEAD. O Dispatcher presume que a saída contenha d
 * **não armazenável em cache: sessão não válida**
 O cache do farm é controlado por um gerenciador de sessão (a configuração contém um nó `sessionmanagement`) e a sessão do usuário não é válida ou não é mais válida.
 * **não armazenável em cache: a resposta contém`no_cache`**
-O servidor remoto retornou um cabeçalho Cabeçalho `Dispatcher: no_cache` que proíbe o Dispatcher de armazenar a saída em cache.
+O servidor remoto retornou um erro `Dispatcher: no_cache` cabeçalho, proibindo o Dispatcher de armazenar a saída em cache.
 * **não armazenável em cache: o comprimento do conteúdo da resposta é zero**
 O comprimento do conteúdo da resposta é zero. O Dispatcher não pode criar um arquivo de comprimento zero.
